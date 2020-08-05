@@ -1,0 +1,18 @@
+﻿@model List<networkApp.ViewModels.Question>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>В списке @Model.Count элемента</h3>
+
+@foreach (var questions in Model)
+{
+    <p>@questions.NumQuestion. @questions.TextQuestion</p>
+    <table class="table">
+        <tr>
+            <td>@questions.TrueAnswer</td>
+            <td>@questions.numAnswer</td>
+            <td>@questions.TextAnswer</td>
+        </tr>
+    </table>
+}
