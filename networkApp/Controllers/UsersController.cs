@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using networkApp.Models;
 using networkApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace networkApp.Controllers
 {
@@ -18,8 +19,10 @@ namespace networkApp.Controllers
             _userManager = userManager;
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult Index() => View(_userManager.Users.ToList());
-
+        
+        [Authorize(Roles = "admin")]
         public IActionResult Create() => View();
 
         [HttpPost]
@@ -44,6 +47,7 @@ namespace networkApp.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string id)
         {
             User user = await _userManager.FindByIdAsync(id);

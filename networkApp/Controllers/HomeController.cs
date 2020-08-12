@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using networkApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace networkApp.Controllers
 {
@@ -23,6 +24,7 @@ namespace networkApp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult Privacy()
         {
             return View();
