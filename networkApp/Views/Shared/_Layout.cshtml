@@ -7,6 +7,8 @@
     <title>@ViewData["Title"] - networkApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/lectureStyle.css" />
 </head>
 <body>
     <header>
@@ -17,8 +19,8 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+                <nav class="header-nav navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="header-nav__list navbar-nav flex-grow-1">
                         <!--
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -27,20 +29,28 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </li>
     -->
-                        <li class="nav-item">
+                        <li class="topic__link header-nav__item  nav-item">
+                            <a href="#"><span>Темы</span></a>
+                            <ul class="topic__list">
+                                <li class="topic__item"><a class="text-dark" asp-area="" asp-controller="Lectures" asp-action="Motherboard">Материнская плата</a></li>
+                                <li class="topic__item"><a class="text-dark" asp-area="" asp-controller="Question" asp-action="">Тема #22141</a></li>
+                                <li class="topic__item"><a class="text-dark" asp-area="" asp-controller="Question" asp-action="Index">Тема #35151515161</a></li>
+                            </ul>
+                        </li>
+                        <li class="header-nav__item nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Question" asp-action="Index">Вопросы</a>
                         </li>
-                        @if(User.IsInRole("admin"))
+                        @if (User.IsInRole("admin"))
                         {
-                            <li class="nav-item">
+                            <li class="header-nav__item nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="header-nav__item nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Роли</a>
                             </li>
                         }
                     </ul>
-                </div>
+                </nav>
             </div>
         </nav>
     </header>
