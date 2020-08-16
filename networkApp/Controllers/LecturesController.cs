@@ -12,5 +12,15 @@ namespace networkApp.Controllers
         {
             return View();
         }
+
+        public IActionResult Processors()
+        {
+            return View();
+        }
+
+        public IActionResult Memory()
+        {
+            return View();
+        }
     }
 }

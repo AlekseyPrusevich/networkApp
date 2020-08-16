@@ -257,3 +257,5 @@ C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcor
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.pdb
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.genruntimeconfig.cache
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lectures\Motherboard.cshtml.g.cs
+C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lectures\Memory.cshtml.g.cs
+C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lectures\Processors.cshtml.g.cs
