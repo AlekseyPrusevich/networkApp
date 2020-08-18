@@ -27,7 +27,6 @@ namespace networkApp.Controllers
         public IActionResult Create() => View();
 
         [HttpPost]
-        
         public async Task<IActionResult> Create(string name)
         {
             if (!string.IsNullOrEmpty(name))

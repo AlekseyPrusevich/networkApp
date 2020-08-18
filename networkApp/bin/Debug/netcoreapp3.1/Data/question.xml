@@ -3,20 +3,20 @@
     <numQuestion num="1">
       <textQuestion>Сколько планет в солнечной системе</textQuestion>
         <answers>
-          <numAnswer>1</numAnswer>
           <answer>8</answer>
-          <numAnswer>2</numAnswer>
           <answer>9</answer>
+          <answer>7</answer>
+          <answer>10</answer>
         </answers>
       <trueAnswer>8</trueAnswer>
     </numQuestion>
     <numQuestion num="2">
       <textQuestion>Естественный спутник Земли</textQuestion>
         <answers>
-          <numAnswer>1</numAnswer>
           <answer>Луна</answer>
-          <numAnswer>2</numAnswer>
           <answer>Европа</answer>
+          <answer>Юпитер</answer>
+          <answer>Кирилл</answer>
         </answers>
       <trueAnswer>Луна</trueAnswer>
     </numQuestion>

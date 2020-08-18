@@ -11,10 +11,14 @@ namespace networkApp.ViewModels
 
         public string TextQuestion { get; set; }
 
-        public int numAnswer { get; set; }
-
-        public string TextAnswer { get; set; }
-
         public string TrueAnswer { get; set; }
+
+        public IList<int> NumAnswer { get; set; }
+        public IList<string> TextAnswer { get; set; }
+        public Question()
+        {
+            NumAnswer = new List<int>();
+            TextAnswer = new List<string>();
+        }
     }
 }

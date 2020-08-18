@@ -16,7 +16,6 @@ namespace networkApp.Controllers
         public IActionResult Index()
         {
             List<Question> questions = new List<Question>();
-            List<Answer> answers = new List<Answer>();
 
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load("Data/question.xml");
@@ -42,13 +41,15 @@ namespace networkApp.Controllers
 
                     if (childnode.Name == "answers")
                     {
+                        numAnswer = 0;
+
                         foreach (XmlNode answernode in childnode.ChildNodes)
                         {
-                            if (answernode.Name == "numAnswer")
-                                question.numAnswer = Int32.Parse(answernode.InnerText);
+                            numAnswer++;
+                            question.NumAnswer.Add(numAnswer);
 
                             if (answernode.Name == "answer")
-                                question.TextAnswer = answernode.InnerText;
+                                question.TextAnswer.Add(answernode.InnerText);
                         }
                     }
                 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {}
+    "C:\\Users\\GENSEC-Work\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {
+    "C:\\Users\\GENSEC-Work\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+        "projectUniqueName": "C:\\Users\\GENSEC-Work\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
         "projectName": "networkApp",
-        "projectPath": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
-        "packagesPath": "C:\\Users\\GENSEC-Notebook\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
+        "projectPath": "C:\\Users\\GENSEC-Work\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+        "packagesPath": "C:\\Users\\GENSEC-Work\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GENSEC-Work\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\GENSEC-Notebook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GENSEC-Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
