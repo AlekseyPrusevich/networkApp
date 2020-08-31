@@ -1,4 +1,6 @@
-﻿
+﻿@using System;
+@using System.IO;
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -32,19 +34,24 @@
                         <li class="topic__link header-nav__item  nav-item">
                             <a href="#"><span>Темы</span></a>
                             <ul class="topic__list">
-                                <li class="topic__item"><a class="text-dark" asp-area="" asp-controller="Lectures" asp-action="Motherboard">Материнская плата</a></li>
-                                <li class="topic__item"><a class="text-dark" asp-area="" asp-controller="Lectures" asp-action="Processors">Процессоры</a></li>
-                                <li class="topic__item"><a class="text-dark" asp-area="" asp-controller="Lectures" asp-action="Memory">Оперативная память</a></li>
+                                <li class="topic__item"><a class="text-dark" asp-controller="Lectures" asp-action="Motherboard">Материнская плата</a></li>
+                                <li class="topic__item"><a class="text-dark" asp-controller="Lectures" asp-action="Processors">Процессоры</a></li>
+                                <li class="topic__item"><a class="text-dark" asp-controller="Lectures" asp-action="Memory">Оперативная память</a></li>
                             </ul>
                         </li>
 
                         <li class="topic__link header-nav__item  nav-item">
                             <a href="#"><span>Вопросы</span></a>
                             <ul class="topic__list">
-                                <li class="topic__item"><a class="nav-link text-dark" asp-area="" asp-controller="Question" asp-action="Index">Тест #1</a></li>
-                                <li class="topic__item"><a class="nav-link text-dark" asp-area="" asp-controller="Question" asp-action="Index">Тест #1</a></li>
-                                <li class="topic__item"><a class="nav-link text-dark" asp-area="" asp-controller="Question" asp-action="Index">Тест #1</a></li>
-                            </ul>
+                                @{
+                                    DirectoryInfo dir = new DirectoryInfo(@"Data\");
+                                    foreach (var item in dir.GetFiles())
+                                    {
+                                        <li class="topic__item"><a class="text-dark" asp-controller="Question" asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
+                                        }
+                                 }
+
+                             </ul>
                         </li>
                         @if (User.IsInRole("admin"))
                         {
