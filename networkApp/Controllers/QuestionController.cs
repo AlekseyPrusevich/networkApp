@@ -5,7 +5,6 @@ using System.Xml.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using networkApp.Models;
-using networkApp.ViewModels;
 using networkApp.ViewModels.Testing;
 
 namespace networkApp.Controllers
@@ -13,11 +12,9 @@ namespace networkApp.Controllers
     [Authorize]
     public class QuestionController : Controller
     {
-        public int countAnswer;
-        public string textAnswer;
-        public bool firstTry = true;
+        private double countQuestions;
+
         public static string _fileName;
-        private int countQuestions;
 
         ApplicationContext _context;
         public QuestionController(ApplicationContext context)
@@ -63,6 +60,7 @@ namespace networkApp.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Index(string fileName)
         {
             System.Console.WriteLine(User.Identity.Name);
@@ -80,7 +78,7 @@ namespace networkApp.Controllers
 
             List<ReturnAnswerViewModel> listAnswers = new List<ReturnAnswerViewModel>();
 
-            int result = 0;
+            double result = 0;
             var isNull = answers.ContainsKey("__RequestVerificationToken");
 
             if (!isNull)
@@ -147,22 +145,24 @@ namespace networkApp.Controllers
                 }
             }
 
-            ViewBag.Ball = result;
-            ViewBag.ResultAnswers = answers;
-            
+            double mark = System.Math.Round((result / countQuestions), 2);
+
             var userMail = User.Identity.Name;
             var userId = _context.Users.Where(u => u.Email == userMail).Select(u => u.Id).FirstOrDefault();
             var test = new Tests
             {
                Name = _fileName.Replace("_", " ").Replace(".xml", ""),
-               CountAllQuestions = countQuestions,
-               TrueAnswersCount = result,
-               Mark = (result / countQuestions * 100).ToString(),
+               CountAllQuestions = (int)countQuestions,
+               TrueAnswersCount = (int)result,
+               Mark = (mark * 100).ToString(),
                UserId = userId
             };
             _fileName = string.Empty;
             _context.Tests.Add(test);
             await _context.SaveChangesAsync();
+
+            ViewBag.Ball = result;
+            ViewBag.ResultAnswers = answers;
 
             return View();
         }

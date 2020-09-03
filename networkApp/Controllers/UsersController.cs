@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using networkApp.Models;
-using networkApp.ViewModels;
+using networkApp.ViewModels.Users;
 using Microsoft.AspNetCore.Authorization;
 
 namespace networkApp.Controllers

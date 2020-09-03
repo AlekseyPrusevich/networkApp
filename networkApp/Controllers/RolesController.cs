@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using networkApp.Models;
-using networkApp.ViewModels;
+using networkApp.ViewModels.Roles;
 using Microsoft.AspNetCore.Authorization;
 
 namespace networkApp.Controllers

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace networkApp.ViewModels
+namespace networkApp.ViewModels.Users
 {
     public class CreateUserViewModel
     {

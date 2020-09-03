@@ -799,8 +799,6 @@ E:\gensec\Downloads\networkApp\networkApp\networkApp\obj\Debug\netcoreapp3.1\net
 E:\gensec\Downloads\networkApp\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.genruntimeconfig.cache
 E:\gensec\Downloads\networkApp\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Result.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Data\Этот_тест_я_использовал_как_тестовый.xml
-C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Job\Accepted.cshtml.g.cs
-C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Job\Index.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Result.cshtml.g.cs
 F:\networkApp\networkApp\bin\Debug\netcoreapp3.1\Data\Этот_тест_я_использовал_как_тестовый.xml
 F:\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Job\Accepted.cshtml.g.cs
