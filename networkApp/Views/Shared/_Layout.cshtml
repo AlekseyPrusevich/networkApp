@@ -48,11 +48,11 @@
                                     DirectoryInfo dir = new DirectoryInfo(@"Data\");
                                     foreach (var item in dir.GetFiles())
                                     {
-                                        <li class="topic__item"><a class="text-dark" asp-controller="Question" asp-route-fileName="@item.Name" asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
-                                        }
-                                 }
+                                        <li class="topic__item"><a class="text-dark" asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) " asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
+                                    }
+                                }
 
-                             </ul>
+                            </ul>
                         </li>
                         @if (User.IsInRole("admin"))
                         {
