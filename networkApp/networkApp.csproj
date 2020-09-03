@@ -5,8 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\TestController.cs" />
     <Compile Remove="Migrations\20200901163923_addTest&amp;Mark.cs" />
     <Compile Remove="Migrations\20200901163923_addTest&amp;Mark.Designer.cs" />
+    <Compile Remove="ViewModels\AddTestResultModel.cs" />
   </ItemGroup>
 
   <ItemGroup>

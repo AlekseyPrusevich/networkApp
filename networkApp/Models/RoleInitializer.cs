@@ -16,7 +16,7 @@ namespace networkApp
             }
             if (await roleManager.FindByNameAsync("employee") == null)
             {
-                await roleManager.CreateAsync(new IdentityRole("employee"));
+                await roleManager.CreateAsync(new IdentityRole("student"));
             }
             if (await userManager.FindByNameAsync(adminEmail) == null)
             {
