@@ -1,31 +1,40 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using networkApp.Models;
 using networkApp.ViewModels;
+using networkApp.ViewModels.Testing;
 
 namespace networkApp.Controllers
 {
+    [Authorize]
     public class QuestionController : Controller
     {
         public int countAnswer;
         public string textAnswer;
-
         public bool firstTry = true;
-        
-        public IActionResult Accepted()
+        public static string _fileName;
+        private int countQuestions;
+
+        ApplicationContext _context;
+        public QuestionController(ApplicationContext context)
         {
-            return View();
+            _context = context;
         }
 
-        public void fillQuestions()
+        public void fillQuestions(string fileName_)
         {
-            List<Question> questions = new List<Question>();
+            List<QuestionViewModel> questions = new List<QuestionViewModel>();
 
-            XDocument xdoc = XDocument.Load("Data/Этот_тест_я_использую_как_тестовый.xml");
-
+            XDocument xdoc = XDocument.Load("Data/" + fileName_);
+            var counterQuestions = 0;
             foreach (var _root in xdoc.Element("questions").Elements("question"))
             {
-                var question = new Question();
+                counterQuestions++;
+                var question = new QuestionViewModel();
 
                 var questionNumber = _root.Attribute("num").Value;
                 var questionText = _root.Element("textQuestion").Value;
@@ -42,10 +51,11 @@ namespace networkApp.Controllers
                     string type = _answer.Element("type").Value;
                     string valueAnswer = _answer.Element("true-answer").Value;
 
-                    var answer = new Answer(num, text, type, valueAnswer);
+                    var answer = new AnswerViewModel(num, text, type, valueAnswer);
                     question.AnswerList.Add(answer);
                     question.CountAnswer.Add(countAnswer);
                 }
+                countQuestions = counterQuestions;
                 questions.Add(question);
             }
 
@@ -53,34 +63,36 @@ namespace networkApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string fileName)
         {
-            fillQuestions();
+            System.Console.WriteLine(User.Identity.Name);
+            _fileName = fileName;
+            fillQuestions(_fileName);
 
             return View();
         }
 
 
         [HttpPost]
-        public IActionResult Result(Dictionary<string, List<string>> answers)
+        public async Task<ActionResult> Result(Dictionary<string, List<string>> answers)
         {
-            fillQuestions();
+            fillQuestions(_fileName);
 
-            List<ReturnAnswers> listAnswers = new List<ReturnAnswers>();
+            List<ReturnAnswerViewModel> listAnswers = new List<ReturnAnswerViewModel>();
 
             int result = 0;
             var isNull = answers.ContainsKey("__RequestVerificationToken");
 
             if (!isNull)
             {
-                XDocument xdoc = XDocument.Load("Data/Этот_тест_я_использую_как_тестовый.xml");
+                XDocument xdoc = XDocument.Load("Data/" + _fileName);
 
                 foreach (var _root in xdoc.Element("questions").Elements("question"))
                 {
                     var numQuestion = _root.Attribute("num").Value;
 
                     int countTrueAnswers = 0;
-                    var XAnswer = new ReturnAnswers();
+                    var XAnswer = new ReturnAnswerViewModel();
                     foreach (var _answer in _root.Element("answers").Elements("answer"))
                     {
                         string textAnswer = _answer.Element("textAnswer").Value;
@@ -137,6 +149,20 @@ namespace networkApp.Controllers
 
             ViewBag.Ball = result;
             ViewBag.ResultAnswers = answers;
+            
+            var userMail = User.Identity.Name;
+            var userId = _context.Users.Where(u => u.Email == userMail).Select(u => u.Id).FirstOrDefault();
+            var test = new Tests
+            {
+               Name = _fileName.Replace("_", " ").Replace(".xml", ""),
+               CountAllQuestions = countQuestions,
+               TrueAnswersCount = result,
+               Mark = (result / countQuestions * 100).ToString(),
+               UserId = userId
+            };
+            _fileName = string.Empty;
+            _context.Tests.Add(test);
+            await _context.SaveChangesAsync();
 
             return View();
         }

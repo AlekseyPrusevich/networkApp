@@ -20,10 +20,10 @@ namespace networkApp.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public IActionResult Create() => View();
 
         [HttpPost]
@@ -58,10 +58,10 @@ namespace networkApp.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя

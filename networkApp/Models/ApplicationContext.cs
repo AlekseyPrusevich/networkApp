@@ -14,5 +14,8 @@ namespace networkApp.Models
         {
             Database.EnsureCreated();
         }
+
+        public DbSet<Tests> Tests { get; set; }
+
     }
 }

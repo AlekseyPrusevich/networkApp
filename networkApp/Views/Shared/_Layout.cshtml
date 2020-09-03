@@ -1,5 +1,6 @@
 ﻿@using System;
 @using System.IO;
+@using System.Text;
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -47,7 +48,7 @@
                                     DirectoryInfo dir = new DirectoryInfo(@"Data\");
                                     foreach (var item in dir.GetFiles())
                                     {
-                                        <li class="topic__item"><a class="text-dark" asp-controller="Question" asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
+                                        <li class="topic__item"><a class="text-dark" asp-controller="Question" asp-route-fileName="@item.Name" asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
                                         }
                                  }
 

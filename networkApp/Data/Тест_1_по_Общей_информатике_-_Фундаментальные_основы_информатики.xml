@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<questions>
+  <question num="1">
+    <textQuestion>Информационным называется общество, где:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>большинство работающих занято производством, хранением, переработкой и реализацией информации, особенно ее высшей формы — знаний</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>персональные компьютеры широко используются во всех сферах деятельности</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>обработка информации производится с использованием ЭВМ</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="2"> 
+    <textQuestion>Информатизация общества — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>процесс повсеместного распространения вычислительной техники</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>организованный социально-экономический и научно-технический процесс создания оптимальных условий для удовлетворения информационных потребностей и реализации прав граждан, органов государственной власти, органов местного самоуправления, организаций на основе формирования и использования информационных ресурсов с помощью средств вычислительной техники</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>процесс внедрения новых информационных технологий</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="3">
+    <textQuestion>Компьютеризация общества — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>процесс развития и внедрения технической базы компьютеров, обеспечивающий оперативное получение результатов переработки информации</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>комплекс мер, направленных на обеспечение полного использования достоверного и непрерывного знания во всех сферах деятельности</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>процесс замены больших ЭВМ на микро-ЭВМ</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="4">
+    <textQuestion>Информационная культура общества предполагает:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>знание современных программных продуктов</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>знание иностранных языков и умение использовать их в своей деятельности</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>умение целенаправленно работать с информацией и использовать ее для получения, обработки и передачи в компьютерную информационную технологию</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="5">
+    <textQuestion>Информационные ресурсы общества — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>отдельные документы, отдельные массивы документов, документы и массивы документов в информационных системах (библиотеках, фондах, банках данных)</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>первичные документы, которые используются предприятиями для осуществления своей деятельности</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>отчетные документы, необходимые для принятия управленческих решений</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="6">
+    <textQuestion>Рынок информационных услуг — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>услуги по разработке программных продуктов, подлежащих реализации</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>система экономических, правовых и организационных отношений по торговле продуктами интеллектуального труда на коммерческой основе</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>услуги по сопровождению программных продуктов</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="7">
+    <textQuestion>На рынке информационных услуг подлежат продаже и обмену:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>лицензии, ноу-хау, информационные технологии</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>оборудование, помещения</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>бланки первичных документов, вычислительная техника</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="8">
+    <textQuestion>Информатика — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>гуманитарная наука</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>прикладная наука</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>общественная наука</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="9">
+    <textQuestion>Кибернетика — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>отрасль народного хозяйства, которая объединяет совокупность предприятий разных форм собственности, где занимаются производством компьютерной техники, программных продуктов, разработкой современных технологий преобразования информации</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>наука, направленная на аппаратное моделирование структур, подобных структуре человеческого мозга</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>наука об общих принципах управления в различных системах — технических, биологических, социальных и др</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="10">
+    <textQuestion>Экономическая информация — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>совокупность сведений, отражающих социально экономические процессы и служащих для управления этими процессами и коллективами людей в производственной и непроизводственной сфере</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>отдельные факты, характеризующие объекты, процессы и явления в конкретной предметной области, а также их свойства</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>выявленные закономерности в конкретной предметной области, позволяющие решать поставленные задачи</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="11">
+    <textQuestion>Классификация экономической информации позволяет:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>ускорить процесс обработки информации</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>распределить объекты (предметы, явления, процессы, понятия) по классам в соответствии с определенными признаками, сгруппировать их на качественно новом уровне</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>улучшить качество разрабатываемых отчетных документов</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="12">
+    <textQuestion>Методами классификации экономической информации являются:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>иерархический, фасетный, дескрипторный</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>количественный и суммовой</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>дебетовый и кредитовый</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="13">
+    <textQuestion>Данные — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>отдельные факты, характеризующие объекты, процессы, явления. Это — признаки или записанные наблюдения, которые по каким-то причинам не используются, а только хранятся</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>это выявленные закономерности в определенной предметной области</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>совокупность сведений, необходимых для организации хозяйственной деятельности предприятия</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="14">
+    <textQuestion>По месту возникновения информация бывает:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>входная, выходная, внутренняя, внешняя</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>текстовая, графическая</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>учетная, статистическая</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="15">
+    <textQuestion>По признаку стабильности информация бывает:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>количественная, суммовая</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>обрабатываемая, необрабатываемая</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>постоянная и переменная</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="16">
+    <textQuestion>По функциям управления информация бывает:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>плановая, учетная, оперативная</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>промежуточная, результатная</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>первичная, вторичная</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="17">
+    <textQuestion>Учетная информация характеризует деятельность фирмы:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>за отчетный период</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>за прошлый период</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>на перспективу</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="18">
+    <textQuestion>Информационная система — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>совокупность документов, необходимых для работы ' предприятия</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>совокупность информационных массивов</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>взаимосвязанная совокупность средств, методов и персонала, используемых для хранения, обработки и выдачи информации в интересах достижения поставленной цели</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="19">
+    <textQuestion>По признаку автоматизации информационные системы делятся на:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>системы, реализуемые на базе «больших» ЭВМ и ПЭВМ</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>системы глобальные и локальные</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>системы глобальные и локальные</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="20">
+    <textQuestion>По структурному признаку информационные системы делятся на подсистемы:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>информационного, программного, математического, технического, организационного, правового обеспечения</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>внутренние и внешние</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>сплошные и выборочные</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="21">
+    <textQuestion>На операционном уровне управления решаются задачи:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>хорошо структурированные, по которым имеются необходимые входные данные, известны алгоритмы расчета</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>плановые</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>задачи прогнозирования</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="22">
+    <textQuestion>Подсистема информационного обеспечения — это:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>совокупность правовых норм, регламентирующих организацию системы информации на предприятии</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>совокупность единой системы классификации и кодирования информации, унифицированных систем документации, схем информационных потоков, циркулирующих в организации, а также методология построения баз данных</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>совокупность форм первичных и отчетных документов</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="23">
+    <textQuestion>Подсистема информационного обеспечения складывается из подсистем:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>внутреннего и внешнего информационного обеспечения</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>постоянного и переменного информационного обеспечения</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>внемашинного и внутримашинного информационного обеспечения</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="24">
+    <textQuestion>Содержание подсистемы внемашинного информационного обеспечения составляют:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>первичные документы, отчетные документы, классификаторы и коды</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>файлы условно-постоянной информации</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>базы данных</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="25">
+    <textQuestion>На операционном уровне управления решаются задачи:</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>комплекс разрабатываемых программ</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>таблицы алгоритмов</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>совокупность математических методов, моделей, алгоритмов и программ для реализации целей и задач информационной системы, а также нормального функционирования комплекса технических средств</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+</questions>

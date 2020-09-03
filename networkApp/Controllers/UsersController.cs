@@ -19,10 +19,10 @@ namespace networkApp.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public IActionResult Index() => View(_userManager.Users.ToList());
         
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public IActionResult Create() => View();
 
         [HttpPost]
@@ -30,7 +30,7 @@ namespace networkApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Group = model.Group };
+                User user = new User { Email = model.Email, UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Group = model.Group };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -47,7 +47,7 @@ namespace networkApp.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string id)
         {
             User user = await _userManager.FindByIdAsync(id);
@@ -55,7 +55,7 @@ namespace networkApp.Controllers
             {
                 return NotFound();
             }
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, Group = user.Group };
+            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, FirstName = user.FirstName, LastName = user.LastName, Group = user.Group };
             return View(model);
         }
 
@@ -69,6 +69,8 @@ namespace networkApp.Controllers
                 {
                     user.Email = model.Email;
                     user.UserName = model.Email;
+                    user.FirstName = model.FirstName;
+                    user.LastName = model.LastName;
                     user.Group = model.Group;
 
                     var result = await _userManager.UpdateAsync(user);
