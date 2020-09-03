@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using networkApp.Models;
 using networkApp.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace networkApp.Controllers
 {
@@ -18,9 +19,13 @@ namespace networkApp.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
+        //[Authorize(Roles = "admin")]
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
+        //[Authorize(Roles = "admin")]
         public IActionResult Create() => View();
+
         [HttpPost]
         public async Task<IActionResult> Create(string name)
         {
@@ -53,8 +58,10 @@ namespace networkApp.Controllers
             return RedirectToAction("Index");
         }
 
+        //[Authorize(Roles = "admin")]
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
+        //[Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя

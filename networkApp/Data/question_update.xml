@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<questions>
+  <question num="1">
+    <textQuestion>Сколько планет в солнечной системе</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>5</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+          <numAnswer>2</numAnswer>
+          <textAnswer>11</textAnswer>
+          <type>radio</type>
+          <true-answer>false</true-answer>
+        </answer>
+      <answer>
+          <numAnswer>3</numAnswer>
+          <textAnswer>9</textAnswer>
+          <type>radio</type>
+          <true-answer>false</true-answer>
+        </answer>
+      <answer>
+          <numAnswer>4</numAnswer>
+          <textAnswer>8</textAnswer>
+          <type>radio</type>
+          <true-answer>true</true-answer>
+        </answer>
+      <answer>
+        <numAnswer>5</numAnswer>
+        <textAnswer>12</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="2"> 
+    <textQuestion>Что такое модем?</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer> Устройство, применяющееся в системах связи для физического сопряжения информационного сигнала со средой его распространения, где он не может существовать без адаптации. </textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>5-ый химический элемент в таблице Менделеева</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>Техническое приспособление, выполняющее механические движения для преобразования энергии, материалов и информации</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>4</numAnswer>
+        <textAnswer>Это модем</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="3" countTrue ="1">
+    <textQuestion>Кодзима бог?</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>ДА</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>Нет</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>Наверное</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+</questions>

@@ -1,18 +1,26 @@
-﻿@model List<networkApp.ViewModels.Question>
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Test #1";
 }
 
-<h3>В списке @Model.Count элемента</h3>
+<h3>В тесте @ViewBag.Questions.Count вопросов</h3>
 
-@foreach (var questions in Model)
-{
-    <p>@questions.NumQuestion. @questions.TextQuestion</p>
-    <table class="table">
-        <tr>
-            <td>@questions.TrueAnswer</td>
-            <td>@questions.numAnswer</td>
-            <td>@questions.TextAnswer</td>
-        </tr>
-    </table>
-}
+<form class="m-1 p-1" method="post" asp-action="Result">
+    @foreach (var questions in ViewBag.Questions)
+    {
+    
+        <p>@questions.Num. @questions.Text</p>
+        <table class="table">
+            @for (Int32 i = 0; i < questions.CountAnswer.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <label>@questions.AnswerList[i].Num</label>. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text"/>  @questions.AnswerList[i].Text
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+
+    <button type="submit" class="btn btn-primary">Ответить</button>
+</form>
+

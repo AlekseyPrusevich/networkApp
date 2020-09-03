@@ -8,6 +8,12 @@ namespace networkApp.Models
 {
     public class User : IdentityUser
     {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         public int Group { get; set; }
+
+        public List<Tests> Tests { get; set; } = new List<Tests>();
     }
 }
