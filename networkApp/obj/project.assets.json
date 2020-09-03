@@ -8390,20 +8390,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\GENSEC-Notebook\\.nuget\\packages\\": {}
+    "C:\\Users\\dmitry\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+      "projectUniqueName": "D:\\networkApp\\networkApp\\networkApp.csproj",
       "projectName": "networkApp",
-      "projectPath": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
-      "packagesPath": "C:\\Users\\GENSEC-Notebook\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
+      "projectPath": "D:\\networkApp\\networkApp\\networkApp.csproj",
+      "packagesPath": "C:\\Users\\dmitry\\.nuget\\packages\\",
+      "outputPath": "D:\\networkApp\\networkApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\GENSEC-Notebook\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\dmitry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

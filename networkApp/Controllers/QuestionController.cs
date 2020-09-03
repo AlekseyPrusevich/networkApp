@@ -145,7 +145,7 @@ namespace networkApp.Controllers
                 }
             }
 
-            double mark = System.Math.Round((result / countQuestions), 2);
+            double mark = System.Math.Round((result / countQuestions * 100), 2);
 
             var userMail = User.Identity.Name;
             var userId = _context.Users.Where(u => u.Email == userMail).Select(u => u.Id).FirstOrDefault();
@@ -154,7 +154,7 @@ namespace networkApp.Controllers
                Name = _fileName.Replace("_", " ").Replace(".xml", ""),
                CountAllQuestions = (int)countQuestions,
                TrueAnswersCount = (int)result,
-               Mark = (mark * 100).ToString(),
+               Mark = mark.ToString(),
                UserId = userId
             };
             _fileName = string.Empty;
