@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+ 
+
+    <form asp-action="GetTest" method="post">
+        <div class="form-group">
+            <label>Введите название теста</label>
+            <input type="text" name="testName"/>
+        </div>
+        <div>
+            <div id="baseContainer">
+                <button onclick="createQuestion()">Добавить вопрос</button>                
+
+            </div>
+        </div>
+
+        <script>
+            
+            let numQuestion = 0;
+            let numAnswer = 0;
+            function createQuestion() {
+                
+                numQuestion++;
+                let str = '\<div id="q'+numQuestion+'"><input type="text" name="nameQuestion[' + numQuestion + ']" placeholder="Введите вопрос"/>\
+                    <select name="type" id="type'+numQuestion+'">\
+                        <option value="radio">Один из списка</option>\
+                        <option value="checkbox">Несколько из списка</option>\
+                    </select>\
+                    <button onclick="createAnswer('+ numQuestion + ')">Добавить ответ</button>\
+                    <button onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
+                    </div>';
+                let childComp = document.getElementById("baseContainer");
+
+                let div = document.createElement('div');
+                div.innerHTML = str;
+                childComp.appendChild(div);
+                
+
+                event.preventDefault();                
+            }
+            
+            function createAnswer(num) {
+                numAnswer++;
+                console.log()
+                let str = '\<div id="ans' + numAnswer + '" style="display:inline;"><input id="'+num+'" type="' + getType(num) + '" name="isTrue[' + numAnswer + ']"/> <input type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
+                    <button onclick="deleteAnswer('+ numAnswer +')">Удалить</button></div>';
+
+                let childComp = document.getElementById("q" + num);
+                let div = document.createElement('div');
+                div.innerHTML = str;
+                childComp.appendChild(div);
+
+                let typeElement = document.getElementById("type" + num);
+                typeElement.setAttribute('disabled', 'disabled');
+
+                event.preventDefault();
+            }
+
+            function getType(num) {
+                let e = document.getElementById("type" + num);
+                return e.options[e.selectedIndex].value;
+            }
+            
+            function deleteAnswer(num) {
+                document.getElementById("ans" + num).remove();
+                
+                event.preventDefault();
+                
+            }
+
+            function deleteQuestion(num) {
+                document.getElementById("q" + num).remove();
+                event.preventDefault();
+            }
+        </script>
+        <input type="submit" />
+    </form >
