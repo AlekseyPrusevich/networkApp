@@ -14,7 +14,11 @@ namespace networkApp
             {
                 await roleManager.CreateAsync(new IdentityRole("admin"));
             }
-            if (await roleManager.FindByNameAsync("employee") == null)
+            if (await roleManager.FindByNameAsync("teacher") == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole("teacher"));
+            }
+            if (await roleManager.FindByNameAsync("student") == null)
             {
                 await roleManager.CreateAsync(new IdentityRole("student"));
             }

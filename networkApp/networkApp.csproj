@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Privacy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
@@ -22,9 +26,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\Этот_тест_я_использовал_как_тестовый.xml">
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\tests\T1.xml" />
+    <None Include="wwwroot\tests\T2.xml" />
+    <None Include="wwwroot\tests\T3.xml" />
+    <None Include="wwwroot\tests\Тест_1_по_Общей_информатике_-_Фундаментальные_основы_информатики.xml" />
+    <None Include="wwwroot\tests\Этот_тест_я_использовал_как_тестовый.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="wwwroot\tests\Этот_тест_я_использую_как_тестовый.xml" />
   </ItemGroup>
 
 </Project>

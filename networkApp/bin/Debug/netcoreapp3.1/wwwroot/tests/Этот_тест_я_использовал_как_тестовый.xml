@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<questions>
+    <numQuestion num="1">
+      <textQuestion>Сколько планет в солнечной системе</textQuestion>
+        <answers>
+          <answer>8</answer>
+          <answer>9</answer>
+          <answer>7</answer>
+          <answer>10</answer>
+        </answers>
+      <trueAnswer>8</trueAnswer>
+    </numQuestion>
+    <numQuestion num="2">
+      <textQuestion>Естественный спутник Земли</textQuestion>
+        <answers>
+          <answer>Луна</answer>
+          <answer>Европа</answer>
+          <answer>Юпитер</answer>
+          <answer>Кирилл</answer>
+        </answers>
+      <trueAnswer>Луна</trueAnswer>
+    </numQuestion>
+</questions>
