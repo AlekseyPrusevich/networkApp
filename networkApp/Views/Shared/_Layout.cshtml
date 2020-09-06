@@ -45,7 +45,7 @@
                             <a href="#"><span>Вопросы</span></a>
                             <ul class="topic__list">
                                 @{
-                                    DirectoryInfo dir = new DirectoryInfo(@"Data\");
+                                    DirectoryInfo dir = new DirectoryInfo(@"wwwroot\tests\");
                                     foreach (var item in dir.GetFiles())
                                     {
                                         <li class="topic__item"><a class="text-dark" asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) " asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
@@ -54,11 +54,20 @@
 
                             </ul>
                         </li>
-                        <li class="header-nav__item nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TestConstructor" asp-action="Index">Пользователи</a>
-                        </li>
+
+                        @if (User.IsInRole("teacher"))
+                        {
+                            <li class="header-nav__item nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TestConstructor" asp-action="Index">Конструктор тестов</a>
+                            </li>
+                        }
+
+
                         @if (User.IsInRole("admin"))
                         {
+                            <li class="header-nav__item nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TestConstructor" asp-action="Index">Конструктор тестов</a>
+                            </li>
                             <li class="header-nav__item nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
                             </li>

@@ -8390,25 +8390,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dmitry\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\gense\\.nuget\\packages\\": {},
+    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\networkApp\\networkApp\\networkApp.csproj",
+      "projectUniqueName": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
       "projectName": "networkApp",
-      "projectPath": "D:\\networkApp\\networkApp\\networkApp.csproj",
-      "packagesPath": "C:\\Users\\dmitry\\.nuget\\packages\\",
-      "outputPath": "D:\\networkApp\\networkApp\\obj\\",
+      "projectPath": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+      "packagesPath": "C:\\Users\\gense\\.nuget\\packages\\",
+      "outputPath": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\dmitry\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\gense\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -8468,7 +8467,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
