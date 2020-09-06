@@ -16,6 +16,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Tests\T1.xml" />
+    <Content Include="Tests\T10_90.xml" />
+    <Content Include="Tests\T2.xml" />
+    <Content Include="Tests\T3.xml" />
+    <Content Include="Tests\Проверка_номер_раз.xml" />
+    <Content Include="Tests\Тест_1_по_Общей_информатике_-_Фундаментальные_основы_информатики.xml" />
+    <Content Include="Tests\Этот_тест_я_использовал_как_тестовый.xml" />
+    <Content Include="Tests\Этот_тест_я_использую_как_тестовый.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
@@ -30,14 +41,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\tests\T1.xml" />
-    <None Include="wwwroot\tests\T2.xml" />
-    <None Include="wwwroot\tests\T3.xml" />
-    <None Include="wwwroot\tests\Тест_1_по_Общей_информатике_-_Фундаментальные_основы_информатики.xml" />
-    <None Include="wwwroot\tests\Этот_тест_я_использовал_как_тестовый.xml">
+    <None Update="Tests\Этот_тест_я_использовал_как_тестовый.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="wwwroot\tests\Этот_тест_я_использую_как_тестовый.xml" />
   </ItemGroup>
 
 </Project>
