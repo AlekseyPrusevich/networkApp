@@ -63,7 +63,7 @@ namespace networkApp.Controllers
         [Authorize]
         public IActionResult Index(string path)
         {
-            System.Console.WriteLine(User.Identity.Name);
+            
             _fileName = System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(path));
             fillQuestions(_fileName);
 
