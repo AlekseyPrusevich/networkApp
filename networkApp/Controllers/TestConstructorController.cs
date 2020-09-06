@@ -53,7 +53,7 @@ namespace networkApp.Controllers
             }
 
             xDoc.Add(questions);
-            xDoc.Save(@"wwwroot\tests\" + testName.Replace(" ", "_") + ".xml");
+            xDoc.Save(@"Tests\" + testName.Replace(" ", "_") + ".xml");
 
             return RedirectToAction("Index", "Home");
         }      

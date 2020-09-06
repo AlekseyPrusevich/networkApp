@@ -26,7 +26,7 @@ namespace networkApp.Controllers
         {
             List<QuestionViewModel> questions = new List<QuestionViewModel>();
 
-            XDocument xdoc = XDocument.Load(@"wwwroot\tests\" + fileName_);
+            XDocument xdoc = XDocument.Load(@"Tests\" + fileName_);
             var counterQuestions = 0;
             foreach (var _root in xdoc.Element("questions").Elements("question"))
             {
@@ -83,7 +83,7 @@ namespace networkApp.Controllers
 
             if (!isNull)
             {
-                XDocument xdoc = XDocument.Load(@"wwwroot\tests\" + _fileName);
+                XDocument xdoc = XDocument.Load(@"Tests\" + _fileName);
 
                 foreach (var _root in xdoc.Element("questions").Elements("question"))
                 {

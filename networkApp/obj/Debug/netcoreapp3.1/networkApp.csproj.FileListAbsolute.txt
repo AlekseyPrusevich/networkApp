@@ -1121,7 +1121,6 @@ C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\bin\Debug\netcor
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Test\Index.cshtml.g.cs
 D:\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Index.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\wwwroot\tests\Этот_тест_я_использовал_как_тестовый.xml
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -1199,3 +1198,4 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\zh-Hant
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Result.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Index.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Test\Index.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Tests\Этот_тест_я_использовал_как_тестовый.xml
