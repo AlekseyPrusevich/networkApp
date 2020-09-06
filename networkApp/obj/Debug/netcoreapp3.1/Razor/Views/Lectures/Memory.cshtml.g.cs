@@ -26,8 +26,15 @@ using networkApp.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\networkApp\networkApp\Views\_ViewImports.cshtml"
+using networkApp.ViewModels.TestConstructor;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"15bc1317fa7ffa17e9fff416c938730d93638279", @"/Views/Lectures/Memory.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c0719e64f774388262f9a66233f7a7fa2a018a87", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7d6c952e48a44dda6cabce3871e10de9c195598e", @"/Views/_ViewImports.cshtml")]
     public class Views_Lectures_Memory : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/lib/image/memory/main.png"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -82,7 +89,7 @@ using networkApp.Models;
             WriteLiteral(@"p class=""main-text"">Энергосберегающие режимы работы материнской платы компьютера позволяют переводить его в режим сна, что значительно сокращает уровень потребления компьютером электроэнергии. В режиме гибернации питание ОЗУ отключается. В этом случае для сохранения содержимого ОЗУ операционная система (ОС) перед отключением питания записывает содержимое ОЗУ на устройство постоянного хранения данных (как правило, жёсткий диск). Например, в ОС Windows XP содержимое памяти сохраняется в файл hiberfil.sys, в ОС семейства Unix — на специальный swap-раздел жёсткого диска.</p>
 <p class=""main-text"">В общем случае ОЗУ содержит программы и данные ОС и запущенные прикладные программы пользователя и данные этих программ, поэтому от объёма оперативной памяти зависит количество задач, которые одновременно может выполнять компьютер под управлением ОС. Оперативное запоминающее устройство (ОЗУ) — техническое устройство, реализующее функции оперативной памяти. ОЗУ может изготавливаться как отдельный внешний модуль или распол");
             WriteLiteral("агаться на одном кристалле с процессором, например, в однокристальных ЭВМ или однокристальных микроконтроллерах.</p>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "15bc1317fa7ffa17e9fff416c938730d936382796523", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "15bc1317fa7ffa17e9fff416c938730d936382796700", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -110,7 +117,7 @@ using networkApp.Models;
 <p class=""main-text"">В качестве ОЗУ использовались также магнитные барабаны, обеспечивавшие достаточно малое для ранних компьютеров время доступа; также они использовались в качестве основной памяти для хранения программ и данных.</p>
 
 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "15bc1317fa7ffa17e9fff416c938730d936382798609", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "15bc1317fa7ffa17e9fff416c938730d936382798786", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

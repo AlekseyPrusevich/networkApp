@@ -3,15 +3,14 @@
     ViewData["Title"] = "Index";
 }
  
-
-    <form asp-action="GetTest" method="post">
+    <form asp-action="GetTest" method="post" >
         <div class="form-group">
             <label>Введите название теста</label>
             <input type="text" name="testName"/>
         </div>
         <div>
             <div id="baseContainer">
-                <button onclick="createQuestion()">Добавить вопрос</button>                
+                <button onclick="createQuestion()">Добавить вопрос</button>               
 
             </div>
         </div>
@@ -23,8 +22,8 @@
             function createQuestion() {
                 
                 numQuestion++;
-                let str = '\<div id="q'+numQuestion+'"><input type="text" name="nameQuestion[' + numQuestion + ']" placeholder="Введите вопрос"/>\
-                    <select name="type" id="type'+numQuestion+'">\
+                let str = '\<div id="q' + numQuestion + '"><input type="text" name="nameQuestion" placeholder="Введите вопрос"/>\
+                    <select name="type" id="type' + numQuestion +'">\
                         <option value="radio">Один из списка</option>\
                         <option value="checkbox">Несколько из списка</option>\
                     </select>\
@@ -32,29 +31,25 @@
                     <button onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
                     </div>';
                 let childComp = document.getElementById("baseContainer");
-
                 let div = document.createElement('div');
                 div.innerHTML = str;
                 childComp.appendChild(div);
-                
-
                 event.preventDefault();                
             }
             
             function createAnswer(num) {
                 numAnswer++;
                 console.log()
-                let str = '\<div id="ans' + numAnswer + '" style="display:inline;"><input id="'+num+'" type="' + getType(num) + '" name="isTrue[' + numAnswer + ']"/> <input type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
+                let str = '\<div id="ans' + numAnswer + '" style="display:inline;"><input id="ka' + numAnswer + '"  value="' + numAnswer + '" type="' + getType(num) + '" name="isTrue[' + num + ']"/>\
+                    <input id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
                     <button onclick="deleteAnswer('+ numAnswer +')">Удалить</button></div>';
 
                 let childComp = document.getElementById("q" + num);
                 let div = document.createElement('div');
                 div.innerHTML = str;
                 childComp.appendChild(div);
-
                 let typeElement = document.getElementById("type" + num);
-                typeElement.setAttribute('disabled', 'disabled');
-
+                typeElement.style.display="none";
                 event.preventDefault();
             }
 
@@ -64,16 +59,27 @@
             }
             
             function deleteAnswer(num) {
-                document.getElementById("ans" + num).remove();
-                
-                event.preventDefault();
-                
+                document.getElementById("ans" + num).remove();                
+                event.preventDefault();                
             }
 
             function deleteQuestion(num) {
                 document.getElementById("q" + num).remove();
                 event.preventDefault();
             }
+
+            function apply()
+            {
+                for (var i = 1; i <= numAnswer; i++) {                  
+                    document.getElementById("ka" + i).value = document.getElementById("ia" + i).value;                    
+                }
+                document.getElementById("sbtn").style.visibility = "visible";
+                event.preventDefault();
+            }
         </script>
-        <input type="submit" />
+        <div>
+            <button onclick="apply()">Сохранить</button>
+            <input id="sbtn" style="visibility:hidden" type="submit" />
+        </div>
+       
     </form >
