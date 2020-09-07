@@ -72,3 +72,21 @@
 .topic__link:hover > .topic__list {
     display: block;
 }
+
+/* Таблица */
+
+.header-table,
+.table__cells_center {
+    text-align: center;
+}
+
+.table th,
+.table td {
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table__cells_none-border {
+    border-top: none;
+    border-bottom: none;
+}

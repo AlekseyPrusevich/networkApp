@@ -58,6 +58,9 @@
                         @if (User.IsInRole("teacher"))
                         {
                             <li class="header-nav__item nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TestResult" asp-action="Index">Результаты тестирования</a>
+                            </li>
+                            <li class="header-nav__item nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="TestConstructor" asp-action="Index">Конструктор тестов</a>
                             </li>
                         }
@@ -65,6 +68,9 @@
 
                         @if (User.IsInRole("admin"))
                         {
+                            <li class="header-nav__item nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TestResult" asp-action="Index">Результаты тестирования</a>
+                            </li>
                             <li class="header-nav__item nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="TestConstructor" asp-action="Index">Конструктор тестов</a>
                             </li>
