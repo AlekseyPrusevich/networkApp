@@ -231,7 +231,6 @@ C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcor
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Index.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
@@ -794,7 +793,6 @@ E:\gensec\Downloads\networkApp\networkApp\networkApp\obj\Debug\netcoreapp3.1\net
 E:\gensec\Downloads\networkApp\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.pdb
 E:\gensec\Downloads\networkApp\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.genruntimeconfig.cache
 E:\gensec\Downloads\networkApp\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Result.cshtml.g.cs
-C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Data\Этот_тест_я_использовал_как_тестовый.xml
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Result.cshtml.g.cs
 F:\networkApp\networkApp\bin\Debug\netcoreapp3.1\Data\Этот_тест_я_использовал_как_тестовый.xml
 F:\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Job\Accepted.cshtml.g.cs
@@ -1199,3 +1197,6 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\V
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Index.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Test\Index.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Tests\Этот_тест_я_использовал_как_тестовый.xml
+C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Tests\Этот_тест_я_использовал_как_тестовый.xml
+C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Index.cshtml.g.cs
+C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestResult\Index.cshtml.g.cs
