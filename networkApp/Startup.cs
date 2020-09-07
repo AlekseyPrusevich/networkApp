@@ -18,7 +18,7 @@ namespace networkApp
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {
+        {            
             services.AddTransient<IUserValidator<User>, CustomUserValidator>();
 
             services.AddDbContext<ApplicationContext>(options =>

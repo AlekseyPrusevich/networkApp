@@ -1,0 +1,91 @@
+﻿@model List<TestResultModel>
+@{
+    ViewData["Title"] = "Index";
+    bool isRepeat = false;
+}
+
+@if (Model.Count != 0)
+{
+
+<table>
+    <tr>
+        <td>
+            @Model[0].FNpLN
+        </td>
+        <td>
+            @Model[0].Group
+        </td>
+        @foreach (var detail in Model[0].Details)
+        {
+            <td>
+                @detail.Result
+            </td>
+            <td>
+                @detail.TestName
+            </td>
+            <td>
+                @detail.CountAllQuestions
+            </td>
+            <td>
+                @detail.TestDate.ToString("dd:mm:yyyy");
+            </td>
+        }
+
+    </tr>
+
+    @for (int i = 1; i < Model.Count; i++)
+    {
+<tr>
+    @if (Model[i].FNpLN == Model[i - 1].FNpLN && Model[i].Group == Model[i - 1].Group)
+    {
+        <td></td>
+        <td></td>
+        @foreach (var detail in Model[i].Details)
+        {
+            <td>
+                @detail.Result
+            </td>
+            <td>
+                @detail.TestName
+            </td>
+            <td>
+                @detail.CountAllQuestions
+            </td>
+            <td>
+                @detail.TestDate.ToString("dd:mm:yyyy hh:mm:ss");
+            </td>
+        }
+    }
+    else
+    {
+        <td>
+            @Model[i].FNpLN
+        </td>
+        <td>
+            @Model[i].Group
+        </td>
+        @foreach (var detail in Model[i].Details)
+        {
+            <td>
+                @detail.Result
+            </td>
+            <td>
+                @detail.TestName
+            </td>
+            <td>
+                @detail.CountAllQuestions
+            </td>
+            <td>
+                @detail.TestDate.ToString("dd:mm:yyyy");
+            </td>
+        }
+
+    }
+</tr>
+    }
+</table>
+}
+else
+{
+    <h1>Записи отсутствуют</h1>
+}
