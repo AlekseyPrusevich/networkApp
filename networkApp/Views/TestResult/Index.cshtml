@@ -5,6 +5,40 @@
 
 @if (Model.Count != 0)
 {
+    <div class="filter-result" style="display: flex">
+        <div class="form-group filter-result_item">
+            <label>Выберете автомобиль</label>
+            <input type="text" list="cars" />
+            <datalist id="cars" name="carChoose">
+                <option value="Volvo"></option>
+                <option value="Saab"></option>
+                <option value="Mercedes"></option>
+                <option value="Audi"></option>
+            </datalist>
+        </div>
+        <div class="form-group filter-result_item">
+            <label>Выберете Фамилию Имя</label>
+            <select name="nameChoose">
+                <option value="#1">#1</option>
+                <option value="#2">#2</option>
+            </select>
+        </div>
+        <div class="form-group filter-result_item">
+            <label>Выберете группу</label>
+            <select name="groupChoose">
+                <option value="#1">#1</option>
+                <option value="#2">#2</option>
+            </select>
+        </div>
+        <div class="form-group filter-result_item">
+            <label>Выберете тест</label>
+            <select name="testChoose">
+                <option value="#1">#1</option>
+                <option value="#2">#2</option>
+            </select>
+        </div>
+    </div>
+
     <table class="table">
         <tr>
             <td class="header-table">Фамилия Имя</td>
@@ -51,23 +85,31 @@
 
                     }
                 </tr>
-             }
-             else
-             {
+            }
+            else
+            {
                 <tr>
                     <td>@Model[i].FNpLN</td>
                     <td>@Model[i].Group</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
 
+                <tr>
                     @foreach (var detail in Model[i].Details)
                     {
+                        <td style="border-bottom: none;"></td>
+                        <td style="border-bottom: none;"></td>
                         <td>@detail.TestName</td>
                         <td class="table__cells_center">@detail.CountAllQuestions</td>
                         <td class="table__cells_center">@detail.Result%</td>
                         <td>@detail.TestDate.ToString("hh:mm:ss dd:mm:yyyy");</td>
                     }
                 </tr>
-             }
-         }
+            }
+        }
     </table>
 }
 else
