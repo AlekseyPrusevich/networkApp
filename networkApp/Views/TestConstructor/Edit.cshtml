@@ -1,0 +1,24 @@
+﻿@using System.IO
+
+    <table class="table">
+        <tr><th>Question Name</th><th></th></tr>
+        @{
+            DirectoryInfo dir = new DirectoryInfo(@"Tests\");
+            foreach (var item in dir.GetFiles())
+            {
+
+                <tr>
+                    <td>@item.Name.Replace("_", " ").Replace(".xml", "")</td>
+
+                    <td>
+                        <form method="post">
+                            <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="EditConstructor">Изменить</button>
+                            <button type="submit" class="btn btn-sm btn-danger" value="@item.Name" name="fileName" asp-action="Delete">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
