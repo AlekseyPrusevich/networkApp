@@ -1,10 +1,66 @@
 ﻿@model List<TestResultModel>
 @{
     ViewData["Title"] = "Результаты тестирования";
+    HashSet<string> fios = new HashSet<string>();
+    HashSet<string> testNames = new HashSet<string>();
+    HashSet<int> grps = new HashSet<int>();
+
+    foreach (var item in Model)
+    {
+        foreach (var detail in item.Details)
+        {
+            testNames.Add(detail.TestName);
+        }
+    }
+
+    foreach (var item in Model)
+    {
+        fios.Add(item.FNpLN);
+    }
+
+    foreach (var item in Model)
+    {
+        grps.Add(item.Group);
+    }
+
 }
 
-@if (Model.Count != 0)
-{
+    <form method="post">
+        <div class="filter-result" style="display: flex">
+            <div class="form-group filter-result_item">
+                <label>Выберете Фамилию Имя</label>
+                <input type="text" list="fio" name="fi" />
+                <datalist id="fio" name="fio">
+                    @foreach (var fiUser in fios)
+                    {
+                        <option value="@fiUser"></option>
+                    }
+                </datalist>
+            </div>
+
+            <div class="form-group filter-result_item">
+                <label>Выберете группу</label>
+                <input type="text" list="group" name="group" />
+                <datalist id="group" name="group">
+                    @foreach (var group in grps)
+                    {
+                        <option value="@group"></option>
+                    }
+                </datalist>
+            </div>
+            <div class="form-group filter-result_item">
+                <label>Выберете тест</label>
+                <input type="text" list="testName" name="testName" />
+                <datalist id="testName" name="testName">
+                    @foreach (var testName in testNames)
+                    {
+                        <option value="@testName"></option>
+                    }
+                </datalist>
+            </div>
+            <button type="submit" asp-action="Index">Выбрать</button>
+        </div>
+    </form>
     <table class="table">
         <tr>
             <td class="header-table">Фамилия Имя</td>
@@ -51,26 +107,31 @@
 
                     }
                 </tr>
-             }
-             else
-             {
+            }
+            else
+            {
                 <tr>
                     <td>@Model[i].FNpLN</td>
                     <td>@Model[i].Group</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
 
+                <tr>
                     @foreach (var detail in Model[i].Details)
                     {
+                        <td style="border-bottom: none;"></td>
+                        <td style="border-bottom: none;"></td>
                         <td>@detail.TestName</td>
                         <td class="table__cells_center">@detail.CountAllQuestions</td>
                         <td class="table__cells_center">@detail.Result%</td>
                         <td>@detail.TestDate.ToString("hh:mm:ss dd:mm:yyyy");</td>
                     }
                 </tr>
-             }
-         }
+            }
+        }
     </table>
-}
-else
-{
-    <h1>Записи отсутствуют</h1>
-}
+
+

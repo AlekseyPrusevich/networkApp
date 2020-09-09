@@ -1,0 +1,152 @@
+﻿@{
+    ViewData["Title"] = "EditConstructor";
+    int numAns = 0;
+    int NumQuest = ViewBag.Questions.Count;
+    
+}
+
+    <form method="post">
+        <div class="form-group">
+            <label>Введите название теста</label>
+            <input value="@ViewBag.FileName" type="text" name="testName" />
+        </div>
+        <div>
+            <div id="baseContainer">
+                <button onclick="createQuestion()">Добавить вопрос</button>
+                @for (int i = 0; i < ViewBag.Questions.Count; i++)
+                {                    
+                    <div id="q@(i + 1)">
+                        <input type="text" value="@ViewBag.Questions[i].Text" name="nameQuestion" />
+
+                        @if (ViewBag.Questions[i].AnswerList[0].Type == "checkbox")
+                        {
+                            <select style="display:none;" id="type@(i + 1)" name="type" value="checkbox">
+                                <option value="checkbox">Несколько из списка</option>
+                            </select>
+                        }
+                        @if (ViewBag.Questions[i].AnswerList[0].Type == "radio")
+                        {
+                            <select style="display:none;" id="type@(i + 1)" name="type" value="radio">
+                                <option value="radio">Один из списка</option>
+                            </select>
+                        }
+
+                        <button onclick="createAnswer(@(i + 1))">Добавить ответ</button>
+                        <button onclick="deleteQuestion(@(i + 1))">Удалить</button>
+
+                        <div>
+                            @foreach (var answer in ViewBag.Questions[i].AnswerList)
+                            {
+                                numAns++;
+                                <div>
+                                    <div id="ans@(numAns)" style="display:inline;">
+                                        @if (answer.ValueAnswer == "true")
+                                        {
+                                            <input id="ka@(numAns)" value="@answer.Type" type="@answer.Type" name="isTrue[@(i + 1)]" checked="checked" />
+                                        }
+                                        else
+                                        {
+                                            <input id="ka@(numAns)" value="@answer.Type" type="@answer.Type" name="isTrue[@(i + 1)]" />
+                                        }
+                                        <input id="ia@(numAns)" type="text" value="@answer.Text" name="answer[@(i + 1)]" />
+                                        <button onclick="deleteAnswer(@(numAns))">Удалить</button>
+                                    </div>
+                                </div>
+                           }
+                        </div>
+                    </div>
+                 }
+            </div>
+        </div>
+
+        <script>
+            let deletable = new Array();
+            let numQuestion = @NumQuest;
+            let numAnswer = @numAns;
+
+                function createQuestion() {
+                    numQuestion++;
+                    
+                let str = '\<div id="q' + numQuestion + '"><input type="text" name="nameQuestion" placeholder="Введите вопрос"/>\
+                    <select name="type" id="type' + numQuestion +'">\
+                        <option value="radio">Один из списка</option>\
+                        <option value="checkbox">Несколько из списка</option>\
+                    </select>\
+                    <button onclick="createAnswer('+ numQuestion + ')">Добавить ответ</button>\
+                    <button onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
+                    </div>';
+
+                
+                let childComp = document.getElementById("baseContainer");
+                let div = document.createElement('div');
+                div.innerHTML = str;
+                childComp.appendChild(div);
+                event.preventDefault();
+
+            }
+
+            function createAnswer(num) {
+                numAnswer++;
+                
+                let str = '\<div id="ans' + numAnswer + '" style="display:inline;"><input id="ka' + numAnswer + '"  value="' + numAnswer + '" type="' + getType(num) + '" name="isTrue[' + num + ']"/>\
+                    <input id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
+                    <button onclick="deleteAnswer('+ numAnswer +')">Удалить</button></div>';
+
+                
+                let childComp = document.getElementById("q" + num);
+                let div = document.createElement('div');
+                div.innerHTML = str;
+                childComp.appendChild(div);
+                let typeElement = document.getElementById("type" + num);
+                typeElement.style.display="none";
+                event.preventDefault();
+
+            }
+
+            function getType(num) {
+                let e = document.getElementById("type" + num);
+                return e.options[e.selectedIndex].value;
+            }
+
+            function deleteAnswer(num) {                
+                document.getElementById("ans" + num).remove();
+                deletable.push(num);         
+                event.preventDefault();
+            }
+
+            function deleteQuestion(num) {
+                document.getElementById("q" + num).remove();
+                event.preventDefault();
+            }
+
+            function apply()
+            {               
+                for (var i = 1; i <= numAnswer; i++) {
+                    if (deletable.indexOf(i) >= 0) {
+                        continue
+                    }
+                    else {                        
+                        console.log("1 " + document.getElementById("ia" + i).value);
+                        document.getElementById("ka" + i).value = document.getElementById("ia" + i).value;
+                        console.log("2 " + document.getElementById("ka" + i).value);
+                    }
+                    
+                }
+                document.getElementById("sbtn").style.visibility = "visible";
+                event.preventDefault();
+
+            }
+            
+            function out() {
+                console.log(deletable);
+                event.preventDefault();
+            }
+
+        </script>
+            <div>
+                <button onclick="apply()">Сохранить</button>
+                <button onclick="out()">out</button>
+                <input id="sbtn" style="visibility:hidden" type="submit" asp-action="GetTest" />
+            </div>
+        
+    </form>

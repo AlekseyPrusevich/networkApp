@@ -16,7 +16,7 @@
         </div>
 
         <script>
-            
+            let deletable = new Array();
             let numQuestion = 0;
             let numAnswer = 0;
             function createQuestion() {
@@ -59,7 +59,8 @@
             }
             
             function deleteAnswer(num) {
-                document.getElementById("ans" + num).remove();                
+                document.getElementById("ans" + num).remove();
+                deletable.push(num);
                 event.preventDefault();                
             }
 
@@ -70,8 +71,13 @@
 
             function apply()
             {
-                for (var i = 1; i <= numAnswer; i++) {                  
-                    document.getElementById("ka" + i).value = document.getElementById("ia" + i).value;                    
+                for (var i = 1; i <= numAnswer; i++) { 
+                    if (deletable.indexOf(i) >= 0) {
+                        continue;
+                    }
+                    else {
+                        document.getElementById("ka" + i).value = document.getElementById("ia" + i).value;
+                    }
                 }
                 document.getElementById("sbtn").style.visibility = "visible";
                 event.preventDefault();

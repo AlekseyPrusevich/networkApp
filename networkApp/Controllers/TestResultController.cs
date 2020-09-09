@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using networkApp.Models;
 using networkApp.ViewModels.TestResult;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,27 +17,12 @@ namespace networkApp.Controllers
         {
             this.context = context;
         }
-        //[HttpGet]
-        //public ActionResult Index()
-        //{
-        //    var userMail = User.Identity.Name;
-        //    var userId = context.Users.Where(u => u.Email == userMail).Select(u => u.Id).FirstOrDefault();
-        //    var result = context.Tests.Include(t => t.User).Where(t => t.User.Id == userId).Select(t =>
-        //        new TestResultModel
-        //        {
-        //            NameSurname = t.User.FirstName + " " + t.User.LastName,
-        //            Group = t.User.Group,
-        //            TestName = t.Name,
-        //            Result = t.Mark,
-        //            CountAllQuestions = t.CountAllQuestions
-        //        });
-        //    return View(result);
-        //}
+        
 
         [HttpGet]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var result = context.Tests.Include(t => t.User).Where(t => t.User.Id == t.UserId).Select(t =>
+            var result = await context.Tests.Include(t => t.User).Where(t => t.User.Id == t.UserId).Select(t =>
                 new TestResultModel 
                 { 
                     FNpLN = t.User.FirstName + " " + t.User.LastName,
@@ -53,10 +37,208 @@ namespace networkApp.Controllers
                             TestDate = t.DateTest                            
                         }
                     }
-                }).ToList();
+                }).ToListAsync();
             
             return View("Index", result);
             
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Index(string fi, int? group, string testName)
+        {
+
+            //full
+            if (!string.IsNullOrEmpty(fi) && group != null && !string.IsNullOrEmpty(testName))
+            {
+                var result = await context.Tests.Include(t => t.User)
+                    .Where(t =>
+                    t.User.Group == group &&
+                    (t.User.FirstName + " " + t.User.LastName) == fi &&
+                    t.Name == testName)
+                    .Select(
+                    t =>
+                        new TestResultModel
+                        {
+                            FNpLN = t.User.FirstName + " " + t.User.LastName,
+                            Group = t.User.Group,
+                            Details = new List<DetailResult>()
+                            {
+                                new DetailResult
+                                {
+                                    CountAllQuestions = t.CountAllQuestions,
+                                    Result = t.Mark,
+                                    TestName = t.Name,
+                                    TestDate = t.DateTest
+                                }
+                            }
+                        }).ToListAsync();
+                return View("Index", result);
+            }// 1 i 2
+            else if (!string.IsNullOrEmpty(fi) && group != null && string.IsNullOrEmpty(testName))
+            {
+                var result = await context.Tests.Include(t => t.User)
+                   .Where(t =>
+                   t.User.Group == group &&
+                   (t.User.FirstName + " " + t.User.LastName) == fi)
+                   .Select(
+                   t =>
+                       new TestResultModel
+                       {
+                           FNpLN = t.User.FirstName + " " + t.User.LastName,
+                           Group = t.User.Group,
+                           Details = new List<DetailResult>()
+                           {
+                                new DetailResult
+                                {
+                                    CountAllQuestions = t.CountAllQuestions,
+                                    Result = t.Mark,
+                                    TestName = t.Name,
+                                    TestDate = t.DateTest
+                                }
+                           }
+                       }).ToListAsync();
+                return View("Index", result);
+            }// 1 i 3
+            else if (!string.IsNullOrEmpty(fi) && group == null && !string.IsNullOrEmpty(testName))
+            {
+                var result = await context.Tests.Include(t => t.User)
+                    .Where(t =>
+                    (t.User.FirstName + " " + t.User.LastName) == fi &&
+                    t.Name == testName)
+                    .Select(
+                    t =>
+                        new TestResultModel
+                        {
+                            FNpLN = t.User.FirstName + " " + t.User.LastName,
+                            Group = t.User.Group,
+                            Details = new List<DetailResult>()
+                            {
+                                new DetailResult
+                                {
+                                    CountAllQuestions = t.CountAllQuestions,
+                                    Result = t.Mark,
+                                    TestName = t.Name,
+                                    TestDate = t.DateTest
+                                }
+                            }
+                        }).ToListAsync();
+                return View("Index", result);
+            }//2 i 3
+            else if (string.IsNullOrEmpty(fi) && group != null && !string.IsNullOrEmpty(testName))
+            {
+                var result = await context.Tests.Include(t => t.User)
+                   .Where(t =>
+                   t.User.Group == group &&
+                   t.Name == testName)
+                   .Select(
+                   t =>
+                       new TestResultModel
+                       {
+                           FNpLN = t.User.FirstName + " " + t.User.LastName,
+                           Group = t.User.Group,
+                           Details = new List<DetailResult>()
+                           {
+                                new DetailResult
+                                {
+                                    CountAllQuestions = t.CountAllQuestions,
+                                    Result = t.Mark,
+                                    TestName = t.Name,
+                                    TestDate = t.DateTest
+                                }
+                           }
+                       }).ToListAsync();
+                return View("Index", result);
+            }//1 only
+            else if (!string.IsNullOrEmpty(fi) && group == null && string.IsNullOrEmpty(testName))
+            {
+                var result = await context.Tests.Include(t => t.User)
+                    .Where(t => (t.User.FirstName + " " + t.User.LastName) == fi)
+                    .Select(
+                    t =>
+                        new TestResultModel
+                        {
+                            FNpLN = t.User.FirstName + " " + t.User.LastName,
+                            Group = t.User.Group,
+                            Details = new List<DetailResult>()
+                            {
+                                new DetailResult
+                                {
+                                    CountAllQuestions = t.CountAllQuestions,
+                                    Result = t.Mark,
+                                    TestName = t.Name,
+                                    TestDate = t.DateTest
+                                }
+                            }
+                        }).ToListAsync();
+                return View("Index", result);
+            }//2 only
+            else if (string.IsNullOrEmpty(fi) && group != null && string.IsNullOrEmpty(testName))
+            {
+                var result = await context.Tests.Include(t => t.User)
+                    .Where(t => t.User.Group == group)
+                    .Select(
+                    t =>
+                        new TestResultModel
+                        {
+                            FNpLN = t.User.FirstName + " " + t.User.LastName,
+                            Group = t.User.Group,
+                            Details = new List<DetailResult>()
+                            {
+                                new DetailResult
+                                {
+                                    CountAllQuestions = t.CountAllQuestions,
+                                    Result = t.Mark,
+                                    TestName = t.Name,
+                                    TestDate = t.DateTest
+                                }
+                            }
+                        }).ToListAsync();
+                return View("Index", result);
+            }//3 only 
+            else if (string.IsNullOrEmpty(fi) && group == null && !string.IsNullOrEmpty(testName))
+            {
+                var result = await context.Tests.Include(t => t.User)
+                    .Where(t => t.Name == testName)
+                    .Select(
+                    t =>
+                        new TestResultModel
+                        {
+                            FNpLN = t.User.FirstName + " " + t.User.LastName,
+                            Group = t.User.Group,
+                            Details = new List<DetailResult>()
+                            {
+                                new DetailResult
+                                {
+                                    CountAllQuestions = t.CountAllQuestions,
+                                    Result = t.Mark,
+                                    TestName = t.Name,
+                                    TestDate = t.DateTest
+                                }
+                            }
+                        }).ToListAsync();
+                return View("Index", result);
+            }// all empty
+            else
+            {
+                var result = await context.Tests.Include(t => t.User).Select(t =>
+                    new TestResultModel
+                    {
+                        FNpLN = t.User.FirstName + " " + t.User.LastName,
+                        Group = t.User.Group,
+                        Details = new List<DetailResult>()
+                        {
+                        new DetailResult
+                        {
+                            CountAllQuestions = t.CountAllQuestions,
+                            Result = t.Mark,
+                            TestName = t.Name,
+                            TestDate = t.DateTest
+                        }
+                        }
+                    }).ToListAsync();
+
+                return View("Index", result);
+            }
         }
     }
 }
