@@ -1,44 +1,66 @@
 ﻿@model List<TestResultModel>
 @{
     ViewData["Title"] = "Результаты тестирования";
+    HashSet<string> fios = new HashSet<string>();
+    HashSet<string> testNames = new HashSet<string>();
+    HashSet<int> grps = new HashSet<int>();
+
+    foreach (var item in Model)
+    {
+        foreach (var detail in item.Details)
+        {
+            testNames.Add(detail.TestName);
+        }
+    }
+
+    foreach (var item in Model)
+    {
+        fios.Add(item.FNpLN);
+    }
+
+    foreach (var item in Model)
+    {
+        grps.Add(item.Group);
+    }
+
 }
 
-@if (Model.Count != 0)
-{
-    <div class="filter-result" style="display: flex">
-        <div class="form-group filter-result_item">
-            <label>Выберете автомобиль</label>
-            <input type="text" list="cars" />
-            <datalist id="cars" name="carChoose">
-                <option value="Volvo"></option>
-                <option value="Saab"></option>
-                <option value="Mercedes"></option>
-                <option value="Audi"></option>
-            </datalist>
-        </div>
-        <div class="form-group filter-result_item">
-            <label>Выберете Фамилию Имя</label>
-            <select name="nameChoose">
-                <option value="#1">#1</option>
-                <option value="#2">#2</option>
-            </select>
-        </div>
-        <div class="form-group filter-result_item">
-            <label>Выберете группу</label>
-            <select name="groupChoose">
-                <option value="#1">#1</option>
-                <option value="#2">#2</option>
-            </select>
-        </div>
-        <div class="form-group filter-result_item">
-            <label>Выберете тест</label>
-            <select name="testChoose">
-                <option value="#1">#1</option>
-                <option value="#2">#2</option>
-            </select>
-        </div>
-    </div>
+    <form method="post">
+        <div class="filter-result" style="display: flex">
+            <div class="form-group filter-result_item">
+                <label>Выберете Фамилию Имя</label>
+                <input type="text" list="fio" name="fi" />
+                <datalist id="fio" name="fio">
+                    @foreach (var fiUser in fios)
+                    {
+                        <option value="@fiUser"></option>
+                    }
+                </datalist>
+            </div>
 
+            <div class="form-group filter-result_item">
+                <label>Выберете группу</label>
+                <input type="text" list="group" name="group" />
+                <datalist id="group" name="group">
+                    @foreach (var group in grps)
+                    {
+                        <option value="@group"></option>
+                    }
+                </datalist>
+            </div>
+            <div class="form-group filter-result_item">
+                <label>Выберете тест</label>
+                <input type="text" list="testName" name="testName" />
+                <datalist id="testName" name="testName">
+                    @foreach (var testName in testNames)
+                    {
+                        <option value="@testName"></option>
+                    }
+                </datalist>
+            </div>
+            <button type="submit" asp-action="Index">Выбрать</button>
+        </div>
+    </form>
     <table class="table">
         <tr>
             <td class="header-table">Фамилия Имя</td>
@@ -111,8 +133,5 @@
             }
         }
     </table>
-}
-else
-{
-    <h1>Записи отсутствуют</h1>
-}
+
+
