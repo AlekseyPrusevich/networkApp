@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using networkApp.ViewModels.Testing;
 using System.Collections.Generic;
+using System.IO;
 using System.Xml.Linq;
 
 namespace networkApp.Controllers
@@ -9,31 +10,49 @@ namespace networkApp.Controllers
     [Authorize]
     public class TestConstructorController : Controller
     {
+        
         [HttpGet]        
         public IActionResult Create()
         {
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Delete(string fileName)
+        {            
+            var isFileExist = System.IO.File.Exists(@"Tests\" + fileName);
+            if (isFileExist)
+            {
+                System.IO.File.Delete(@"Tests\" + fileName);
+            }
+            return View("Edit");
+        }
+
         [HttpPost]
         public IActionResult GetTest(string testName,
-            List<string> nameQuestion,             
-            Dictionary<string, List<string>> answer, 
-            Dictionary<string, List<string>> isTrue,
-            List<string> type)
+           List<string> nameQuestion,
+           Dictionary<string, List<string>> answer,
+           Dictionary<string, List<string>> isTrue,
+           List<string> type)
         {
             XDocument xDoc = new XDocument();
-            XElement questions= new XElement("questions");
-            
+            XElement questions = new XElement("questions");
+            int counterTextQuestion = 0;
             foreach (var key in answer.Keys)
             {
                 int counter = 0;
                 XElement question = new XElement("question");
-                question.SetAttributeValue("num", key);
-                XElement textQuestion = new XElement("textQuestion", nameQuestion[int.Parse(key) - 1]);
+                question.SetAttributeValue("num", counterTextQuestion + 1);
+                XElement textQuestion = new XElement("textQuestion", nameQuestion[counterTextQuestion]);
                 question.Add(textQuestion);
-                XElement answers = new XElement("answers");               
-                
+                XElement answers = new XElement("answers");
+
                 foreach (var value in answer[key])
                 {
                     counter++;
@@ -42,28 +61,24 @@ namespace networkApp.Controllers
                     ans.Add(numAnswer);
                     XElement textAnswer = new XElement("textAnswer", value);
                     ans.Add(textAnswer);
-                    XElement mType = new XElement("type", type[int.Parse(key) - 1]);
+                    XElement mType = new XElement("type", type[counterTextQuestion]);
                     ans.Add(mType);
                     XElement trueAnswer = new XElement("true-answer", isTrue[key].Contains(value));
                     ans.Add(trueAnswer);
                     answers.Add(ans);
-                }              
-
+                }
+                counterTextQuestion++;
                 question.Add(answers);
                 questions.Add(question);
+
             }
 
             xDoc.Add(questions);
             xDoc.Save(@"Tests\" + testName.Replace(" ", "_") + ".xml");
-
+            
             return RedirectToAction("Index", "Home");
         }
         
-        [HttpGet]
-        public ActionResult Edit()
-        {            
-            return View();
-        }
 
         [HttpPost]
         public ActionResult EditConstructor(string fileName)
@@ -72,6 +87,7 @@ namespace networkApp.Controllers
             fillQuestions(fileName);
             return View();
         }
+
 
         private void fillQuestions(string fileName_)
         {
