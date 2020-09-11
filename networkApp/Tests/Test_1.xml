@@ -7,17 +7,11 @@
         <numAnswer>1</numAnswer>
         <textAnswer>A1</textAnswer>
         <type>radio</type>
-        <true-answer>false</true-answer>
+        <true-answer>true</true-answer>
       </answer>
       <answer>
         <numAnswer>2</numAnswer>
         <textAnswer>A2</textAnswer>
-        <type>radio</type>
-        <true-answer>true</true-answer>
-      </answer>
-      <answer>
-        <numAnswer>3</numAnswer>
-        <textAnswer>A3</textAnswer>
         <type>radio</type>
         <true-answer>false</true-answer>
       </answer>
@@ -29,19 +23,13 @@
       <answer>
         <numAnswer>1</numAnswer>
         <textAnswer>A1</textAnswer>
-        <type>radio</type>
-        <true-answer>false</true-answer>
-      </answer>
-      <answer>
-        <numAnswer>2</numAnswer>
-        <textAnswer>A2</textAnswer>
-        <type>radio</type>
+        <type>checkbox</type>
         <true-answer>true</true-answer>
       </answer>
       <answer>
-        <numAnswer>3</numAnswer>
+        <numAnswer>2</numAnswer>
         <textAnswer>A3</textAnswer>
-        <type>radio</type>
+        <type>checkbox</type>
         <true-answer>false</true-answer>
       </answer>
     </answers>

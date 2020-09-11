@@ -4,32 +4,35 @@
 }
  
     <form asp-action="GetTest" method="post">
+        <div id="listErrors"></div>
         <div class="form-group">
             <label>Введите название теста</label>
-            <input type="text" name="testName" />
+            <input type="text" id="testname" name="testName" />
         </div>
+
         <div>
             <div id="baseContainer">
                 <button onclick="createQuestion()">Добавить вопрос</button>
 
             </div>
         </div>
-        
+
         <script>
+            let listError = [];
             let deletable = new Array();
             let numQuestion = 0;
             let numAnswer = 0;
             function createQuestion() {
-
+                document.getElementById("sbtn").style.visibility = "hidden";
                 numQuestion++;
-                let str = '\<div id="q' + numQuestion + '"><input type="text" name="nameQuestion" placeholder="Введите вопрос"/>\
-                            <select name="type" id="type' + numQuestion + '">\
-                                <option value="radio">Один из списка</option>\
-                                <option value="checkbox">Несколько из списка</option>\
-                            </select>\
-                            <button onclick="createAnswer('+ numQuestion + ')">Добавить ответ</button>\
-                            <button onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
-                            </div>';
+                let str = '\<div id="q' + numQuestion + '"><input type="text" name="nameQuestion" id="qnm" placeholder="Введите вопрос"/>\
+                                    <select name="type" id="type' + numQuestion + '">\
+                                        <option value="radio">Один из списка</option>\
+                                        <option value="checkbox">Несколько из списка</option>\
+                                    </select>\
+                                    <button onclick="createAnswer('+ numQuestion + ')">Добавить ответ</button>\
+                                    <button onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
+                                    </div>';
                 let childComp = document.getElementById("baseContainer");
                 let div = document.createElement('div');
                 div.innerHTML = str;
@@ -38,11 +41,12 @@
             }
 
             function createAnswer(num) {
+                document.getElementById("sbtn").style.visibility = "hidden";
                 numAnswer++;
                 console.log()
                 let str = '\<div id="ans' + numAnswer + '" style="display:inline;" num="' + numAnswer + '"><input id="ka' + numAnswer + '"  value="' + numAnswer + '" type="' + getType(num) + '" name="isTrue[' + num + ']"/>\
-                            <input id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
-                            <button onclick="deleteAnswer('+ numAnswer + ')">Удалить</button></div>';
+                                    <input id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
+                                    <button onclick="deleteAnswer('+ numAnswer + ')">Удалить</button></div>';
 
                 let childComp = document.getElementById("q" + num);
                 let div = document.createElement('div');
@@ -60,24 +64,84 @@
             }
 
             function deleteAnswer(num) {
+                document.getElementById("sbtn").style.visibility = "hidden";
                 document.getElementById("ans" + num).remove();
                 deletable.push(num);
                 event.preventDefault();
             }
 
-            function deleteQuestion(num) {              
-
+            function deleteQuestion(num) {
+                document.getElementById("sbtn").style.visibility = "hidden";
                 let quest = document.getElementById("q" + num).children;
-               
-                    for (var i = 1; i < quest.length; i++) {
-                        let strAtr = quest.item(i).getAttribute("id");
-                        deletable.push( Number(strAtr.replace("ans", '')));
-                    }
+
+                for (var i = 1; i < quest.length; i++) {
+                    let strAtr = quest.item(i).getAttribute("id");
+                    deletable.push(Number(strAtr.replace("ans", '')));
+                }
                 document.getElementById("q" + num).remove();
                 event.preventDefault();
             }
 
+            function validate() {
+                var textName = document.getElementById("testname").value;
+                console.log(textName)
+                if (textName == '') {
+                    listError.push("Enter test name");
+                }
+
+                let counterContainer = document.getElementById("baseContainer").children.length;
+                console.log("ob kol" + counterContainer);
+
+                if (counterContainer == 1) {
+                    listError.push("Add answers");
+                }
+                for (var i = 1; i < counterContainer; i++) {
+                    let question = document.getElementById("q" + i).children;
+                    let questName = question.item(0).children.item(0).value//question name input
+                    console.log(questName);
+
+                    let counterAnswers = question.length;
+                    console.log("ans kol" + counterAnswers);
+
+                    if (questName == '') {
+                        listError.push("Enter qestion text for question " + i);
+                    }
+                    if (counterAnswers == 1) {
+                        listError.push("Add answer for question " + i);
+                    }
+                    let counterBox = 0;
+                    for (var j = 1; j < counterAnswers; j++) {
+                        let box = question.item(j).children.item(0).children.item(0).checked; // box checked
+                        let ansI = question.item(j).children.item(0).children.item(1).value;//answer text input
+                        if (box === false) {
+                            counterBox++;
+                        }
+
+                        if (ansI.length == 0) {
+                            listError.push("Enter text answer for question № " + i + " answer " + j);
+                        }
+                        console.log(box);
+                        console.log(ansI);
+                    }
+                    if (counterBox == counterAnswers - 1 && counterAnswers > 1) {
+                        listError.push("Chose correct answer/s for question " + questName);
+                    }
+                }
+
+                let counterChild = document.getElementById("listErrors").children.length;
+                if (counterChild > 0) {
+                    for (var i = 0; i < counterChild; i++) {
+                        let el = document.getElementById("error");
+                        document.getElementById("error").remove();
+                    }
+                }
+               
+               
+                event.preventDefault();
+            }
+
             function apply() {
+                validate();
                 for (var i = 1; i <= numAnswer; i++) {
                     if (deletable.indexOf(i) >= 0) {
                         continue;
@@ -86,7 +150,22 @@
                         document.getElementById("ka" + i).value = document.getElementById("ia" + i).value;
                     }
                 }
-                document.getElementById("sbtn").style.visibility = "visible";
+                if (listError.length == 0) {
+                    document.getElementById("sbtn").style.visibility = "visible";
+                }
+                else {
+                    let errors = '';
+                    for (var i = 0; i < listError.length; i++) {
+
+                        let childComp = document.getElementById("listErrors");
+                        let div = document.createElement('div');
+                        div.innerHTML = '<div>' + listError[i] + '</div>';
+                        childComp.appendChild(div).setAttribute("id", "error");
+                    }
+
+                    listError = [];
+                }
+
                 event.preventDefault();
             }
         </script>
