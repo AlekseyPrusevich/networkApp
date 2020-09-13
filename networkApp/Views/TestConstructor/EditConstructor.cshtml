@@ -21,15 +21,17 @@
                         <input type="text" value="@ViewBag.Questions[i].Text" name="nameQuestion" />
                         @if (ViewBag.Questions[i].AnswerList[0].Type == "checkbox")
                         {
-                            <select style="display:none;" id="type@(i + 1)" name="type" value="checkbox">
-                                <option value="checkbox">Несколько из списка</option>
-                            </select>
+                        <select onchange="chngType(@(i+1))" id="type@(i + 1)" name="type" value="checkbox">
+                            <option value="checkbox">Несколько из списка</option>
+                            <option value="radio">Один из списка</option>
+                        </select>
                         }
                         @if (ViewBag.Questions[i].AnswerList[0].Type == "radio")
                         {
-                            <select style="display:none;" id="type@(i + 1)" name="type" value="radio">
-                                <option value="radio">Один из списка</option>
-                            </select>
+                        <select onchange="chngType(@(i+1))" id="type@(i + 1)" name="type" value="radio">
+                            <option value="radio">Один из списка</option>
+                            <option value="checkbox">Несколько из списка</option>
+                        </select>
                         }
                         <button onclick="createAnswer(@(i + 1))">Добавить ответ</button>
                         <button onclick="deleteQuestion(@(i + 1))">Удалить</button>
@@ -97,8 +99,6 @@
                 div.innerHTML = str;
                 childComp.appendChild(div).setAttribute("id", `ans${numAnswer}`);
 
-                let typeElement = document.getElementById("type" + num);
-                typeElement.style.display = "none";
                 event.preventDefault();
             }
 
@@ -214,6 +214,15 @@
                     listError = [];
                 }
                 event.preventDefault();
+            }
+
+            function chngType(num) {
+                let children = document.getElementById("q" + num).children;
+                console.log(children);
+                let len = children.length;
+                for (var i = 1; i < len; i++) {
+                    let type = children.item(i).children.item(0).children.item(0).type = getType(num);
+                }
             }
         </script>
         <div>

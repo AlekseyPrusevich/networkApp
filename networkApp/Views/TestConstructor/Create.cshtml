@@ -18,6 +18,7 @@
         </div>
 
         <script>
+            let deletableQ = [];
             let listError = [];
             let deletable = new Array();
             let numQuestion = 0;
@@ -26,7 +27,7 @@
                 document.getElementById("sbtn").style.visibility = "hidden";
                 numQuestion++;
                 let str = '\<div id="q' + numQuestion + '"><input type="text" name="nameQuestion" id="qnm" placeholder="Введите вопрос"/>\
-                                    <select name="type" id="type' + numQuestion + '">\
+                                    <select onchange="chngType('+ numQuestion +')" name="type" id="type' + numQuestion + '">\
                                         <option value="radio">Один из списка</option>\
                                         <option value="checkbox">Несколько из списка</option>\
                                     </select>\
@@ -53,13 +54,12 @@
                 div.innerHTML = str;
                 childComp.appendChild(div).setAttribute("id", `ans${numAnswer}`);
 
-                let typeElement = document.getElementById("type" + num);
-                typeElement.style.display = "none";
+                
                 event.preventDefault();
             }
 
             function getType(num) {
-                let e = document.getElementById("type" + num);
+                let e = document.getElementById("type" + num);                
                 return e.options[e.selectedIndex].value;
             }
 
@@ -71,6 +71,7 @@
             }
 
             function deleteQuestion(num) {
+                deletableQ.push(num);
                 document.getElementById("sbtn").style.visibility = "hidden";
                 let quest = document.getElementById("q" + num).children;
 
@@ -167,6 +168,15 @@
                 }
 
                 event.preventDefault();
+            }
+
+            function chngType(num) {
+                let children = document.getElementById("q" + num).children;
+                console.log(children);
+                let len = children.length;
+                for (var i = 1; i < len; i++) {
+                    let type = children.item(i).children.item(0).children.item(0).type = getType(num);                    
+                }
             }
         </script>
         <div>

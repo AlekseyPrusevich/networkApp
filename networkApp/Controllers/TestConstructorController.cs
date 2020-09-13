@@ -10,10 +10,14 @@ namespace networkApp.Controllers
     [Authorize]
     public class TestConstructorController : Controller
     {
-        
-        [HttpGet]        
+        private static string oldName { get; set; }
+        private static string oldNameFull { get; set; }
+
+        [HttpGet]
         public IActionResult Create()
         {
+            oldName = string.Empty;
+            oldNameFull = string.Empty;
             return View();
         }
 
@@ -41,6 +45,13 @@ namespace networkApp.Controllers
            Dictionary<string, List<string>> isTrue,
            List<string> type)
         {
+            var isCreated = System.IO.File.Exists(@"Tests\" + oldNameFull);
+
+            if (oldName != testName && isCreated)
+            {
+                System.IO.File.Delete(@"Tests\" + oldNameFull);
+            }
+
             XDocument xDoc = new XDocument();
             XElement questions = new XElement("questions");
             int counterTextQuestion = 0;
@@ -91,6 +102,9 @@ namespace networkApp.Controllers
 
         private void fillQuestions(string fileName_)
         {
+            oldNameFull = fileName_;
+            oldName = fileName_.Replace("_", " ").Replace(".xml", "");
+
             List<QuestionViewModel> questions = new List<QuestionViewModel>();
             double countQuestions;
             XDocument xdoc = XDocument.Load(@"Tests\" + fileName_);
