@@ -7,17 +7,27 @@ using System.Xml.Linq;
 
 namespace networkApp.Controllers
 {
+
+    public class FileName
+    {
+        public string oldName { get; set; }
+        public string oldNameFull { get; set; }
+    }
+
     [Authorize]
     public class TestConstructorController : Controller
     {
-        private static string oldName { get; set; }
-        private static string oldNameFull { get; set; }
+
+        //private static string oldName { get; set; }
+        //private static string oldNameFull { get; set; }
 
         [HttpGet]
         public IActionResult Create()
         {
-            oldName = string.Empty;
-            oldNameFull = string.Empty;
+            FileName fileName = new FileName();
+
+            fileName.oldName = string.Empty;
+            fileName.oldNameFull = string.Empty;
             return View();
         }
 
@@ -45,11 +55,13 @@ namespace networkApp.Controllers
            Dictionary<string, List<string>> isTrue,
            List<string> type)
         {
-            var isCreated = System.IO.File.Exists(@"Tests\" + oldNameFull);
+            FileName fileName = new FileName();
 
-            if (oldName != testName && isCreated)
+            var isCreated = System.IO.File.Exists(@"Tests\" + fileName.oldNameFull);
+
+            if (fileName.oldName != testName && isCreated)
             {
-                System.IO.File.Delete(@"Tests\" + oldNameFull);
+                System.IO.File.Delete(@"Tests\" + fileName.oldNameFull);
             }
 
             XDocument xDoc = new XDocument();
@@ -102,8 +114,10 @@ namespace networkApp.Controllers
 
         private void fillQuestions(string fileName_)
         {
-            oldNameFull = fileName_;
-            oldName = fileName_.Replace("_", " ").Replace(".xml", "");
+            FileName fileName = new FileName();
+
+            fileName.oldNameFull = fileName_;
+            fileName.oldName = fileName_.Replace("_", " ").Replace(".xml", "");
 
             List<QuestionViewModel> questions = new List<QuestionViewModel>();
             double countQuestions;
