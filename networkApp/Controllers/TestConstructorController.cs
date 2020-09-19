@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using networkApp.ViewModels.Testing;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace networkApp.Controllers
@@ -17,7 +18,6 @@ namespace networkApp.Controllers
     [Authorize]
     public class TestConstructorController : Controller
     {
-
         //private static string oldName { get; set; }
         //private static string oldNameFull { get; set; }
 
@@ -28,6 +28,7 @@ namespace networkApp.Controllers
 
             fileName.oldName = string.Empty;
             fileName.oldNameFull = string.Empty;
+
             return View();
         }
 
@@ -37,23 +38,43 @@ namespace networkApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Delete(string fileName)
-        {            
+        private async Task deleteTestAsync(string fileName)
+        {
+            await Task.Run(() => deleteTest(fileName));
+        }
+
+        private void deleteTest(string fileName)
+        {
             var isFileExist = System.IO.File.Exists(@"Tests\" + fileName);
+
             if (isFileExist)
             {
                 System.IO.File.Delete(@"Tests\" + fileName);
-            }
-            return View("Edit");
+            }    
         }
 
         [HttpPost]
-        public IActionResult GetTest(string testName,
-           List<string> nameQuestion,
-           Dictionary<string, List<string>> answer,
-           Dictionary<string, List<string>> isTrue,
-           List<string> type)
+        public async Task<ActionResult> Delete(string fileName)
+        {
+            await deleteTestAsync(fileName);
+
+            return View("Edit");
+        }
+
+        private async Task createTestAsync(string testName,
+               List<string> nameQuestion,
+               Dictionary<string, List<string>> answer,
+               Dictionary<string, List<string>> isTrue,
+               List<string> type)
+        {
+            await Task.Run(() => createTest(testName, nameQuestion, answer, isTrue, type));
+        }
+
+        private void createTest(string testName,
+               List<string> nameQuestion,
+               Dictionary<string, List<string>> answer,
+               Dictionary<string, List<string>> isTrue,
+               List<string> type)
         {
             FileName fileName = new FileName();
 
@@ -93,12 +114,22 @@ namespace networkApp.Controllers
                 counterTextQuestion++;
                 question.Add(answers);
                 questions.Add(question);
-
             }
 
             xDoc.Add(questions);
             xDoc.Save(@"Tests\" + testName.Replace(" ", "_") + ".xml");
-            
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> GetTest(string testName,
+               List<string> nameQuestion,
+               Dictionary<string, List<string>> answer,
+               Dictionary<string, List<string>> isTrue,
+               List<string> type)
+        {
+            await createTestAsync(testName, nameQuestion, answer, isTrue, type);
+           
             return RedirectToAction("Index", "Home");
         }
         
@@ -108,6 +139,7 @@ namespace networkApp.Controllers
         {
             ViewBag.FileName = fileName.Replace("_", " ").Replace(".xml", "");
             fillQuestions(fileName);
+
             return View();
         }
 

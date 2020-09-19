@@ -1,10 +1,21 @@
-﻿.header-nav {
+﻿.header-nav__logo {
+    width: 4em;
+}
+
+.header-nav__logo > a > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.header-nav {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .header-nav__list {
+    width: 100%;
     text-align: center;
     list-style: none;
     padding: 0;
@@ -12,7 +23,7 @@
 }
 
 .header-nav__item {
-    margin: 0 0.8em;
+    margin: 0 .4em;
 }
 
 .header-nav__item a {
@@ -24,7 +35,7 @@
 
 .topic__link {
     position: relative;
-    padding: .5rem 1rem;
+    padding: .5rem .4rem;
 }
 
 .topic__link > li:hover .topic__list {
@@ -73,8 +84,41 @@
     display: block;
 }
 
-/* Таблица */
+.header-nav__autorize {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    margin-left: auto;
+}
 
+.header-nav__autorize > p {
+    margin: auto;
+}
+
+.header-nav__autorize > a {
+    text-decoration: none;
+    color: #181818;
+}
+
+.header-nav__autorize > span {
+    margin-left: .2em;
+    margin-right: .2em;
+}
+
+.logoutBtn {
+    padding:inherit;
+    width: 1.3em;
+    background: none;
+    border: none;
+}
+
+.logoutBtn > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Таблица */
 .header-table,
 .table__cells_center {
     text-align: center;
@@ -90,3 +134,4 @@
     border-top: none;
     border-bottom: none;
 }
+
