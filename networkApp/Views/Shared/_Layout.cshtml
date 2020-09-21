@@ -92,7 +92,10 @@
                                 <p>@User.Identity.Name</p>
                                 <span> | </span>
                                 <form method="post" asp-controller="Account" asp-action="Logout">
-                                    <button class="logoutBtn" type="submit"><img src="~/lib/image/escapeBtn.png" /></button>
+                                    <button class="logoutBtn" type="submit">
+                                        <img src="~/lib/image/escapeBtn.png" />
+                                        <span class="tooltiptext">Выйти из аккаунта</span>
+                                    </button>
                                 </form>
                             </li>
                         }
@@ -118,7 +121,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - networkApp - <a asp-area="" asp-controller="Question" asp-action="Index">Questions</a>
+            &copy; 2020 - networkApp
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

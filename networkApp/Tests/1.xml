@@ -6,69 +6,69 @@
       <answer>
         <numAnswer>1</numAnswer>
         <textAnswer>1</textAnswer>
-        <type>checkbox</type>
+        <type>radio</type>
         <true-answer>true</true-answer>
       </answer>
       <answer>
         <numAnswer>2</numAnswer>
-        <textAnswer>2</textAnswer>
-        <type>checkbox</type>
+        <textAnswer>1</textAnswer>
+        <type>radio</type>
         <true-answer>true</true-answer>
-      </answer>
-      <answer>
-        <numAnswer>3</numAnswer>
-        <textAnswer>3</textAnswer>
-        <type>checkbox</type>
-        <true-answer>false</true-answer>
       </answer>
     </answers>
   </question>
   <question num="2">
-    <textQuestion>2</textQuestion>
+    <textQuestion>3</textQuestion>
     <answers>
       <answer>
         <numAnswer>1</numAnswer>
-        <textAnswer>1</textAnswer>
+        <textAnswer>3</textAnswer>
         <type>checkbox</type>
         <true-answer>false</true-answer>
       </answer>
       <answer>
         <numAnswer>2</numAnswer>
-        <textAnswer>2</textAnswer>
+        <textAnswer>154</textAnswer>
         <type>checkbox</type>
         <true-answer>true</true-answer>
       </answer>
       <answer>
         <numAnswer>3</numAnswer>
-        <textAnswer>3</textAnswer>
+        <textAnswer>54</textAnswer>
         <type>checkbox</type>
         <true-answer>true</true-answer>
       </answer>
     </answers>
   </question>
   <question num="3">
-    <textQuestion>3</textQuestion>
-    <answers>
-      <answer>
-        <numAnswer>1</numAnswer>
-        <textAnswer>1</textAnswer>
-        <type>radio</type>
-        <true-answer>false</true-answer>
-      </answer>
-      <answer>
-        <numAnswer>2</numAnswer>
-        <textAnswer>2</textAnswer>
-        <type>radio</type>
-        <true-answer>true</true-answer>
-      </answer>
-    </answers>
-  </question>
-  <question num="4">
     <textQuestion>4</textQuestion>
     <answers>
       <answer>
         <numAnswer>1</numAnswer>
         <textAnswer>1</textAnswer>
+        <type>checkbox</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>2</textAnswer>
+        <type>checkbox</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>3</textAnswer>
+        <type>checkbox</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="4">
+    <textQuestion>5</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>1</textAnswer>
         <type>radio</type>
         <true-answer>true</true-answer>
       </answer>
@@ -77,6 +77,17 @@
         <textAnswer>2</textAnswer>
         <type>radio</type>
         <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="5">
+    <textQuestion>6</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>1</textAnswer>
+        <type>checkbox</type>
+        <true-answer>true</true-answer>
       </answer>
     </answers>
   </question>
