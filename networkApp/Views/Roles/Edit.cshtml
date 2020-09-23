@@ -1,5 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @model networkApp.ViewModels.Roles.ChangeRoleViewModel
+@{
+    ViewBag.Title = "Изменить роль";
+}
 
 <h2>Изменение ролей для пользователя @Model.UserEmail</h2>
 
@@ -10,7 +13,7 @@
         {
             <input type="radio" name="roles" value="@role.Name"
                    @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />@role.Name <br />
-        }
+            }
     </div>
     <button type="submit" class="btn btn-primary">Сохранить</button>
 </form>

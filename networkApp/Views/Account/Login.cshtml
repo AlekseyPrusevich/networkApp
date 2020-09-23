@@ -1,24 +1,37 @@
 ﻿@model networkApp.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Авторизация";
+}
 
-<h2>Вход в приложение</h2>
-<form method="post" asp-controller="Account" asp-action="Login"
-      asp-route-returnUrl="@Model.ReturnUrl">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="RememberMe"></label><br />
-        <input asp-for="RememberMe" />
-    </div>
-    <div>
-        <input type="submit" value="Войти" />
-    </div>
-</form>
+<div class="login-block">
+    <h2 class="login__header">Авторизация</h2>
+    <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div class="login__group">
+            <input asp-for="Email" class="login__input" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="Email" class="login__label">Логин/Email</label>
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div class="login__group">
+            <input asp-for="Password" class="login__input" type="password" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="Password" class="login__label">Пароль</label>
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div class="login__remember">
+            <input class="remember__check" asp-for="RememberMe" style="align-self: center;" />
+            <label asp-for="RememberMe"></label><br />
+        </div>
+
+        <div class="login__submit">
+            <input class="login__btn" type="submit" value="Войти" />
+        </div>
+    </form>
+</div>
+

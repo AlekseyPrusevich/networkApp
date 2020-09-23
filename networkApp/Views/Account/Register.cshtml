@@ -1,38 +1,63 @@
 ﻿@model networkApp.ViewModels.RegisterViewModel
-<h2>Регистрация нового пользователя</h2>
-<form method="post" asp-controller="Account" asp-action="Register">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div>
-        <label asp-for="FirstName"></label><br />
-        <input asp-for="FirstName" />
-        <span asp-validation-for="FirstName"></span>
-    </div>
-    <div>
-        <label asp-for="LastName"></label><br />
-        <input asp-for="LastName" />
-        <span asp-validation-for="LastName"></span>
-    </div>
-    <div>
-        <label asp-for="Group"></label><br />
-        <input asp-for="Group" />
-        <span asp-validation-for="Group"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="PasswordConfirm"></label><br />
-        <input asp-for="PasswordConfirm" />
-        <span asp-validation-for="PasswordConfirm"></span>
-    </div>
-    <div>
-        <input type="submit" value="Регистрация" />
-    </div>
-</form>
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="login-block registed-block">
+    <h2 class="login__header">Регистрация</h2>
+    <form method="post" asp-controller="Account" asp-action="Register">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div class="login__group">
+            <input asp-for="Email" class="login__input" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="Email" class="login__label">Логин/Email</label>
+            <span asp-validation-for="Email"></span>
+        </div>
+
+        <div class="login__group">
+            <input asp-for="FirstName" class="login__input" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="FirstName" class="login__label">Имя</label>
+            <span asp-validation-for="FirstName"></span>
+        </div>
+
+        <div class="login__group">
+            <input asp-for="LastName" class="login__input" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="LastName" class="login__label">Фамилия</label>
+            <span asp-validation-for="LastName"></span>
+        </div>
+
+        <div class="login__group">
+            <input asp-for="Group" class="login__input" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="Group" class="login__label">Группа</label>
+            <span asp-validation-for="Group"></span>
+        </div>
+
+        <div class="login__group">
+            <input asp-for="Password" class="login__input" type="password" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="Password" class="login__label">Пароль</label>
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div class="login__group">
+            <input asp-for="PasswordConfirm" class="login__input" type="password" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="PasswordConfirm" class="login__label">ароль</label>
+            <span asp-validation-for="PasswordConfirm"></span>
+        </div>
+
+        <div class="login__submit">
+            <input class="login__btn" type="submit" value="Зарегистрироваться" />
+        </div>
+    </form>
+</div>

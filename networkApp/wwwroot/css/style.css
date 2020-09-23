@@ -1,4 +1,8 @@
-﻿/* Внешний вид input  */
+﻿label {
+    margin-bottom: 0px;
+}
+
+/* Внешний вид input  */
 
 input {
     outline: 0;
@@ -174,7 +178,7 @@ input {
     visibility: visible;
 }
 
-/* Таблица */
+/* Таблица и результаты */
 
 .header-table,
 .table__cells_center {
@@ -192,41 +196,10 @@ input {
     border-bottom: none;
 }
 
-/* Просмотр результатов */
-
-label {
-    margin-bottom: 0px;
-}
-
-.filter-result {
-    display: flex;
-    align-items: center;
-    min-height: 2rem;
-}
-
-.filter-result_item {
-    margin-bottom: auto;
-    margin-right: 1rem;
-}
-
-.filter-result__btn {
-    min-width: 5rem;
-    border: 0;
-    border-radius: 5px;
-    background: #4676d7;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    height: auto;
-}
-
-.filter-result__btn:hover {
-    background: #1d49aa;
-}
-
-.filter-result__btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px #cbd6ee;
+.error-message {
+    margin: 3rem;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 /* конструктор тестов */
@@ -328,4 +301,5 @@ select:focus, select:active {
     outline: 0;
     border-bottom: 2px solid #007bff;
 }
-   
+
+

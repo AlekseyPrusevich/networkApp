@@ -68,6 +68,8 @@ namespace networkApp.Controllers
             _fileName = System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(path));
             fillQuestions(_fileName);
 
+            ViewBag.TestName = _fileName.Replace("_", " ").Replace(".xml", "");
+
             return View();
         }
 
@@ -162,6 +164,7 @@ namespace networkApp.Controllers
             _context.Tests.Add(test);
             await _context.SaveChangesAsync();
 
+            ViewBag.TestName = _fileName.Replace("_", " ").Replace(".xml", "");
             ViewBag.Ball = result;
             ViewBag.ResultAnswers = answers;
 

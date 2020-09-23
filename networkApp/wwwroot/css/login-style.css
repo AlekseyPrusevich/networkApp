@@ -1,0 +1,146 @@
+﻿
+.login-block {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+    margin-top: 10rem;
+}
+
+.registed-block {
+    margin-top: 6rem;
+}
+
+.login__group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.login__header {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.login__input {
+    padding: 6px 6px 10px 6px;
+    display: block;
+    width: 20rem;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+.login__input:focus {
+    outline: none;
+}
+
+.login__label {
+    color: #999;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.login__input:focus ~ .login__label, .login__input:valid ~ .login__label {
+    top: -14px;
+    font-size: 14px;
+    color: #007bff;
+}
+
+.login__bar {
+    position: relative;
+    display: block;
+    width: 20rem;
+}
+
+.login__bar:before, .login__bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #007bff;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.login__bar:before {
+    left: 50%;
+}
+
+.login__bar:after {
+    right: 50%;
+}
+
+.login__input:focus ~ .login__bar:before, .login__input:focus ~ .login__bar:after {
+    width: 50%;
+}
+
+.login__highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.login__input:focus ~ .login__highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+.login__remember {
+    margin-bottom: 3rem;
+}
+
+.login__btn {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 5px;
+    margin-right: .5rem;
+    min-width: 10rem;
+    min-height: 2.1rem;
+}
+
+
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}

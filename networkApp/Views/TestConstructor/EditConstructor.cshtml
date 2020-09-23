@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "EditConstructor";
+    ViewData["Title"] = "Редактирование теста";
     int numAns = 0;
     int NumQuest = ViewBag.Questions.Count;
     
@@ -138,13 +138,13 @@
             function validate() {
                 var textName = document.getElementById("testname").value;
                 if (textName == '') {
-                    listError.push("Enter test name");
+                    listError.push("Введите название теста");
                 }
 
                 let counterContainer = document.getElementById("baseContainer").children.length;
 
                 if (counterContainer == 1) {
-                    listError.push("Add answers");
+                    listError.push("Добавьте ответ");
                 }
                 for (var i = 1; i < counterContainer; i++) {
                     if (deletableQ.indexOf(i) >= 0) {
@@ -157,10 +157,10 @@
                         let counterAnswers = question.length;
 
                         if (questName == '') {
-                            listError.push("Enter qestion text for question " + i);
+                            listError.push("Введите текст вопроса в вопросе № " + i);
                         }
                         if (counterAnswers == 1) {
-                            listError.push("Add answer for question " + i);
+                            listError.push("Добавьте ответ в вопрос № " + i);
                         }
                         let counterBox = 0;
                         for (var j = 1; j < counterAnswers; j++) {
@@ -171,11 +171,11 @@
                             }
 
                             if (ansI.length == 0) {
-                                listError.push("Enter text answer for question № " + i + " answer " + j);
+                                listError.push("Введите текст ответа вопса № " + i + " вопрос: " + j);
                             }
                         }
                         if (counterBox == counterAnswers - 1 && counterAnswers > 1) {
-                            listError.push("Chose correct answer/s for question " + questName);
+                            listError.push("Выберите хотя бы одн правильный ответ в вопросе " + questName);
                         }
                     }
                 }

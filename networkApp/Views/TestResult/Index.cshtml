@@ -1,66 +1,72 @@
 ﻿@model List<TestResultModel>
 @{
     ViewData["Title"] = "Результаты тестирования";
+
     HashSet<string> fios = new HashSet<string>();
     HashSet<string> testNames = new HashSet<string>();
     HashSet<int> grps = new HashSet<int>();
 
-    foreach (var item in Model)
+    if (ViewBag.EmptyQuery != 0)
     {
-        foreach (var detail in item.Details)
+        foreach (var item in Model)
         {
-            testNames.Add(detail.TestName);
+            foreach (var detail in item.Details)
+            {
+                testNames.Add(detail.TestName);
+            }
+        }
+
+        foreach (var item in Model)
+        {
+            fios.Add(item.FNpLN);
+        }
+
+        foreach (var item in Model)
+        {
+            grps.Add(item.Group);
         }
     }
-
-    foreach (var item in Model)
-    {
-        fios.Add(item.FNpLN);
-    }
-
-    foreach (var item in Model)
-    {
-        grps.Add(item.Group);
-    }
-
 }
 
-    <form method="post">
-        <div class="filter-result" style="display: flex">
-            <div class="form-group filter-result_item">
-                <label>Выберете Фамилию Имя</label>
-                <input type="text" list="fio" name="fi" />
-                <datalist id="fio" name="fio">
-                    @foreach (var fiUser in fios)
-                    {
-                        <option value="@fiUser"></option>
-                    }
-                </datalist>
-            </div>
-
-            <div class="form-group filter-result_item">
-                <label>Выберете группу</label>
-                <input type="text" list="group" name="group" />
-                <datalist id="group" name="group">
-                    @foreach (var group in grps)
-                    {
-                        <option value="@group"></option>
-                    }
-                </datalist>
-            </div>
-            <div class="form-group filter-result_item">
-                <label>Выберете тест</label>
-                <input type="text" list="testName" name="testName" />
-                <datalist id="testName" name="testName">
-                    @foreach (var testName in testNames)
-                    {
-                        <option value="@testName"></option>
-                    }
-                </datalist>
-            </div>
-            <button type="submit" class="filter-result__btn" asp-action="Index">Выбрать</button>
+<form method="post">
+    <div class="filter-result">
+        <div class="form-group filter-result_item">
+            <label class="filter__label">Фамилия Имя</label>
+            <input class="filter__input" type="text" list="fio" name="fi" placeholder="Введите или выберите из списка" />
+            <datalist class="filter__datalist" id="fio" name="fio">
+                @foreach (var fiUser in fios)
+                {
+                    <option value="@fiUser"></option>
+                }
+            </datalist>
         </div>
-    </form>
+
+        <div class="form-group filter-result_item">
+            <label class="filter__label">Группа</label>
+            <input class="filter__input" type="text" list="group" name="group" placeholder="Введите или выберите из списка" />
+            <datalist class="filter__datalist" id="group" name="group">
+                @foreach (var group in grps)
+                {
+                    <option value="@group"></option>
+                }
+            </datalist>
+        </div>
+        <div class="form-group filter-result_item">
+            <label class="filter__label">Тест</label>
+            <input class="filter__input" type="text" list="testName" name="testName" placeholder="Введите или выберите из списка" />
+            <datalist class="filter__datalist" id="testName" name="testName">
+                @foreach (var testName in testNames)
+                {
+                    <option value="@testName"></option>
+                }
+            </datalist>
+        </div>
+        <button class="result-btn" type="submit" class="filter-result__btn" asp-action="Index">Выбрать</button>
+    </div>
+</form>
+
+@if (ViewBag.EmptyQuery != 0)
+{
     <table class="table">
         <tr>
             <td class="header-table">Фамилия Имя</td>
@@ -86,7 +92,7 @@
                 <td>@detail.TestName</td>
                 <td class="table__cells_center">@detail.CountAllQuestions</td>
                 <td class="table__cells_center">@detail.Result%</td>
-                <td>@detail.TestDate.ToString("hh:mm:ss dd:mm:yyyy");</td>
+                <td>@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy");</td>
             }
         </tr>
 
@@ -103,7 +109,7 @@
                         <td>@detail.TestName</td>
                         <td class="table__cells_center">@detail.CountAllQuestions</td>
                         <td class="table__cells_center">@detail.Result%</td>
-                        <td>@detail.TestDate.ToString("hh:mm:ss dd:mm:yyyy");</td>
+                        <td>@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy");</td>
 
                     }
                 </tr>
@@ -127,11 +133,18 @@
                         <td>@detail.TestName</td>
                         <td class="table__cells_center">@detail.CountAllQuestions</td>
                         <td class="table__cells_center">@detail.Result%</td>
-                        <td>@detail.TestDate.ToString("hh:mm:ss dd:mm:yyyy");</td>
+                        <td>@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy")</td>
                     }
                 </tr>
             }
         }
     </table>
+}
+else
+{
+    <p class="error-message">Нет записей удовлетворяющих запросу</p>
+}
+
+
 
 
