@@ -1,18 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная страница";
 }
 
 
-@if (User.Identity.IsAuthenticated)
-{
-    <p>@User.Identity.Name</p>
+<main class="hero">
+    <div class="hero__image">
+        <img src="~/lib/image/home/hero-background.png" alt="" class="hero__bacground-image">
+        <img src="~/lib/image/home/Aleksey-slim.png" alt="" class="hero__image-img">
+    </div>
+    <div class="hero__greeting">
+        <div class="hero__greeting-title">Привет, я</div>
+        <h1 class="hero__greeting-subtitle">Алексей Прусевич</h1>
+        <div class="hero__greeting-subject">студент группы ИСТзс31</div>
 
-    <form method="post" asp-controller="Account" asp-action="Logout">
-        <input type="submit" value="Выход" />
-    </form>
-}
-else
-{
-    <a asp-controller="Account" asp-action="Login">Вход</a>
-    <a asp-controller="Account" asp-action="Register">Регистрация</a>
-}
+        <div class="hero__social">
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social social--vk" href="https://vk.com/lexa_prusevich" title="Я в ВКонтакте" target="_blank"></a>
+                </li>
+
+                <li class="social-list__item">
+                    <a class="social social--vb" href="viber://chat?number=+375298054774" title="Я в Viber" target="_blank"></a>
+                </li>
+
+                <li class="social-list__item">
+                    <a class="social social--email" href="mailto:aleksey.prusevich.7@mail.ru" title="Я в Mail.ru" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="hero__greeting__btn btn-container">
+            <button class="hero-btn github">
+                <a class="hero-button btn--active" href="https://github.com/AlekseyPrusevich/networkApp">Проект на GitHub</a>
+            </button>
+            <button class="hero-btn resume">
+                <a class="hero-button" href="#">Пояснительная записка</a>
+            </button>
+        </div>
+    </div>
+
+
+</main>

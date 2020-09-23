@@ -20,10 +20,7 @@
         {
             <div class="test-constructor__questions-block" id="q@(i + 1)" style="margin-bottom: 1em">
                 <div class="test-constructor__question" id="q@(i + 1)">
-                    <div class="input-block">
-                        <input class="test-constructor__question-block_question-name textBlock" type="text" value="@ViewBag.Questions[i].Text" name="nameQuestion" placeholder="Введите вопрос" />
-                        <span class="focus-border"></span>
-                    </div>
+                    <input class="test-constructor__question-name textBlock constructor_textBlock" type="text" value="@ViewBag.Questions[i].Text" name="nameQuestion" placeholder="Введите вопрос" />
                     @if (ViewBag.Questions[i].AnswerList[0].Type == "checkbox")
                     {
                         <select onchange="chngType(@(i+1))" id="type@(i + 1)" name="type" value="checkbox">
@@ -55,8 +52,7 @@
                             {
                                 <input id="ka@(numAns)" value="@answer.Type" type="@answer.Type" name="isTrue[@(i + 1)]" />
                             }
-                            <input class="textBlock" id="ia@(numAns)" type="text" value="@answer.Text" name="answer[@(i + 1)]" placeholder="Введите ответ" />
-                            <span class="focus-border"></span>
+                            <input class="textBlock constructor_textBlock" id="ia@(numAns)" type="text" value="@answer.Text" name="answer[@(i + 1)]" placeholder="Введите ответ" />
                             <button class="test-constructor__delete-btn" onclick="deleteAnswer(@(numAns))">Удалить</button>
                         </div>
                     </div>
@@ -81,10 +77,7 @@
                 document.getElementById("sbtn").style.visibility = "hidden";
                 numQuestion++;
                 let str = '\<div class="test-constructor__question" id="q' + numQuestion + '">\
-                                <div class="input-block">\
-                                    <input class="test-constructor__question-block_question-name textBlock" type="text" name="nameQuestion" placeholder="Введите вопрос"/>\
-                                    <span class="focus-border"></span>\
-                                </div>\
+                                <input class="test-constructor__question-name textBlock constructor_textBlock" type="text" name="nameQuestion" placeholder="Введите вопрос"/>\
                                 <select name="type" id="type' + numQuestion + '">\
                                     <option value="radio">Один из списка</option>\
                                     <option value="checkbox">Несколько из списка</option>\
@@ -106,8 +99,7 @@
                 numAnswer++;
                 let str = '\<div class="test-constructor__answer-block input-block" id="ans' + numAnswer + '" " num="' + numAnswer + '">\
                                 <input id = "ka' + numAnswer + '"  value = "' + numAnswer + '" type = "' + getType(num) + '" name = "isTrue[' + num + ']" />\
-                                <input class="textBlock" id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
-                                <span class="focus-border"></span>\
+                                <input class="textBlock constructor_textBlock" id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
                                 <button class="test-constructor__delete-btn" onclick="deleteAnswer('+ numAnswer + ')">Удалить</button>\
                             </div > ';
 

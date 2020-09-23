@@ -31,17 +31,10 @@ input {
     transition: 0.6s;
 }
 
-.test-constructor__question-block_question-name {
-    margin-right: .5em;
-}
-
-.test-constructor__question-block_question-name:focus .focus-border {
-    width: 31.8em;
-}
 
 /* Хедер  */
 .header-nav__logo {
-    width: 4em;
+    width: 4rem;
 }
 
 .header-nav__logo > a > img {
@@ -72,7 +65,7 @@ input {
     position: relative;
     text-decoration: none;
     color: #0366d6;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .topic__link {
@@ -92,7 +85,7 @@ input {
     display: none;
     position: absolute;
     list-style: none;
-    left: 1.4em;
+    left: 1.4rem;
     padding: 0;
     margin: 0;
     z-index: 2;
@@ -105,7 +98,7 @@ input {
     width: 100%;
     white-space: nowrap;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     padding: 0.08em 0.6em;
     background-color: rgb(50, 55, 159);
     color: #fff;
@@ -133,7 +126,7 @@ input {
 .header-nav__autorize {
     display: flex;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     margin-left: auto;
 }
 
@@ -147,14 +140,14 @@ input {
 }
 
 .header-nav__autorize > span {
-    margin-left: .2em;
-    margin-right: .2em;
+    margin-left: .2rem;
+    margin-right: .2rem;
 }
 
 .logoutBtn {
     position: relative;
     padding: inherit;
-    width: 1.3em;
+    width: 1.3rem;
     background: none;
     border: none;
 }
@@ -167,8 +160,8 @@ input {
 
 .logoutBtn .tooltiptext {
     visibility: hidden;
-    font-size: .8em;
-    width: 10em;
+    font-size: .8rem;
+    width: 10rem;
     background-color: #d7d7d7;
     text-align: center;
     border-radius: 5px;
@@ -208,16 +201,16 @@ label {
 .filter-result {
     display: flex;
     align-items: center;
-    min-height: 2em;
+    min-height: 2rem;
 }
 
 .filter-result_item {
     margin-bottom: auto;
-    margin-right: 1em;
+    margin-right: 1rem;
 }
 
 .filter-result__btn {
-    min-width: 5em;
+    min-width: 5rem;
     border: 0;
     border-radius: 5px;
     background: #4676d7;
@@ -239,7 +232,7 @@ label {
 /* конструктор тестов */
 
 .test-name__block {
-    margin-bottom: 3em;
+    margin-bottom: 3rem;
 }
 
 .test-name__imput {
@@ -255,9 +248,9 @@ label {
     background-color: #007bff;
     border-color: #007bff;
     border-radius: 5px;
-    margin-right: .5em;
-    min-width: 10em;
-    min-height: 2.1em;
+    margin-right: .5rem;
+    min-width: 10rem;
+    min-height: 2.1rem;
 }
 
 .test-constructor__add-btn:hover {
@@ -271,8 +264,8 @@ label {
     background-color: #dc3545;
     border-color: #dc3545;
     border-radius: 5px;
-    min-width: 6em;
-    min-height: 1.9em;
+    min-width: 6rem;
+    min-height: 1.9rem;
 }
 
 .test-constructor__delete-btn:hover {
@@ -289,7 +282,7 @@ label {
 
 .test-constructor__question {
     display: flex;
-    margin-bottom: .4em;
+    margin-bottom: .4rem;
 }
 
 .test-constructor__answer-block {
@@ -299,20 +292,34 @@ label {
 
 .test-constructor__answer-block > input,
 .test-constructor__question > select {
-    margin-right: .5em;
+    margin-right: .5rem;
     margin-bottom: 0px;
 }
 
-.test-constructor__question > select {
-    width: 12em;
+.constructor_textBlock:hover {
+    background-color: rgba(0, 0, 0, 0.07);
 }
 
-.test-constructor__question-block_question-name {
-    width: 31.8em;
+.test-constructor__question > select:hover {
+    background-color: rgba(0, 0, 0, 0.07);
+}
+
+
+.constructor_textBlock:focus {
+    border-bottom: 1px solid #0069d9;
+}
+
+.test-constructor__question-name {
+    width: 32.2rem;
+    margin-right: .5rem;
+}
+
+.test-constructor__question > select {
+    width: 12rem;
 }
 
 select {
-    padding: .25em;
+    padding: .25rem;
     border: 0;
     border-bottom: 1px solid #ccc;
 }
