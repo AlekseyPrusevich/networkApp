@@ -81,4 +81,27 @@
       </answer>
     </answers>
   </question>
+  <question num="4">
+    <textQuestion>Q4</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>1</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>2</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>4</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+    </answers>
+  </question>
 </questions>

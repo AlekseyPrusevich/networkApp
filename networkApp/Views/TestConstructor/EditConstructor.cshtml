@@ -1,100 +1,113 @@
 ﻿@{
-    ViewData["Title"] = "EditConstructor";
+    ViewData["Title"] = "Редактирование теста";
     int numAns = 0;
     int NumQuest = ViewBag.Questions.Count;
     
 }
 
-    <form  method="post">
-        <div class="form-group">
-            <label>Введите название теста</label>
-            <input value="@ViewBag.FileName" type="text" name="testName" />
+<form method="post">
+    <div id="listErrors"></div>
+    <div class="form-group input-block">
+        <div class="test-name__block ">
+            <input class="textBlock test-name__imput" value="@ViewBag.FileName" type="text" id="testname" name="testName" placeholder="Введите название теста" />
+            <span class="focus-border"></span>
         </div>
-        
-            <div id="baseContainer">
-                <button onclick="createQuestion()">Добавить вопрос</button>
-                @for (int i = 0; i < ViewBag.Questions.Count; i++)
-                {
-                    <div id="q@(i + 1)">
-                        <div id="q@(i + 1)">
-                            <input type="text" value="@ViewBag.Questions[i].Text" name="nameQuestion" />
-                            @if (ViewBag.Questions[i].AnswerList[0].Type == "checkbox")
-                            {
-                                <select style="display:none;" id="type@(i + 1)" name="type" value="checkbox">
-                                    <option value="checkbox">Несколько из списка</option>
-                                </select>
-                            }
-                            @if (ViewBag.Questions[i].AnswerList[0].Type == "radio")
-                            {
-                                <select style="display:none;" id="type@(i + 1)" name="type" value="radio">
-                                    <option value="radio">Один из списка</option>
-                                </select>
-                            }
-                            <button onclick="createAnswer(@(i + 1))">Добавить ответ</button>
-                            <button onclick="deleteQuestion(@(i + 1))">Удалить</button>
-                        </div>
+    </div>
 
-                        @foreach (var answer in ViewBag.Questions[i].AnswerList)
-                        {
-                            numAns++;
-                            <div id="ans@(numAns)">
-                                <div id="ans@(numAns)" style="display:inline;">
-                                    @if (answer.ValueAnswer == "true")
-                                    {
-                                        <input id="ka@(numAns)" value="@answer.Type" type="@answer.Type" name="isTrue[@(i + 1)]" checked="checked" />
-                                    }
-                                    else
-                                    {
-                                        <input id="ka@(numAns)" value="@answer.Type" type="@answer.Type" name="isTrue[@(i + 1)]" />
-                                    }
-                                    <input id="ia@(numAns)" type="text" value="@answer.Text" name="answer[@(i + 1)]" />
-                                    <button onclick="deleteAnswer(@(numAns))">Удалить</button>
-                                </div>
-                            </div>
-                            
-                        }
-                        </div>
+    <div id="baseContainer">
+        <button class="test-constructor__add-btn test-constructor__add-question" onclick="createQuestion()">Добавить вопрос</button>
+        @for (int i = 0; i < ViewBag.Questions.Count; i++)
+        {
+            <div class="test-constructor__questions-block" id="q@(i + 1)" style="margin-bottom: 1em">
+                <div class="test-constructor__question" id="q@(i + 1)">
+                    <input class="test-constructor__question-name textBlock constructor_textBlock" type="text" value="@ViewBag.Questions[i].Text" name="nameQuestion" placeholder="Введите вопрос" />
+                    @if (ViewBag.Questions[i].AnswerList[0].Type == "checkbox")
+                    {
+                        <select onchange="chngType(@(i+1))" id="type@(i + 1)" name="type" value="checkbox">
+                            <option value="checkbox">Несколько из списка</option>
+                            <option value="radio">Один из списка</option>
+                        </select>
                     }
-                    
+                    @if (ViewBag.Questions[i].AnswerList[0].Type == "radio")
+                    {
+                        <select onchange="chngType(@(i+1))" id="type@(i + 1)" name="type" value="radio">
+                            <option value="radio">Один из списка</option>
+                            <option value="checkbox">Несколько из списка</option>
+                        </select>
+                    }
+                    <button class="test-constructor__add-btn" onclick="createAnswer(@(i + 1))">Добавить ответ</button>
+                    <button class="test-constructor__delete-btn" onclick="deleteQuestion(@(i + 1))">Удалить</button>
                 </div>
 
-        <script>
+                @foreach (var answer in ViewBag.Questions[i].AnswerList)
+                {
+                    numAns++;
+                    <div id="ans@(numAns)">
+                        <div class="test-constructor__answer-block" id="ans@(numAns)" style="display:inline;">
+                            @if (answer.ValueAnswer == "true")
+                            {
+                                <input id="ka@(numAns)" value="@answer.Type" type="@answer.Type" name="isTrue[@(i + 1)]" checked="checked" />
+                            }
+                            else
+                            {
+                                <input id="ka@(numAns)" value="@answer.Type" type="@answer.Type" name="isTrue[@(i + 1)]" />
+                            }
+                            <input class="textBlock constructor_textBlock" id="ia@(numAns)" type="text" value="@answer.Text" name="answer[@(i + 1)]" placeholder="Введите ответ" />
+                            <button class="test-constructor__delete-btn" onclick="deleteAnswer(@(numAns))">Удалить</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <div>
+        <button class="test-constructor__add-btn other-btn" onclick="apply()">Выполнить изменения</button>
+        <button class="test-constructor__add-btn other-btn" id="sbtn" style="visibility:hidden" type="submit" asp-action="GetTest">Сохранить изменения</button>
+    </div>
+
+    <script>
+            let listError = [];
             let deletable = new Array();
+            let deletableQ = [];
             let numQuestion = @NumQuest;
             let numAnswer = @numAns;
 
             function createQuestion() {
-
+                document.getElementById("sbtn").style.visibility = "hidden";
                 numQuestion++;
-                let str = '\<div id="q' + numQuestion + '"><input type="text" name="nameQuestion" placeholder="Введите вопрос"/>\
-                            <select name="type" id="type' + numQuestion + '">\
-                                <option value="radio">Один из списка</option>\
-                                <option value="checkbox">Несколько из списка</option>\
-                            </select>\
-                            <button onclick="createAnswer('+ numQuestion + ')">Добавить ответ</button>\
-                            <button onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
+                let str = '\<div class="test-constructor__question" id="q' + numQuestion + '">\
+                                <input class="test-constructor__question-name textBlock constructor_textBlock" type="text" name="nameQuestion" placeholder="Введите вопрос"/>\
+                                <select name="type" id="type' + numQuestion + '">\
+                                    <option value="radio">Один из списка</option>\
+                                    <option value="checkbox">Несколько из списка</option>\
+                                </select>\
+                                <button class="test-constructor__add-btn" onclick="createAnswer('+ numQuestion + ')">Добавить ответ</button>\
+                                <button class="test-constructor__delete-btn" onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
                             </div>';
                 let childComp = document.getElementById("baseContainer");
                 let div = document.createElement('div');
                 div.innerHTML = str;
+                childComp.appendChild(div).setAttribute("class", `test-constructor__question-block`);
                 childComp.appendChild(div).setAttribute("id", `q${numQuestion}`);
+                childComp.appendChild(div).setAttribute("style", `margin-bottom: 1em`);
                 event.preventDefault();
             }
 
             function createAnswer(num) {
+                document.getElementById("sbtn").style.visibility = "hidden";
                 numAnswer++;
-                console.log()
-                let str = '\<div id="ans' + numAnswer + '" style="display:inline;" num="' + numAnswer + '"><input id="ka' + numAnswer + '"  value="' + numAnswer + '" type="' + getType(num) + '" name="isTrue[' + num + ']"/>\
-                            <input id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
-                            <button onclick="deleteAnswer('+ numAnswer + ')">Удалить</button></div>';
+                let str = '\<div class="test-constructor__answer-block input-block" id="ans' + numAnswer + '" " num="' + numAnswer + '">\
+                                <input id = "ka' + numAnswer + '"  value = "' + numAnswer + '" type = "' + getType(num) + '" name = "isTrue[' + num + ']" />\
+                                <input class="textBlock constructor_textBlock" id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
+                                <button class="test-constructor__delete-btn" onclick="deleteAnswer('+ numAnswer + ')">Удалить</button>\
+                            </div > ';
 
                 let childComp = document.getElementById("q" + num);
                 let div = document.createElement('div');
                 div.innerHTML = str;
                 childComp.appendChild(div).setAttribute("id", `ans${numAnswer}`);
 
-                let typeElement = document.getElementById("type" + num);
-                typeElement.style.display = "none";
                 event.preventDefault();
             }
 
@@ -104,13 +117,15 @@
             }
 
             function deleteAnswer(num) {
+                document.getElementById("sbtn").style.visibility = "hidden";
                 document.getElementById("ans" + num).remove();
                 deletable.push(num);
                 event.preventDefault();
             }
 
             function deleteQuestion(num) {
-
+                deletableQ.push(num);
+                document.getElementById("sbtn").style.visibility = "hidden";
                 let quest = document.getElementById("q" + num).children;
                 for (var i = 1; i < quest.length; i++) {
                    let strAtr = quest.item(i).getAttribute("id");
@@ -120,7 +135,64 @@
                 event.preventDefault();
             }
 
+            function validate() {
+                var textName = document.getElementById("testname").value;
+                if (textName == '') {
+                    listError.push("Введите название теста");
+                }
+
+                let counterContainer = document.getElementById("baseContainer").children.length;
+
+                if (counterContainer == 1) {
+                    listError.push("Добавьте ответ");
+                }
+                for (var i = 1; i < counterContainer; i++) {
+                    if (deletableQ.indexOf(i) >= 0) {
+                        continue;
+                    }
+                    else {
+                        let question = document.getElementById("q" + i).children;
+                        let questName = question.item(0).children.item(0).value//question name input
+
+                        let counterAnswers = question.length;
+
+                        if (questName == '') {
+                            listError.push("Введите текст вопроса в вопросе № " + i);
+                        }
+                        if (counterAnswers == 1) {
+                            listError.push("Добавьте ответ в вопрос № " + i);
+                        }
+                        let counterBox = 0;
+                        for (var j = 1; j < counterAnswers; j++) {
+                            let box = question.item(j).children.item(0).children.item(0).checked; // box checked
+                            let ansI = question.item(j).children.item(0).children.item(1).value;//answer text input
+                            if (box === false) {
+                                counterBox++;
+                            }
+
+                            if (ansI.length == 0) {
+                                listError.push("Введите текст ответа вопса № " + i + " вопрос: " + j);
+                            }
+                        }
+                        if (counterBox == counterAnswers - 1 && counterAnswers > 1) {
+                            listError.push("Выберите хотя бы одн правильный ответ в вопросе " + questName);
+                        }
+                    }
+                }
+
+                let counterChild = document.getElementById("listErrors").children.length;
+                if (counterChild > 0) {
+                    for (var i = 0; i < counterChild; i++) {
+                        let el = document.getElementById("error");
+                        document.getElementById("error").remove();
+                    }
+                }
+
+                event.preventDefault();
+            }
+
             function apply() {
+                validate();
                 for (var i = 1; i <= numAnswer; i++) {
                     if (deletable.indexOf(i) >= 0) {
                         continue;
@@ -129,14 +201,31 @@
                         document.getElementById("ka" + i).value = document.getElementById("ia" + i).value;
                     }
                 }
-                document.getElementById("sbtn").style.visibility = "visible";
+                if (listError.length == 0) {
+                    document.getElementById("sbtn").style.visibility = "visible";
+                }
+                else {
+                    let errors = '';
+                    for (var i = 0; i < listError.length; i++) {
+
+                        let childComp = document.getElementById("listErrors");
+                        let div = document.createElement('div');
+                        div.innerHTML = '<div>' + listError[i] + '</div>';
+                        childComp.appendChild(div).setAttribute("id", "error");
+                    }
+
+                    listError = [];
+                }
                 event.preventDefault();
             }
-        </script>
-            <div>
-                <button onclick="apply()">Сохранить</button>
-                <button onclick="out()">out</button>
-                <input id="sbtn" style="visibility:hidden" type="submit" asp-action="GetTest" />
-            </div>
-        
-    </form>
+
+            function chngType(num) {
+                let children = document.getElementById("q" + num).children;
+                console.log(children);
+                let len = children.length;
+                for (var i = 1; i < len; i++) {
+                    let type = children.item(i).children.item(0).children.item(0).type = getType(num);
+                }
+            }
+    </script>
+</form>

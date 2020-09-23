@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Test\**" />
+    <Content Remove="Views\Test\**" />
+    <EmbeddedResource Remove="Views\Test\**" />
+    <None Remove="Views\Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controllers\TestController.cs" />
     <Compile Remove="Migrations\20200901163923_addTest&amp;Mark.cs" />
     <Compile Remove="Migrations\20200901163923_addTest&amp;Mark.Designer.cs" />

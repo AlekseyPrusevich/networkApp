@@ -34,4 +34,27 @@
       </answer>
     </answers>
   </question>
+  <question num="3">
+    <textQuestion>Q3</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>A1</textAnswer>
+        <type>checkbox</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>A2</textAnswer>
+        <type>checkbox</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>A3</textAnswer>
+        <type>checkbox</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
 </questions>

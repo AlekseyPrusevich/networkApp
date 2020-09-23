@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using networkApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using networkApp.Controllers;
 
 namespace networkApp
 {
@@ -26,6 +27,8 @@ namespace networkApp
 
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
+
+            services.AddSingleton<FileName>();
 
             services.AddControllersWithViews();
         }

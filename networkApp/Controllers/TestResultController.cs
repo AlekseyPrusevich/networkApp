@@ -46,7 +46,6 @@ namespace networkApp.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(string fi, int? group, string testName)
         {
-
             //full
             if (!string.IsNullOrEmpty(fi) && group != null && !string.IsNullOrEmpty(testName))
             {
@@ -72,7 +71,17 @@ namespace networkApp.Controllers
                                 }
                             }
                         }).ToListAsync();
-                return View("Index", result);
+                if (result.Count != 0)
+                {
+                    ViewBag.EmptyQuery = result.Count;
+                    return View("Index", result);
+                }
+                else
+                {
+                    ViewBag.EmptyQuery = 0;
+                    return View("Index");
+                }
+                
             }// 1 i 2
             else if (!string.IsNullOrEmpty(fi) && group != null && string.IsNullOrEmpty(testName))
             {
@@ -97,7 +106,16 @@ namespace networkApp.Controllers
                                 }
                            }
                        }).ToListAsync();
-                return View("Index", result);
+                if (result.Count != 0)
+                {
+                    ViewBag.EmptyQuery = result.Count;
+                    return View("Index", result);
+                }
+                else
+                {
+                    ViewBag.EmptyQuery = 0;
+                    return View("Index");
+                }
             }// 1 i 3
             else if (!string.IsNullOrEmpty(fi) && group == null && !string.IsNullOrEmpty(testName))
             {
@@ -122,7 +140,16 @@ namespace networkApp.Controllers
                                 }
                             }
                         }).ToListAsync();
-                return View("Index", result);
+                if (result.Count != 0)
+                {
+                    ViewBag.EmptyQuery = result.Count;
+                    return View("Index", result);
+                }
+                else
+                {
+                    ViewBag.EmptyQuery = 0;
+                    return View("Index");
+                }
             }//2 i 3
             else if (string.IsNullOrEmpty(fi) && group != null && !string.IsNullOrEmpty(testName))
             {
@@ -170,7 +197,16 @@ namespace networkApp.Controllers
                                 }
                             }
                         }).ToListAsync();
-                return View("Index", result);
+                if (result.Count != 0)
+                {
+                    ViewBag.EmptyQuery = result.Count;
+                    return View("Index", result);
+                }
+                else
+                {
+                    ViewBag.EmptyQuery = 0;
+                    return View("Index");
+                }
             }//2 only
             else if (string.IsNullOrEmpty(fi) && group != null && string.IsNullOrEmpty(testName))
             {
@@ -193,7 +229,16 @@ namespace networkApp.Controllers
                                 }
                             }
                         }).ToListAsync();
-                return View("Index", result);
+                if (result.Count != 0)
+                {
+                    ViewBag.EmptyQuery = result.Count;
+                    return View("Index", result);
+                }
+                else
+                {
+                    ViewBag.EmptyQuery = 0;
+                    return View("Index");
+                }
             }//3 only 
             else if (string.IsNullOrEmpty(fi) && group == null && !string.IsNullOrEmpty(testName))
             {
@@ -216,7 +261,16 @@ namespace networkApp.Controllers
                                 }
                             }
                         }).ToListAsync();
-                return View("Index", result);
+                if (result.Count != 0)
+                {
+                    ViewBag.EmptyQuery = result.Count;
+                    return View("Index", result);
+                }
+                else
+                {
+                    ViewBag.EmptyQuery = 0;
+                    return View("Index");
+                }
             }// all empty
             else
             {
@@ -237,7 +291,16 @@ namespace networkApp.Controllers
                         }
                     }).ToListAsync();
 
-                return View("Index", result);
+                if (result.Count != 0)
+                {
+                    ViewBag.EmptyQuery = result.Count;
+                    return View("Index", result);
+                }
+                else
+                {
+                    ViewBag.EmptyQuery = 0;
+                    return View("Index");
+                }
             }
         }
     }

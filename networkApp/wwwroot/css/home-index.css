@@ -1,0 +1,167 @@
+html {
+    font-size: 16px;
+    font-family: Tahoma, sans-serif;
+}
+
+.hero {
+    display: flex;
+    max-width: 1140px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.hero__image {
+    margin-top: 10.8rem;
+    align-self: flex-end;
+    width: 50%;
+    height: 40.3rem;
+    position: relative;
+}
+
+.hero__image img {
+    position: absolute;
+}
+
+.hero__image-img {
+    left: 3em;  
+}
+
+.hero__bacground-image {
+    top: 5em;
+    left: -1.7em;
+}
+
+
+.hero__greeting {
+    line-height: 1.2;
+    margin-top: 22rem;
+    margin-left: 6rem;
+    width: 30rem;
+}
+  
+  .hero__greeting-title {
+    font-family: 'Montserrat-Light', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: #2b2a2c;
+  }
+  
+  .hero__greeting-subtitle {
+    margin: -3px 0 8px 0px;
+    padding: 0;
+    font-size: 46px;
+    font-weight: 700;
+  }
+  
+  .hero__greeting-subject {
+    font-size: 18px;
+    letter-spacing: .1em;
+  }
+  
+  .hero__social {
+    margin: 2rem 0 1.8rem -4px;
+  }
+  
+  .social-list {
+    display: flex;
+    text-decoration: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .social-list__item {
+    margin-bottom: 10px;
+    padding: 0 5px;
+  }
+  
+  .social {
+    display: block;
+    width: 42px;
+    height: 41px;
+    transition: all 0.15s ease;
+  }
+  
+  .social:hover {
+    opacity: 0.7;
+  }
+  
+  .social--vk {
+    
+    background: url('logo/vk.png') no-repeat;
+    background-color: #5282b8;
+  }
+
+.social--vb {
+    background: url('logo/viber.png') no-repeat;
+    background-color: #7d51a0;
+}
+
+.social--email {
+    background: url('logo/mail.png') no-repeat;
+    background-color: #0c54a0;
+}
+
+  .social {
+    background-size: contain;
+  }
+
+.hero__greeting__btn {
+    display: flex;
+    flex-direction: row;
+    font-size: .9rem;
+}
+
+.hero__greeting__btn > a {
+    text-decoration: none;
+}
+
+.hero-btn {
+    border: none;
+    background-color: transparent;
+    padding: 0 !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.hero-button {
+    padding: .8rem 1rem;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid #6a696b;
+    border-radius: 3rem;
+    color: #6a696b;
+    line-height: 1.2;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.hero-button:hover {
+    text-decoration: none;
+}
+
+.btn--active {
+    margin-right: 1rem;
+}
+
+a .hero-button:hover,
+a .hero-button:focus,
+a .hero-button:active,
+input .hero-button:hover,
+input .hero-button:focus,
+input .hero-button:active,
+button .hero-button:hover,
+button .hero-button:focus,
+button .hero-button:active {
+    background-color: #2b2a2c;
+    border: 1px solid #2b2a2c;
+    color: #fff;
+}

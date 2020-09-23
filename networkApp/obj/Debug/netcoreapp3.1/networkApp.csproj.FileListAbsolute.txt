@@ -1194,8 +1194,6 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\tr\Micr
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Result.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Index.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Test\Index.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Tests\Этот_тест_я_использовал_как_тестовый.xml
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Tests\Этот_тест_я_использовал_как_тестовый.xml
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestResult\Index.cshtml.g.cs
@@ -1203,3 +1201,8 @@ C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcor
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Edit.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\EditConstructor.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\libman.json
+E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\libman.json
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Create.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Edit.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\EditConstructor.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestResult\Index.cshtml.g.cs

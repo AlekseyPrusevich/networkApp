@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <questions>
-  <question num="11">
+  <question num="1">
     <textQuestion>Q1</textQuestion>
     <answers>
       <answer>
@@ -23,30 +23,24 @@
       </answer>
     </answers>
   </question>
-  <question num="21">
-    <textQuestion>Q1</textQuestion>
+  <question num="2">
+    <textQuestion>Q2</textQuestion>
     <answers>
       <answer>
         <numAnswer>1</numAnswer>
         <textAnswer>A1</textAnswer>
         <type>radio</type>
-        <true-answer>true</true-answer>
+        <true-answer>false</true-answer>
       </answer>
       <answer>
         <numAnswer>2</numAnswer>
         <textAnswer>A2</textAnswer>
         <type>radio</type>
-        <true-answer>false</true-answer>
+        <true-answer>true</true-answer>
       </answer>
       <answer>
         <numAnswer>3</numAnswer>
         <textAnswer>A3</textAnswer>
-        <type>radio</type>
-        <true-answer>true</true-answer>
-      </answer>
-      <answer>
-        <numAnswer>4</numAnswer>
-        <textAnswer>A4</textAnswer>
         <type>radio</type>
         <true-answer>false</true-answer>
       </answer>
