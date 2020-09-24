@@ -2,13 +2,19 @@
 @{
     ViewBag.Title = "Добавить роль";
 }
+<div class="login-block">
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-<div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-action="Create" method="post">
+        <div class="login__group">
+            <input class="login__input" name="name" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label class="login__label" for="name" >Наименование роли</label>
+        </div>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label for="name">Новая роль</label>
-        <input name="name" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Добавить</button>
-</form>
+        <div class="login__submit">
+            <input class="login__btn" type="submit" value="Добавить" />
+        </div>
+    </form>
+</div>

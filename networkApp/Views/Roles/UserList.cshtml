@@ -3,13 +3,13 @@
     ViewBag.Title = "Список пользователей";
 } 
 
-<h2>Список пользователей</h2>
+<h2 class="login__header">Список пользователей</h2>
 <table class="table">
     @foreach (var user in Model)
     {
         <tr>
             <td>@user.Email</td>
-            <td>
+            <td style="display: flex; flex-direction: row-reverse;">
                 <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-userid="@user.Id">Права доступа</a>
             </td>
         </tr>

@@ -3,7 +3,7 @@
     ViewBag.Title = "Список пользователей";
 }
 
-<a asp-action="Create">Добавить пользователя</a>
+<a class="btn btn-sm btn-primary role-btn" asp-action="Create">Добавить пользователя</a>
 
 <table class="table">
     <tr><th>Email</th><th>Фамилия Имя</th><th>Группа</th><th></th></tr>
@@ -13,7 +13,7 @@
     <td>@user.Email</td>
     <td>@user.LastName @user.FirstName</td>
     <td>@user.Group</td>
-    <td>
+    <td style="display: flex; flex-direction: row-reverse;">
         <form asp-action="Delete" asp-route-id="@user.Id" method="post">
             <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Изменить</a>
             <a class="btn btn-sm btn-primary" asp-action="ChangePassword" asp-route-id="@user.Id">Сменить пароль</a>
