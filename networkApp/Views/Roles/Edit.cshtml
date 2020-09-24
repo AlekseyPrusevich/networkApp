@@ -4,14 +4,14 @@
     ViewBag.Title = "Изменить роль";
 }
 
-<h2>Изменение ролей для пользователя @Model.UserEmail</h2>
+<h2 class="login__header">Изменение ролей для пользователя @Model.UserEmail</h2>
 
 <form asp-action="Edit" method="post">
     <input type="hidden" name="userId" value="@Model.UserId" />
-    <div class="form-group">
+    <div class="form-group" style="font-size: 22px">
         @foreach (IdentityRole role in Model.AllRoles)
         {
-            <input type="radio" name="roles" value="@role.Name"
+            <input type="radio" name="roles" value="@role.Name" style="margin-right: .5rem"
                    @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />@role.Name <br />
             }
     </div>

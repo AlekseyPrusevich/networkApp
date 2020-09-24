@@ -31,23 +31,24 @@
                 </button>
                 <nav class="header-nav navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="header-nav__list navbar-nav flex-grow-1">
-                        <li class="topic__link header-nav__item  nav-item">
+
+                        <li class="topic__link header-nav__item">
                             <a href="#"><span>Темы</span></a>
                             <ul class="topic__list">
-                                <li class="topic__item"><a class="text-dark" asp-controller="Lectures" asp-action="Motherboard">Материнская плата</a></li>
-                                <li class="topic__item"><a class="text-dark" asp-controller="Lectures" asp-action="Processors">Процессоры</a></li>
-                                <li class="topic__item"><a class="text-dark" asp-controller="Lectures" asp-action="Memory">Оперативная память</a></li>
+                                <li class="topic__item"><a asp-controller="Lectures" asp-action="Motherboard">Материнская плата</a></li>
+                                <li class="topic__item"><a asp-controller="Lectures" asp-action="Processors">Процессоры</a></li>
+                                <li class="topic__item"><a asp-controller="Lectures" asp-action="Memory">Оперативная память</a></li>
                             </ul>
                         </li>
 
-                        <li class="topic__link header-nav__item  nav-item">
+                        <li class="topic__link header-nav__item">
                             <a href="#"><span>Вопросы</span></a>
                             <ul class="topic__list">
                                 @{
                                     DirectoryInfo dir = new DirectoryInfo(@"Tests\");
                                     foreach (var item in dir.GetFiles())
                                     {
-                                        <li class="topic__item"><a class="text-dark" asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) " asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
+                                        <li class="topic__item"><a asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) " asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
                                     }
                                 }
 
@@ -56,14 +57,14 @@
 
                         @if (User.IsInRole("teacher"))
                         {
-                            <li class="header-nav__item nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TestResult" asp-action="Index">Результаты тестирования</a>
+                            <li class="topic__link header-nav__item">
+                                <a asp-area="" asp-controller="TestResult" asp-action="Index"><span>Результаты</span></a>
                             </li>
-                            <li class="topic__link header-nav__item  nav-item">
-                                <a href="#"><span>Конструктор тестов</span></a>
+                            <li class="topic__link header-nav__item">
+                                <a href="#"><span>Конструктор</span></a>
                                 <ul class="topic__list">
-                                    <li class="topic__item"><a class="text-dark" asp-controller="TestConstructor" asp-action="Create">Создать тест</a></li>
-                                    <li class="topic__item"><a class="text-dark" asp-controller="TestConstructor" asp-action="Edit">Изменить тест</a></li>
+                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Create">Создать тест</a></li>
+                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Edit">Изменить тест</a></li>
                                 </ul>
                             </li>
                         }
@@ -71,21 +72,21 @@
 
                         @if (User.IsInRole("admin"))
                         {
-                            <li class="header-nav__item nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TestResult" asp-action="Index">Результаты тестирования</a>
+                            <li class="topic__link header-nav__item">
+                                <a asp-area="" asp-controller="TestResult" asp-action="Index"><span>Результаты</span></a>
                             </li>
-                            <li class="topic__link header-nav__item  nav-item">
-                                <a href="#"><span>Конструктор тестов</span></a>
+                            <li class="topic__link header-nav__item">
+                                <a href="#"><span>Конструктор</span></a>
                                 <ul class="topic__list">
-                                    <li class="topic__item"><a class="text-dark" asp-controller="TestConstructor" asp-action="Create">Создать тест</a></li>
-                                    <li class="topic__item"><a class="text-dark" asp-controller="TestConstructor" asp-action="Edit">Изменить тест</a></li>
+                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Create">Создать тест</a></li>
+                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Edit">Изменить тест</a></li>
                                 </ul>
                             </li>
-                            <li class="header-nav__item nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Пользователи</a>
+                            <li class="topic__link header-nav__item">
+                                <a asp-area="" asp-controller="Users" asp-action="Index"><span>Пользователи</span></a>
                             </li>
-                            <li class="header-nav__item nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Роли</a>
+                            <li class="topic__link header-nav__item">
+                                <a asp-area="" asp-controller="Roles" asp-action="Index"><span>Роли</span></a>
                             </li>
                         }
 

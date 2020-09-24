@@ -9,7 +9,7 @@
     {
         <tr>
             <td>@role.Name</td>
-            <td>
+            <td style="display: flex; flex-direction: row-reverse;">
                 <form asp-action="Delete" asp-route-id="@role.Id" method="post">
                     <button type="submit" class="btn btn-sm btn-danger">
                         Удалить
@@ -19,5 +19,5 @@
         </tr>
     }
 </table>
-<a asp-action="Create">Добавить роль</a>
-<a asp-action="UserList">Список пользователей</a>
+<a class="btn btn-sm btn-primary role-btn" asp-action="Create" style="margin-right: 1rem; width: 10rem">Добавить роль</a>
+<a class="btn btn-sm btn-primary role-btn" asp-action="UserList">Список пользователей</a>
