@@ -1,8 +1,10 @@
 ﻿.filter-result {
     display: flex;
     min-height: 2rem;
-    margin: 0, auto, 2rem, auto;
-    width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    width: 67rem;
 }
 
 .filter-result_item {
@@ -39,7 +41,7 @@
 .filter__input {
     height: 2.1rem;
     padding-left: 5px;
-    min-width: 20rem;
+    min-width: 18rem;
     border-radius: 5px;
 }
 

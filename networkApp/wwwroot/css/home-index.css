@@ -1,7 +1,14 @@
-html {
+main {
     font-size: 16px;
     font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
 }
+
+h3 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
 
 .hero {
     display: flex;
@@ -14,7 +21,7 @@ html {
 }
 
 .hero__image {
-    margin-top: 10.8rem;
+    margin-top: 6rem;
     align-self: flex-end;
     width: 50%;
     height: 40.3rem;
@@ -37,7 +44,7 @@ html {
 
 .hero__greeting {
     line-height: 1.2;
-    margin-top: 22rem;
+    margin-top: 18rem;
     margin-left: 6rem;
     width: 30rem;
 }
@@ -108,9 +115,9 @@ html {
     background-color: #0c54a0;
 }
 
-  .social {
+.social {
     background-size: contain;
-  }
+}
 
 .hero__greeting__btn {
     display: flex;
@@ -165,3 +172,121 @@ button .hero-button:active {
     border: 1px solid #2b2a2c;
     color: #fff;
 }
+
+/* вторая страница */
+
+.cont {
+    display: flex;
+    max-width: 1140px;
+    width: 100%;
+    height: 50rem;
+    margin-top: 5rem;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.content-panel {
+    position: absolute;
+    width: 40%;
+    height: 20rem;
+    box-shadow: 7px 7px 9px 2px rgba(0,0,0,0.5);
+}
+
+.content-panel-1 {
+    left: 5%;
+}
+
+.content-panel-2 {
+    right: 5%;
+}
+
+.content-panel-3 {
+    top: 25rem;
+    left: 5%;
+}
+
+.content-panel-4 {
+    top: 25rem;
+    right: 5%;
+}
+
+.panel__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+    .panel__image img {
+        display: block;
+        align-self: center;
+        margin: auto;
+        padding: 0;
+        width: 100%;
+    }
+
+.text__wrap {
+    position: relative;
+    height: 15%;
+}
+
+.text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.description__header {
+    margin-left: 20px;
+    padding: 4px 30px;
+    margin-top: 6px;
+    position: absolute;
+    color: rgba(240, 240, 240, 1);
+}
+
+.description__text {
+    margin-right: 32px;
+    text-align: justify;
+    text-overflow: ellipsis;
+    display: none;
+}
+
+.content-panel:hover {
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    transition: .2s;
+}
+
+    .content-panel:hover .text__wrap {
+        width: 50%;
+    }
+
+        .content-panel:hover .text__wrap .text {
+            top: 12px;
+            background-color: rgba(0, 0, 0, 0.0);
+            box-shadow: none;
+        }
+
+            .content-panel:hover .text__wrap .text .description__header {
+                color: black;
+                padding: 0;
+                margin-top: 0;
+            }
+
+            .content-panel:hover .text__wrap .text .description__text {
+                margin-top: 3rem;
+                display: block;
+            }
+
+    .content-panel:hover .panel__image {
+        display: flex;
+        margin: auto;
+        width: 40%;
+        height: 96%;
+    }
