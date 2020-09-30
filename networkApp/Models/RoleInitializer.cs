@@ -1,4 +1,4 @@
-﻿using networkApp.Models;  // пространство имен модели User
+﻿using networkApp.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 

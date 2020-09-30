@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace networkApp.ViewModels
@@ -26,7 +25,7 @@ namespace networkApp.ViewModels
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(100, ErrorMessage = "Поле {0} должно иметь минимум {2} и максимум {1} символов.", MinimumLength = 5)]
+        [StringLength(100, ErrorMessage = "Поле {0} должно иметь минимум {2} и максимум {1} символов.", MinimumLength = 6)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
