@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace networkApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin, teacher")]
     public class TestResultController : Controller
     {
         ApplicationContext context;

@@ -1206,3 +1206,4 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\V
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\Edit.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\EditConstructor.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestResult\Index.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\web.config

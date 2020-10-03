@@ -2,25 +2,20 @@
 using Microsoft.AspNetCore.Mvc;
 using networkApp.ViewModels.Testing;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace networkApp.Controllers
 {
-
     public class FileName
     {
         public string oldName { get; set; }
         public string oldNameFull { get; set; }
     }
 
-    [Authorize]
+    [Authorize(Roles = "admin, teacher")]
     public class TestConstructorController : Controller
     {
-        //private static string oldName { get; set; }
-        //private static string oldNameFull { get; set; }
-
         [HttpGet]
         public IActionResult Create()
         {
