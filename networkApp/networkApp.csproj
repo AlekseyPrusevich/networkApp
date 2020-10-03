@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\ErrorController.cs" />
     <Compile Remove="Controllers\TestController.cs" />
     <Compile Remove="Migrations\20200901163923_addTest&amp;Mark.cs" />
     <Compile Remove="Migrations\20200901163923_addTest&amp;Mark.Designer.cs" />
@@ -19,7 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Error\NotFound.cshtml" />
     <Content Remove="Views\Home\Privacy.cshtml" />
+    <Content Remove="wwwroot\css\error.css" />
   </ItemGroup>
 
   <ItemGroup>
