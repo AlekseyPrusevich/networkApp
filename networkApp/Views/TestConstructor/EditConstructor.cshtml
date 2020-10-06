@@ -207,13 +207,11 @@
                 else {
                     let errors = '';
                     for (var i = 0; i < listError.length; i++) {
-
                         let childComp = document.getElementById("listErrors");
                         let div = document.createElement('div');
                         div.innerHTML = '<div>' + listError[i] + '</div>';
                         childComp.appendChild(div).setAttribute("id", "error");
                     }
-
                     listError = [];
                 }
                 event.preventDefault();
