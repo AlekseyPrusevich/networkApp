@@ -9,11 +9,16 @@ namespace networkApp.Models
 {
     public class ApplicationContext : IdentityDbContext<User>
     {
+        public DbSet<Tests> Tests { get; set; }
+        public DbSet<GroupInfo> GroupInfo { get; set; }
+        public DbSet<UserToTests> UserToTests { get; set; }
+        public DbSet<TestProp> TestProp { get; set; }
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
         }
+
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
@@ -35,9 +40,6 @@ namespace networkApp.Models
             SetDateTime();
             return base.SaveChangesAsync(cancellationToken);
         }
-
-        public DbSet<Tests> Tests { get; set; }
-
 
         private void SetDateTime()
         {

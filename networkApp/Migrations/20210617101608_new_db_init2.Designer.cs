@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using networkApp.Models;
 
 namespace networkApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210617101608_new_db_init2")]
+    partial class new_db_init2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -250,7 +252,7 @@ namespace networkApp.Migrations
                     b.Property<int>("Group")
                         .HasColumnType("int");
 
-                    b.Property<int?>("GroupInfoId")
+                    b.Property<int>("GroupInfoId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -370,7 +372,7 @@ namespace networkApp.Migrations
             modelBuilder.Entity("networkApp.Models.GroupInfo", b =>
                 {
                     b.HasOne("networkApp.Models.UserToTests", null)
-                        .WithMany("GroupsInfo")
+                        .WithMany("Users")
                         .HasForeignKey("UserToTestsId");
                 });
 
@@ -392,7 +394,9 @@ namespace networkApp.Migrations
                 {
                     b.HasOne("networkApp.Models.GroupInfo", "GroupInfo")
                         .WithMany()
-                        .HasForeignKey("GroupInfoId");
+                        .HasForeignKey("GroupInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

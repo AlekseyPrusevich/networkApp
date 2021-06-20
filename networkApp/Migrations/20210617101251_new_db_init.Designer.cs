@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using networkApp.Models;
 
 namespace networkApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210617101251_new_db_init")]
+    partial class new_db_init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,34 +165,9 @@ namespace networkApp.Migrations
                     b.Property<string>("Specialize")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserToTestsId")
-                        .HasColumnType("int");
-
                     b.HasKey("GroupInfoId");
 
-                    b.HasIndex("UserToTestsId");
-
                     b.ToTable("GroupInfo");
-                });
-
-            modelBuilder.Entity("networkApp.Models.TestProp", b =>
-                {
-                    b.Property<int>("TestPropId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("FilePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UserToTestsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("TestPropId");
-
-                    b.HasIndex("UserToTestsId");
-
-                    b.ToTable("TestProp");
                 });
 
             modelBuilder.Entity("networkApp.Models.Tests", b =>
@@ -250,7 +227,7 @@ namespace networkApp.Migrations
                     b.Property<int>("Group")
                         .HasColumnType("int");
 
-                    b.Property<int?>("GroupInfoId")
+                    b.Property<int>("GroupInfoId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -304,18 +281,6 @@ namespace networkApp.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("networkApp.Models.UserToTests", b =>
-                {
-                    b.Property<int>("UserToTestsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("UserToTestsId");
-
-                    b.ToTable("UserToTests");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -367,20 +332,6 @@ namespace networkApp.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("networkApp.Models.GroupInfo", b =>
-                {
-                    b.HasOne("networkApp.Models.UserToTests", null)
-                        .WithMany("GroupsInfo")
-                        .HasForeignKey("UserToTestsId");
-                });
-
-            modelBuilder.Entity("networkApp.Models.TestProp", b =>
-                {
-                    b.HasOne("networkApp.Models.UserToTests", null)
-                        .WithMany("Tests")
-                        .HasForeignKey("UserToTestsId");
-                });
-
             modelBuilder.Entity("networkApp.Models.Tests", b =>
                 {
                     b.HasOne("networkApp.Models.User", "User")
@@ -392,7 +343,9 @@ namespace networkApp.Migrations
                 {
                     b.HasOne("networkApp.Models.GroupInfo", "GroupInfo")
                         .WithMany()
-                        .HasForeignKey("GroupInfoId");
+                        .HasForeignKey("GroupInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
