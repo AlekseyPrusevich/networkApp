@@ -40,7 +40,6 @@ namespace networkApp.Controllers
                 }).ToListAsync();
             
             return View("Index", result);
-            
         }
 
         [HttpPost]

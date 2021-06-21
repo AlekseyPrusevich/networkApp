@@ -1,0 +1,87 @@
+﻿<div class="accessControl__container">
+    <form action="post">
+        <div class="group__menu">
+            <span>Группы</span>
+            <div>
+                <input type="text" list="group" name="group" placeholder="Введите или выберите из списка" />
+                <datalist id="group" name="group">
+                    <option>430</option>
+                    <option>420</option>
+                    <option>410</option>
+                </datalist>
+
+                <a class="groupList-btn accessControl-btn" onclick="showGroupPanel()">Экспортировать настройки доступа</a>
+            </div>
+            <button class="groupSelect-btn accessControl-btn" onclick="">Выбрать</button>
+        </div>
+    </form>
+
+    <form action="post">
+        <div class="test__list">
+            <span>Доступные тесты</span>
+            <ul class="test__items">
+                <li class="test__item">
+                    <span id="test-1">ТЕСТ_1</span>
+                    <input type="checkbox" id="test-1" name="test" value="ТЕСТ_1" />
+                </li>
+                <li class="test__item">
+                    <span id="test-2">Тест da wd aw ar adaw  qweq rq q tqt a №2</span>
+                    <input type="checkbox" id="test-2" name="test" />
+                </li>
+                <li class="test__item">
+                    <span id="test-3">Тест ad ad a dageg se qf qwqd №3</span>
+                    <input type="checkbox" id="test-3" name="test" />
+                </li>
+                <li class="test__item">
+                    <span id="test-4">Тест ad ad a dageg se qf qsg g se wqd №4</span>
+                    <input type="checkbox" id="test-4" name="test" />
+                </li>
+                <li class="test__item">
+                    <span id="test-5">Тест ad ad a dageg se qfa wf afw af qwqd №5</span>
+                    <input type="checkbox" id="test-5" name="test" />
+                </li>
+                <li class="test__item">
+                    <span id="test-6">Тест ad ad a dageg saf a fa fa faf af af awfaf awfaw awf ae qf qwqd №6</span>
+                    <input type="checkbox" id="test-6" name="test" />
+                </li>
+            </ul>
+        </div>
+
+        <button type="submit" asp-action="GetTest">Сохранить изменения</button>
+    </form>
+
+    <div class="group_list__panel" id="group_list__panel">
+        <ul class="group__list">
+            <li class="group__item">
+                <span id="group-1">ТЕСТ_1</span>
+                <input type="checkbox" id="group-1" name="group" value="ТЕСТ_1" />
+            </li>
+            <li class="group__item">
+                <span id="group-1">ТЕСТ_1</span>
+                <input type="checkbox" id="group-1" name="group" value="ТЕСТ_1" />
+            </li>
+            <li class="group__item">
+                <span id="group-1">ТЕСТ_1 af aah fa hfa fagfh agjhfg afg hagfg ajfg ajgfhag fgahkf gahfg ahgfh agfha gfjha gfa ka kfajk gfa</span>
+                <input type="checkbox" id="group-1" name="group" value="ТЕСТ_1" />
+            </li>
+            <li class="group__item">
+                <span id="group-1">ТЕСТ_1</span>
+                <input type="checkbox" id="group-1" name="group" value="ТЕСТ_1" />
+            </li>
+            <li class="group__item">
+                <span id="group-1">ТЕСТ_1</span>
+                <input type="checkbox" id="group-1" name="group" value="ТЕСТ_1" />
+            </li>
+            <li class="group__item">
+                <span id="group-1">ТЕСТ_1</span>
+                <input type="checkbox" id="group-1" name="group" value="ТЕСТ_1" />
+            </li>
+        </ul>
+    </div>
+
+    <script>
+            function showGroupPanel() {
+                document.getElementById("group_list__panel").setAttribute("style", "display: block");
+            }
+    </script>
+</div>

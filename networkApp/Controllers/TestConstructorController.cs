@@ -33,6 +33,29 @@ namespace networkApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<ActionResult> AccessControl()
+        {
+            var result = await context.Tests.Include(t => t.User).Where(t => t.User.Id == t.UserId).Select(t =>
+                new TestResultModel
+                {
+                    FNpLN = t.User.FirstName + " " + t.User.LastName,
+                    Group = t.User.Group,
+                    Details = new List<DetailResult>()
+                    {
+                        new DetailResult
+                        {
+                            CountAllQuestions = t.CountAllQuestions,
+                            Result = t.Mark,
+                            TestName = t.Name,
+                            TestDate = t.DateTest
+                        }
+                    }
+                }).ToListAsync();
+
+            return View("AccessControl", result);
+        }
+
         private async Task deleteTestAsync(string fileName)
         {
             await Task.Run(() => deleteTest(fileName));
