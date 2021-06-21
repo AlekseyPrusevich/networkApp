@@ -49,6 +49,12 @@ namespace networkApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult AccessControl()
+        {
+            return View();
+        }
+
         //Delte Test
         [HttpPost]
         public async Task<ActionResult> Delete(string fileName)
@@ -57,7 +63,7 @@ namespace networkApp.Controllers
 
             return View("Edit");
         }
-       
+               
 
         [HttpPost]
         public async Task<IActionResult> GetTest(string testName,

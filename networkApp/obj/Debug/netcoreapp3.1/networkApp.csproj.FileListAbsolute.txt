@@ -436,7 +436,6 @@ F:\networkApp\networkApp\obj\Debug\netcoreapp3.1\staticwebassets\networkApp.Stat
 F:\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.genruntimeconfig.cache
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\appsettings.json
-E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\networkApp.exe
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\networkApp.deps.json
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\networkApp.runtimeconfig.json
@@ -1207,3 +1206,5 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\V
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\EditConstructor.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestResult\Index.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\bin\Debug\netcoreapp3.1\web.config
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\scopedcss\bundle\networkApp.styles.css
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\TestConstructor\AccessСontrol.cshtml.g.cs

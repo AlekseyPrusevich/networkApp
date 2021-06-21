@@ -1,0 +1,83 @@
+.accessControl__container {
+    padding: 30px;
+}
+
+.group__menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.group__menu > div {
+    margin-bottom: 10px;
+}
+
+.group__menu input {
+    width: 200px;
+}
+
+.accessControl-btn {
+    background-color: rgb(0, 102, 255);
+    border:rgb(0, 102, 255);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+
+.groupSelect-btn {
+    width: 210px;
+}
+
+.test__list {
+    margin-top: 20px;
+}
+
+.test__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.test__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 10px 20px;
+    padding: 5px 10px;
+    border: 1px solid gray;
+}
+
+.group_list__panel {
+    position: fixed;
+    left: 35%;
+    top: 20%;
+    display: none;
+    min-width: 300px;
+    width: 30%;
+    background-color: teal;
+}
+
+.group__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.group__item {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 48%;
+    margin: 5px 1%;
+    padding: 5px 10px;
+    border: 1px solid gray;
+}
