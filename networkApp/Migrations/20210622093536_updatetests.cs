@@ -2,22 +2,21 @@
 
 namespace networkApp.Migrations
 {
-    public partial class addCountQuestionsAll : Migration
+    public partial class updatetests : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "CountAllQuestions",
-                table: "Tests",
-                nullable: false,
-                defaultValue: 0);
+            migrationBuilder.AddColumn<string>(
+                name: "Specialize",
+                table: "TestProp",
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "CountAllQuestions",
-                table: "Tests");
+                name: "Specialize",
+                table: "TestProp");
         }
     }
 }

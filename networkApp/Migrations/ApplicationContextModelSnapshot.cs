@@ -163,12 +163,7 @@ namespace networkApp.Migrations
                     b.Property<string>("Specialize")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserToTestsId")
-                        .HasColumnType("int");
-
                     b.HasKey("GroupInfoId");
-
-                    b.HasIndex("UserToTestsId");
 
                     b.ToTable("GroupInfo");
                 });
@@ -183,12 +178,10 @@ namespace networkApp.Migrations
                     b.Property<string>("FilePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserToTestsId")
-                        .HasColumnType("int");
+                    b.Property<string>("Specialize")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TestPropId");
-
-                    b.HasIndex("UserToTestsId");
 
                     b.ToTable("TestProp");
                 });
@@ -311,7 +304,17 @@ namespace networkApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("GroupsInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TestPropId")
+                        .HasColumnType("int");
+
                     b.HasKey("UserToTestsId");
+
+                    b.HasIndex("GroupsInfoId");
+
+                    b.HasIndex("TestPropId");
 
                     b.ToTable("UserToTests");
                 });
@@ -367,20 +370,6 @@ namespace networkApp.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("networkApp.Models.GroupInfo", b =>
-                {
-                    b.HasOne("networkApp.Models.UserToTests", null)
-                        .WithMany("GroupsInfo")
-                        .HasForeignKey("UserToTestsId");
-                });
-
-            modelBuilder.Entity("networkApp.Models.TestProp", b =>
-                {
-                    b.HasOne("networkApp.Models.UserToTests", null)
-                        .WithMany("Tests")
-                        .HasForeignKey("UserToTestsId");
-                });
-
             modelBuilder.Entity("networkApp.Models.Tests", b =>
                 {
                     b.HasOne("networkApp.Models.User", "User")
@@ -393,6 +382,21 @@ namespace networkApp.Migrations
                     b.HasOne("networkApp.Models.GroupInfo", "GroupInfo")
                         .WithMany()
                         .HasForeignKey("GroupInfoId");
+                });
+
+            modelBuilder.Entity("networkApp.Models.UserToTests", b =>
+                {
+                    b.HasOne("networkApp.Models.GroupInfo", "GroupsInfo")
+                        .WithMany()
+                        .HasForeignKey("GroupsInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("networkApp.Models.TestProp", "Tests")
+                        .WithMany()
+                        .HasForeignKey("TestPropId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

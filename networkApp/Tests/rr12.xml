@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <questions>
   <question num="1">
-    <textQuestion>t</textQuestion>
+    <textQuestion>r1</textQuestion>
     <answers>
       <answer>
         <numAnswer>1</numAnswer>
-        <textAnswer>t2</textAnswer>
+        <textAnswer>1</textAnswer>
         <type>radio</type>
         <true-answer>true</true-answer>
       </answer>
