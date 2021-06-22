@@ -8,7 +8,10 @@ namespace networkApp.Models
     public class UserToTests
     {
         public int UserToTestsId { get; set; }
-        public List<GroupInfo> GroupsInfo { get; set; } //1
-        public List<TestProp> Tests { get; set; }//2,4,5,8,10
+        public int GroupsInfoId { get; set; }
+        public GroupInfo GroupsInfo { get; set; } //1
+
+        public int TestPropId { get; set; }//2,4,5,8,10
+        public TestProp Tests { get; set; }//2,4,5,8,10
     }
 }

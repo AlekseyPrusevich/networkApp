@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\**" />
     <Compile Remove="Views\Test\**" />
+    <Content Remove="Data\**" />
     <Content Remove="Views\Test\**" />
+    <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="Views\Test\**" />
+    <None Remove="Data\**" />
     <None Remove="Views\Test\**" />
   </ItemGroup>
 
@@ -44,10 +48,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>

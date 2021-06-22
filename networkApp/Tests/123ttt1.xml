@@ -5,7 +5,7 @@
     <answers>
       <answer>
         <numAnswer>1</numAnswer>
-        <textAnswer>t2</textAnswer>
+        <textAnswer>1</textAnswer>
         <type>radio</type>
         <true-answer>true</true-answer>
       </answer>

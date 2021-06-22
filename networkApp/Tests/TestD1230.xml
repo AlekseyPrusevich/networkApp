@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<questions>
+  <question num="1">
+    <textQuestion>q1</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>q1</textAnswer>
+        <type>checkbox</type>
+        <true-answer>true</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>q2</textAnswer>
+        <type>checkbox</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>3</numAnswer>
+        <textAnswer>q3</textAnswer>
+        <type>checkbox</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+  <question num="2">
+    <textQuestion>q2</textQuestion>
+    <answers>
+      <answer>
+        <numAnswer>1</numAnswer>
+        <textAnswer>q2</textAnswer>
+        <type>radio</type>
+        <true-answer>false</true-answer>
+      </answer>
+      <answer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>qq2</textAnswer>
+        <type>radio</type>
+        <true-answer>true</true-answer>
+      </answer>
+    </answers>
+  </question>
+</questions>

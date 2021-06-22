@@ -10,8 +10,8 @@ using networkApp.Models;
 namespace networkApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20200902164212_addCountQuestionsAll")]
-    partial class addCountQuestionsAll
+    [Migration("20210622093536_updatetests")]
+    partial class updatetests
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -152,6 +152,42 @@ namespace networkApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("networkApp.Models.GroupInfo", b =>
+                {
+                    b.Property<int>("GroupInfoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("GroupNum")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Specialize")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GroupInfoId");
+
+                    b.ToTable("GroupInfo");
+                });
+
+            modelBuilder.Entity("networkApp.Models.TestProp", b =>
+                {
+                    b.Property<int>("TestPropId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Specialize")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TestPropId");
+
+                    b.ToTable("TestProp");
+                });
+
             modelBuilder.Entity("networkApp.Models.Tests", b =>
                 {
                     b.Property<int>("Id")
@@ -162,11 +198,17 @@ namespace networkApp.Migrations
                     b.Property<int>("CountAllQuestions")
                         .HasColumnType("int");
 
-                    b.Property<int>("Mark")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DateTest")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Mark")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrueAnswersCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -197,8 +239,17 @@ namespace networkApp.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Group")
                         .HasColumnType("int");
+
+                    b.Property<int?>("GroupInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -235,6 +286,8 @@ namespace networkApp.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GroupInfoId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -244,6 +297,28 @@ namespace networkApp.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("networkApp.Models.UserToTests", b =>
+                {
+                    b.Property<int>("UserToTestsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("GroupsInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TestPropId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserToTestsId");
+
+                    b.HasIndex("GroupsInfoId");
+
+                    b.HasIndex("TestPropId");
+
+                    b.ToTable("UserToTests");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -302,6 +377,28 @@ namespace networkApp.Migrations
                     b.HasOne("networkApp.Models.User", "User")
                         .WithMany("Tests")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("networkApp.Models.User", b =>
+                {
+                    b.HasOne("networkApp.Models.GroupInfo", "GroupInfo")
+                        .WithMany()
+                        .HasForeignKey("GroupInfoId");
+                });
+
+            modelBuilder.Entity("networkApp.Models.UserToTests", b =>
+                {
+                    b.HasOne("networkApp.Models.GroupInfo", "GroupsInfo")
+                        .WithMany()
+                        .HasForeignKey("GroupsInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("networkApp.Models.TestProp", "Tests")
+                        .WithMany()
+                        .HasForeignKey("TestPropId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -49,6 +49,19 @@ namespace networkApp.Controllers
             return View();
         }
 
+        //AccessControl
+        [HttpGet]
+        public async Task<ActionResult> AccessControl()
+        {
+            var GroupList = await Context.GroupInfo.ToListAsync();
+            ViewBag.GroupList = GroupList;
+
+            var TestSpecialize = (await Context.TestProp.ToListAsync()).OrderBy(ts => ts.FilePath).GroupBy(ts => ts.Specialize).ToDictionary(ts => ts.Key, ts => ts.ToList());
+            ViewBag.TestSpecialize = TestSpecialize;
+
+            return View();
+        }
+
         //Delte Test
         [HttpPost]
         public async Task<ActionResult> Delete(string fileName)
