@@ -1,142 +1,97 @@
-﻿    <div class="accessControl__container">
-        <form action="post">
-            <div class="group__menu">
-                <span>Группы</span>
-                <div>
-                    <input type="text" list="group" name="group" placeholder="Введите или выберите из списка" />
-                    <datalist id="group">
-                        @foreach (var group in ViewBag.GroupList)
-                        {
-                            <option>@group.GroupNum</option>
-                        }
-                    </datalist>
+﻿@{
+    int numTest = 0;
+    int numGroup = 0;
+}
 
-                    <a class="groupList-btn accessControl-btn" onclick="showGroupPanel()">Экспортировать настройки доступа</a>
-                    <!--
-                    <a class="groupList-btn accessControl-btn" onclick="addTest(2)">Добавить тест</a>
-                    <a class="groupList-btn accessControl-btn" onclick="addGroup(2)">Добавить группу</a>
-                    -->
-                </div>
-                <button class="groupSelect-btn accessControl-btn" type="submit" asp-action="SecectGroup">Выбрать</button>
-            </div>
-        </form>
-
-        <form action="post">
-            <div class="test__list">
-                <span>Доступные тесты</span>
-                
-                    @foreach (var key in ViewBag.TestSpecialize)
+<div class="accessControl__container">
+    <form action="post">
+        <div class="group__menu">
+            <h2>Группы</h2>
+            <div>
+                <input type="text" list="group" name="group" placeholder="Введите или выберите из списка" />
+                <datalist id="group">
+                    @foreach (var group in ViewBag.GroupList)
                     {
-                        <div>
-                            
-                            <span>@key.Key</span>
-                            <ul class="test__items" id="test__items">
-                              @foreach (var value in key.Value)
-                              {
-                                    <li class="test__item">
-                                        <span id="test-1">@value.FilePath</span>
-                                        <input type="checkbox" id="test-1" name="test" value="@value.FilePath" />
-                                    </li>
-                                }
-                               
-
-                            </ul>
-
-
-                        </div>
+                        <option>@group.GroupNum</option>
                     }
+                </datalist>
 
-                    <ul class="test__items" id="test__items">
-                        <li class="test__item">
-                            <span id="test-1">ТЕСТ_1</span>
-                            <input type="checkbox" id="test-1" name="test" value="ТЕСТ_1" />
-                        </li>
-                        <li class="test__item">
-                            <span id="test-2">Тест da wd aw ar adaw  qweq rq q tqt a №2</span>
-                            <input type="checkbox" id="test-2" name="test" />
-                        </li>
-                        <li class="test__item">
-                            <span id="test-3">Тест ad ad a dageg se qf qwqd №3</span>
-                            <input type="checkbox" id="test-3" name="test" />
-                        </li>
-                        <li class="test__item">
-                            <span id="test-4">Тест ad ad a dageg se qf qsg g se wqd №4</span>
-                            <input type="checkbox" id="test-4" name="test" />
-                        </li>
-                        <li class="test__item">
-                            <span id="test-5">Тест ad ad a dageg se qfa wf afw af qwqd №5</span>
-                            <input type="checkbox" id="test-5" name="test" />
-                        </li>
-                        <li class="test__item">
-                            <span id="test-6">Тест ad ad a dageg saf a fa fa faf af af awfaf awfaw awf ae qf qwqd №6</span>
-                            <input type="checkbox" id="test-6" name="test" />
-                        </li>
-                    </ul>
+                <a class="groupList-btn accessControl-btn" onclick="showGroupPanel()">Экспортировать настройки доступа</a>
+                <!--
+                <a class="groupList-btn accessControl-btn" onclick="addTest(2)">Добавить тест</a>
+                <a class="groupList-btn accessControl-btn" onclick="addGroup(2)">Добавить группу</a>
+                -->
             </div>
+        </div>
+    </form>
 
-            <button class="groupSelect-btn accessControl-btn" type="submit" asp-action="SecectTest">Сохранить изменения</button>
-        </form>
+    <form action="post">
+        <div class="test__list">
+            <h2>Доступные тесты</h2>
+                @foreach (var key in ViewBag.TestSpecialize)
+                {
+                    <div class="test__specoalize">
+                        <h3>@key.Key</h3>
+                        <ul class="test__items" id="test__items">
+                            @foreach (var value in key.Value)
+                            {
+                                numTest++;
+                                <li class="test__item">
+                                    <span id="test-@numTest">@value.FilePath</span>
+                                    <input type="checkbox" id="test-@numTest" name="tests" value="@value.FilePath" />
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+        </div>
+        <button class="groupSelect-btn accessControl-btn" type="submit" asp-action="SecectTest">Сохранить изменения</button>
+    </form>
 
-        <form action="post">
-            <div class="group_list__panel" id="group_list__panel">
-                <ul class="group__list" id="group__list">
+    <form action="post">
+        <div class="group_list__panel" id="group_list__panel">
+            <ul class="group__list" id="group__list">
+                @foreach (var group in ViewBag.GroupList)
+                {
+                    numGroup++;
                     <li class="group__item">
-                        <span id="group-1">ТЕСТ_1</span>
-                        <input type="radio" id="group-1" name="group" value="ТЕСТ_1"/>
+                        <span id="group-@numGroup">@group.GroupNum</span>
+                        <input type="radio" id="group-@numGroup" name="group" value="@group.GroupNum" />
                     </li>
-                    <li class="group__item">
-                        <span id="group-1">ТЕСТ_1</span>
-                        <input type="radio" id="group-1" name="group" value="ТЕСТ_1"/>
-                    </li>
-                    <li class="group__item">
-                        <span id="group-1">ТЕСТ_1 af aah fa hfa fagfh agjhfg afg hagfg ajfg ajgfhag fgahkf gahfg ahgfh agfha gfjha gfa ka kfajk gfa</span>
-                        <input type="radio" id="group-1" name="group" value="ТЕСТ_1"/>
-                    </li>
-                    <li class="group__item">
-                        <span id="group-1">ТЕСТ_1</span>
-                        <input type="radio" id="group-1" name="group" value="ТЕСТ_1"/>
-                    </li>
-                    <li class="group__item">
-                        <span id="group-1">ТЕСТ_1</span>
-                        <input type="radio" id="group-1" name="group" value="ТЕСТ_1"/>
-                    </li>
-                    <li class="group__item">
-                        <span id="group-1">ТЕСТ_1</span>
-                        <input type="radio" id="group-1" name="group" value="ТЕСТ_1"/>
-                    </li>
-                </ul>
+                }
+            </ul>
 
-                <button class="groupSelect-btn accessControl-btn" asp-action="SecectAccessGroup">Выбрать доступ группы</button>
-            </div>
-        </form>
+            <button class="groupSelect-btn accessControl-btn" asp-action="SecectAccessGroup">Выбрать доступ группы</button>
+        </div>
+    </form>
 
-        <script>
-            function showGroupPanel() {
-                document.getElementById("group_list__panel").setAttribute("style", "display: block");
-            }
+    <script>
+        function showGroupPanel() {
+            document.getElementById("group_list__panel").setAttribute("style", "display: block");
+        }
 
-            function addTest(num) {
-                let str = '\<span id="test-'+ num +'">Тест № '+ num +'</span>\
-                            <input type="checkbox" id="test-'+num+'" name="test" value="ТЕСТ_'+ num +'"/>';           
+        function addTest(num) {
+            let str = '\<span id="test-'+ num +'">Тест № '+ num +'</span>\
+                        <input type="checkbox" id="test-'+num+'" name="test" value="ТЕСТ_'+ num +'"/>';           
 
-                let childComp = document.getElementById("test__items");
-                let li = document.createElement('li');
-                li.innerHTML = str;
-                childComp.appendChild(li).setAttribute("class", "test__item");
+            let childComp = document.getElementById("test__items");
+            let li = document.createElement('li');
+            li.innerHTML = str;
+            childComp.appendChild(li).setAttribute("class", "test__item");
 
-                event.preventDefault();
-            }
+            event.preventDefault();
+        }
 
-            function addGroup(num) {
-                let str = '\<span id="group-'+ num +'">Группа_'+ num +'</span>\
-                            <input type="radio" id="group-'+ num +'" name="group" value="Группа_'+ num +'"/>';           
+        function addGroup(num) {
+            let str = '\<span id="group-'+ num +'">Группа_'+ num +'</span>\
+                        <input type="radio" id="group-'+ num +'" name="group" value="Группа_'+ num +'"/>';           
 
-                let childComp = document.getElementById("group__list");
-                let li = document.createElement('li');
-                li.innerHTML = str;
-                childComp.appendChild(li).setAttribute("class", "group__item");
+            let childComp = document.getElementById("group__list");
+            let li = document.createElement('li');
+            li.innerHTML = str;
+            childComp.appendChild(li).setAttribute("class", "group__item");
 
-                event.preventDefault();
-            }
-        </script>
-    </div>
+            event.preventDefault();
+        }
+    </script>
+</div>
