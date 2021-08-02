@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model networkApp.ViewModels.Roles.ChangeRoleViewModel
+@{
+    ViewBag.Title = "Изменить роль";
+}
+
+<h2 class="login__header">Изменение роли для пользователя @Model.UserEmail</h2>
+
+<form asp-action="Access" method="post">
+    <input type="hidden" name="userId" value="@Model.UserId" />
+    <div class="form-group" style="font-size: 22px">
+        @foreach (IdentityRole role in Model.AllRoles)
+        {
+            <input type="radio" name="roles" value="@role.Name" style="margin-right: .5rem"
+                   @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />@role.Name <br />
+            }
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>

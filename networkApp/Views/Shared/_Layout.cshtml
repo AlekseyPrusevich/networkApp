@@ -87,10 +87,11 @@
                                 </ul>
                             </li>
                             <li class="topic__link header-nav__item">
-                                <a asp-area="" asp-controller="Users" asp-action="Index"><span>Пользователи</span></a>
-                            </li>
-                            <li class="topic__link header-nav__item">
-                                <a asp-area="" asp-controller="Roles" asp-action="Index"><span>Роли</span></a>
+                                <a href="#"><span>Администрирование</span></a>
+                                <ul class="topic__list">
+                                    <li class="topic__item"><a asp-controller="Users" asp-action="Index">Пользователи</a></li>
+                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Edit">Группы</a></li>
+                                </ul>
                             </li>
                         }
 
