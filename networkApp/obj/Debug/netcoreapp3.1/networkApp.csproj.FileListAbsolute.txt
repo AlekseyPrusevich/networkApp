@@ -1377,3 +1377,6 @@ C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp
 C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.pdb
 C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\networkApp.genruntimeconfig.cache
 C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Users\Access.cshtml.g.cs
+C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Index.cshtml.g.cs
+C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Create.cshtml.g.cs
+C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Edit.cshtml.g.cs
