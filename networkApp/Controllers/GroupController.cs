@@ -45,5 +45,47 @@ namespace networkApp.Controllers
             }
             return View(model);
         }
+
+        public async Task<IActionResult> Edit(string id)
+        {
+            GroupInfo group = context.GroupInfo
+                .Where(g => g.GroupInfoId == Convert.ToInt32(id)).FirstOrDefault();
+            if (group == null)
+                return NotFound();
+            EditGroupViewModel model = new EditGroupViewModel { GroupInfoId = group.GroupInfoId, GroupNum = group.GroupNum, Specialize = group.Specialize };
+                return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditGroupViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                GroupInfo group = context.GroupInfo
+                    .Where(g => g.GroupInfoId == Convert.ToInt32(model.GroupInfoId)).FirstOrDefault();
+                if (group != null)
+                {
+                    group.GroupInfoId = model.GroupInfoId;
+                    group.GroupNum = model.GroupNum;
+                    group.Specialize = model.Specialize;
+
+                    context.GroupInfo.Update(group);
+                    await context.SaveChangesAsync();
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Delete(string id)
+        {
+            GroupInfo group = context.GroupInfo
+                .Where(g => g.GroupInfoId == Convert.ToInt32(id)).FirstOrDefault();
+
+            context.GroupInfo.Remove(group);
+            context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

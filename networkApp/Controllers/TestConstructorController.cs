@@ -56,6 +56,7 @@ namespace networkApp.Controllers
             var GroupList = await Context.GroupInfo.ToListAsync();
             ViewBag.GroupList = GroupList;
 
+            //var TestSpecialize = await Context.TestProp.ToListAsync();
             var TestSpecialize = (await Context.TestProp.ToListAsync()).OrderBy(ts => ts.FilePath).GroupBy(ts => ts.Specialize).ToDictionary(ts => ts.Key, ts => ts.ToList());
             ViewBag.TestSpecialize = TestSpecialize;
 
