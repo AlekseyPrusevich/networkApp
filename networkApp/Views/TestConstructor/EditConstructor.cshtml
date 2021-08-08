@@ -12,6 +12,10 @@
             <input class="textBlock test-name__imput" value="@ViewBag.FileName" type="text" id="testname" name="testName" placeholder="Введите название теста" />
             <span class="focus-border"></span>
         </div>
+        <div class="test-name__block ">
+            <input class="textBlock test-specialization__imput" value="@ViewBag.FileSpecialization" type="text" id="testSpecialization" name="testSpecialization" placeholder="Введите cпециализацию теста" />
+            <span class="focus-border"></span>
+        </div>
     </div>
 
     <div id="baseContainer">
@@ -139,6 +143,11 @@
                 var textName = document.getElementById("testname").value;
                 if (textName == '') {
                     listError.push("Введите название теста");
+                }
+
+                var testSpecialization = document.getElementById("testSpecialization").value;
+                if (testSpecialization == '') {
+                    listError.push("Введите специализацию теста");
                 }
 
                 let counterContainer = document.getElementById("baseContainer").children.length;

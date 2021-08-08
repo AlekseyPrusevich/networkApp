@@ -74,14 +74,15 @@ namespace networkApp.Controllers
                
 
         [HttpPost]
-        public async Task<IActionResult> GetTest(string testName,
+        public async Task<IActionResult> GetTest(string testName, 
+               string testSpecialization,
                List<string> nameQuestion,
                Dictionary<string, List<string>> answer,
                Dictionary<string, List<string>> isTrue,
                List<string> type)
         {
             var getUserName = HttpContext.User.Identity.Name;
-            await createTestAsync(testName, nameQuestion, answer, isTrue, type, getUserName);
+            await createTestAsync(testName, testSpecialization, nameQuestion, answer, isTrue, type, getUserName);
            
             return RedirectToAction("Index", "Home");
         }
@@ -112,6 +113,18 @@ namespace networkApp.Controllers
             List<QuestionViewModel> questions = new List<QuestionViewModel>();
             double countQuestions;
             XDocument xdoc = XDocument.Load(@"Tests\" + fileName_);
+
+            try
+            {
+                var testSpecialization = xdoc.Element("questions").Attribute("testSpecialization").Value;
+                ViewBag.FileSpecialization = testSpecialization;
+            }
+            catch
+            {
+                ViewBag.FileSpecialization = "";
+            }
+            
+
             var counterQuestions = 0;
             foreach (var _root in xdoc.Element("questions").Elements("question"))
             {
@@ -163,13 +176,15 @@ namespace networkApp.Controllers
         }
 
 
-        private async Task createTestAsync(string testName,
+        private async Task createTestAsync(string testName, 
+               string testSpecialization,
                List<string> nameQuestion,
                Dictionary<string, List<string>> answer,
                Dictionary<string, List<string>> isTrue,
                List<string> type,
                string keyDict)
         {
+
             string oldFile = "";
             var isCreated = System.IO.File.Exists(@"Tests\" + testName);
 
@@ -182,6 +197,7 @@ namespace networkApp.Controllers
 
             XDocument xDoc = new XDocument();
             XElement questions = new XElement("questions");
+            questions.SetAttributeValue("testSpecialization", testSpecialization);
             int counterTextQuestion = 0;
             foreach (var key in answer.Keys)
             {
