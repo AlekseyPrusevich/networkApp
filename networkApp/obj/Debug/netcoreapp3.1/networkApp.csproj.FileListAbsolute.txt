@@ -494,9 +494,6 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\network
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lectures\Memory.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lectures\Motherboard.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lectures\Processors.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Question\Index.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
@@ -1380,3 +1377,16 @@ C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp
 C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Index.cshtml.g.cs
 C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Create.cshtml.g.cs
 C:\Users\GENSEC-Next\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Edit.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Create.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Edit.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Group\Index.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Users\Access.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\Create.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Материнская_плата.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Центральный_процессор.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Memory.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\test.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\test2.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\EditList.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\test1.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\EditLecture.cshtml.g.cs

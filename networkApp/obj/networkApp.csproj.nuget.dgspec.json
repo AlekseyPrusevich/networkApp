@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GENSEC-Next\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {}
+    "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GENSEC-Next\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {
+    "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENSEC-Next\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+        "projectUniqueName": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
         "projectName": "networkApp",
-        "projectPath": "C:\\Users\\GENSEC-Next\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
-        "packagesPath": "C:\\Users\\GENSEC-Next\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GENSEC-Next\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
+        "projectPath": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+        "packagesPath": "C:\\Users\\gense\\.nuget\\packages\\",
+        "outputPath": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\GENSEC-Next\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gense\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

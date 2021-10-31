@@ -1,0 +1,26 @@
+﻿@using System.IO
+@{
+    ViewBag.Title = "Редактированеи лекций";
+}
+
+<table class="table">
+    <tr><th>Наименование лекций</th><th></th></tr>
+    @{
+        DirectoryInfo dir = new DirectoryInfo(@"Views\Lecture\");
+
+        foreach (var item in dir.GetFiles())
+        {
+
+            <tr>
+                <td>@item.Name.Replace("_", " ").Replace(".cshtml", "")</td>
+
+                <td>
+                    <form method="post">
+                        <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="EditLecture">Изменить</button>
+                        <button type="submit" class="btn btn-sm btn-danger" value="@item.Name" name="fileName" asp-action="DeleteLecture">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    }
+</table>

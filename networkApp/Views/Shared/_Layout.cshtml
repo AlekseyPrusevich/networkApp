@@ -35,11 +35,17 @@
                     <ul class="header-nav__list navbar-nav flex-grow-1">
 
                         <li class="topic__link header-nav__item">
-                            <a href="#"><span>Темы</span></a>
+                            <a href="#"><span>Лекции</span></a>
                             <ul class="topic__list">
-                                <li class="topic__item"><a asp-controller="Lectures" asp-action="Motherboard">Материнская плата</a></li>
-                                <li class="topic__item"><a asp-controller="Lectures" asp-action="Processors">Процессоры</a></li>
-                                <li class="topic__item"><a asp-controller="Lectures" asp-action="Memory">Оперативная память</a></li>
+                                @{
+                                    DirectoryInfo dirL = new DirectoryInfo(@"Views\Lecture\");
+                                    foreach (var item in dirL.GetFiles())
+                                    {
+                                        // <li class="topic__item"><a asp-controller="Lecture" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name))" asp-action="Index">@item.Name.Replace("_", " ").Replace(".cshtml", "")</a></li>
+                                        <li class="topic__item"><a asp-controller="Lecture" asp-route-path="@item.Name" asp-action="Index">@item.Name.Replace("_", " ").Replace(".cshtml", "")</a></li>
+                                    }
+                                }
+
                             </ul>
                         </li>
 
@@ -47,10 +53,10 @@
                             <a href="#"><span>Вопросы</span></a>
                             <ul class="topic__list">
                                 @{
-                                    DirectoryInfo dir = new DirectoryInfo(@"Tests\");
-                                    foreach (var item in dir.GetFiles())
+                                    DirectoryInfo dirT = new DirectoryInfo(@"Tests\");
+                                    foreach (var item in dirT.GetFiles())
                                     {
-                                        <li class="topic__item"><a asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name)) " asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
+                                        <li class="topic__item"><a asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name))" asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
                                     }
                                 }
 
@@ -65,6 +71,8 @@
                             <li class="topic__link header-nav__item">
                                 <a href="#"><span>Конструктор</span></a>
                                 <ul class="topic__list">
+                                    <li class="topic__item"><a asp-controller="LectureConstructor" asp-action="Create">Создать лекцию</a></li>
+                                    <li class="topic__item"><a asp-controller="LectureConstructor" asp-action="EditList">Изменить лекцию</a></li>
                                     <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Create">Создать тест</a></li>
                                     <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Edit">Изменить тест</a></li>
                                     <li class="topic__item"><a asp-controller="TestConstructor" asp-action="AccessControl">Управление доступом</a></li>
@@ -81,6 +89,8 @@
                             <li class="topic__link header-nav__item">
                                 <a href="#"><span>Конструктор</span></a>
                                 <ul class="topic__list">
+                                    <li class="topic__item"><a asp-controller="LectureConstructor" asp-action="Create">Создать лекцию</a></li>
+                                    <li class="topic__item"><a asp-controller="LectureConstructor" asp-action="EditList">Изменить лекцию</a></li>
                                     <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Create">Создать тест</a></li>
                                     <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Edit">Изменить тест</a></li>
                                     <li class="topic__item"><a asp-controller="TestConstructor" asp-action="AccessControl">Управление доступом</a></li>

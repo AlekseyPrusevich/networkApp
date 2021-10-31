@@ -152,11 +152,11 @@ namespace networkApp.Controllers
             var userId = _context.Users.Where(u => u.Email == userMail).Select(u => u.Id).FirstOrDefault();
             var test = new Tests
             {
-               Name = _fileName.Replace("_", " ").Replace(".xml", ""),
-               CountAllQuestions = (int)countQuestions,
-               TrueAnswersCount = (int)result,
-               Mark = mark.ToString(),
-               UserId = userId
+                Name = _fileName.Replace("_", " ").Replace(".xml", ""),
+                CountAllQuestions = (int)countQuestions,
+                TrueAnswersCount = (int)result,
+                Mark = mark.ToString(),
+                UserId = userId
             };
             _fileName = string.Empty;
             _context.Tests.Add(test);
