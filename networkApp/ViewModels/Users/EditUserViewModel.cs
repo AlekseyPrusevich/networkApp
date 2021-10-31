@@ -10,9 +10,6 @@
 
         public string LastName { get; set; }
 
-        public int Group
-        {
-            get; set;
-        }
+        public int Group { get; set; }
     }
 }

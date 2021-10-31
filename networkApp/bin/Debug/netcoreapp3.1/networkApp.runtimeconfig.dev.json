@@ -1,8 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\GENSEC-Next\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\GENSEC-Next\\.nuget\\packages"
+      "C:\\Users\\gense\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\gense\\.nuget\\packages",
+      "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
 }

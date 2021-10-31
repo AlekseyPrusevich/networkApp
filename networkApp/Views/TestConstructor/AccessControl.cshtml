@@ -37,8 +37,8 @@
                             {
                                 numTest++;
                                 <li class="test__item">
-                                    <span id="test-@numTest">@value.FilePath</span>
-                                    <input type="checkbox" id="test-@numTest" name="tests" value="@value.FilePath" />
+                                    <span id="test-@numTest">@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")</span>
+                                    <input type="checkbox" id="test-@numTest" name="tests" value="@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")" />
                                 </li>
                             }
                         </ul>

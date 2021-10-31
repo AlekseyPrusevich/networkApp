@@ -1,0 +1,29 @@
+﻿@model networkApp.ViewModels.Groups.CreateGroupViewModel
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+
+<div class="login-block registed-block">
+    <h2 class="login__header">Добавление группу</h2>
+    <form asp-action="Create" asp-controller="Group">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="login__group">
+            <input asp-for="GroupNum" class="login__input" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="GroupNum" class="login__label">Номер группы</label>
+        </div>
+
+        <div class="login__group">
+            <input asp-for="Specialize" class="login__input" type="text" required>
+            <span class="login__highlight"></span>
+            <span class="login__bar"></span>
+            <label asp-for="Specialize" class="login__label">Специальность</label>
+        </div>
+
+        <div class="login__submit">
+            <input class="login__btn" type="submit" value="Добавить" />
+        </div>
+    </form>
+</div>

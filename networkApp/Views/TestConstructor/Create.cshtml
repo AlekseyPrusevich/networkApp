@@ -10,6 +10,10 @@
             <input class="textBlock test-name__imput" value="@ViewBag.FileName" type="text" id="testname" name="testName" placeholder="Введите название теста" />
             <span class="focus-border"></span>
         </div>
+        <div class="test-name__block ">
+            <input class="textBlock test-specialization__imput" value="@ViewBag.FileSpecialization" type="text" id="testSpecialization" name="testSpecialization" placeholder="Введите cпециализацию теста" />
+            <span class="focus-border"></span>
+        </div>
     </div>
 
     <div>
@@ -96,6 +100,11 @@
                 listError.push("Введите название теста");
             }
 
+            var testSpecialization = document.getElementById("testSpecialization").value;
+            if (testSpecialization == '') {
+                listError.push("Введите специализацию теста");
+            }
+
             let counterContainer = document.getElementById("baseContainer").children.length;
 
             if (counterContainer == 1) {
@@ -107,7 +116,7 @@
                 }
                 else {
                     let question = document.getElementById("q" + i).children;
-                    let questName = question.item(0).children.item(0).value//question name input
+                    let questName = question.item(0).children.item(0).value
 
                     let counterAnswers = question.length;
 
@@ -119,8 +128,8 @@
                     }
                     let counterBox = 0;
                     for (var j = 1; j < counterAnswers; j++) {
-                        let box = question.item(j).children.item(0).children.item(0).checked; // box checked
-                        let ansI = question.item(j).children.item(0).children.item(1).value;//answer text input
+                        let box = question.item(j).children.item(0).children.item(0).checked; 
+                        let ansI = question.item(j).children.item(0).children.item(1).value;
                         if (box === false) {
                             counterBox++;
                         }
