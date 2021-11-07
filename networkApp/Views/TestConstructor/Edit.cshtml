@@ -3,6 +3,8 @@
     ViewBag.Title = "Редактированеи тестов";
 }
 
+<a class="btn btn-sm btn-primary" asp-controller="TestConstructor" asp-action="Create">Создать лецию</a>
+
 <table class="table">
     <tr><th>Наименование теста</th><th></th></tr>
     @{
@@ -10,7 +12,6 @@
 
         foreach (var item in dir.GetFiles())
         {
-
             <tr>
                 <td>@item.Name.Replace("_", " ").Replace(".xml", "")</td>
 

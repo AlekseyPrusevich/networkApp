@@ -1,7 +1,9 @@
 ﻿@using System.IO
 @{
-    ViewBag.Title = "Редактированеи лекций";
+    ViewBag.Title = "Управление лекцией";
 }
+
+<a class="btn btn-sm btn-primary" asp-controller="LectureConstructor" asp-action="Create">Создать лецию</a>
 
 <table class="table">
     <tr><th>Наименование лекций</th><th></th></tr>
@@ -10,7 +12,6 @@
 
         foreach (var item in dir.GetFiles())
         {
-
             <tr>
                 <td>@item.Name.Replace("_", " ").Replace(".cshtml", "")</td>
 
