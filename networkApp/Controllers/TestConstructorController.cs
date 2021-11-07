@@ -61,6 +61,8 @@ namespace networkApp.Controllers
                 .OrderBy(ts => ts.FilePath)
                 .GroupBy(ts => ts.Specialize)
                 .ToDictionary(ts => ts.Key, ts => ts.ToList());
+
+            ViewBag.TestName = "";
             ViewBag.TestSpecialize = TestSpecialize;
 
             return View();
@@ -69,10 +71,11 @@ namespace networkApp.Controllers
         [HttpGet]
         public async Task<ActionResult> GetTestAccessByGroup([FromQuery]int group)
         {
+            int numTest = 0;
+
             var GroupList = await Context.GroupInfo.ToListAsync();
             ViewBag.GroupList = GroupList;
 
-            //var TestSpecialize = await Context.TestProp.ToListAsync();
             var TestSpecialize = (await Context.TestProp.ToListAsync())
                 .OrderBy(ts => ts.FilePath)
                 .GroupBy(ts => ts.Specialize)
@@ -87,13 +90,54 @@ namespace networkApp.Controllers
                 .Select(t  => t.FilePath.Replace("_", " ").Replace(".xml", "").Substring(6))
                 .ToListAsync();
 
-            ViewBag.FilePath = tests;
+            //List<List<string>> testList = new List<List<string>> ();
+            List<string> testList = new List<string>();
+            List<string> chekedTest = new List<string>();
 
+            foreach(var key in TestSpecialize)
+            {
+                foreach (var value in key.Value)
+                {
+                    numTest++;
+                    //testList.Add(new List<string> { numTest.ToString(), value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")} );   
+
+                                     
+                    
+                    testList.Add(value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "").ToString());
+
+
+                }
+            }
+
+            ViewBag.TestName = tests;
             ViewBag.TestSpecialize = TestSpecialize;
 
             return View("AccessControl");
         }
 
+        [HttpGet]
+        public async Task<ActionResult> SaveAcsessTests([FromQuery]List<string> testName, int chooseGroup)
+        {
+            foreach (var test in testName)
+            {
+                var groupID = (await Context.GroupInfo.FirstOrDefaultAsync(g => g.GroupNum == chooseGroup)).GroupInfoId;
+                var testID = (await Context.TestProp.FirstOrDefaultAsync(t => t.FilePath == @"Tests\" + test.Replace(" ", "_") + ".xml")).TestPropId;
+                
+                //var testsID = await Context.TestProp.Where(t => t.FilePath == @"Tests\" + test.Replace(" ", "_") + ".xml").Select(t => t.TestPropId).ToListAsync();
+
+                var chooseTest = new GroupToTestID
+                {
+                    GroupsInfoId = groupID,
+                    TestPropId = testID
+                };
+
+                Context.GroupToTestID.Add(chooseTest);
+            }
+
+            await Context.SaveChangesAsync();
+
+            return View("AccessControl");
+        }
 
         //Delte Test
         [HttpPost]
@@ -102,8 +146,7 @@ namespace networkApp.Controllers
             await deleteTestAsync(fileName);
 
             return View("Edit");
-        }
-               
+        }    
 
         [HttpPost]
         public async Task<IActionResult> GetTest(string testName, 
@@ -206,7 +249,6 @@ namespace networkApp.Controllers
             Context.TestProp.Remove(testprop);
             await Context.SaveChangesAsync();
         }
-
 
         private async Task createTestAsync(string testName, 
                string testSpecialization,

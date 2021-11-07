@@ -5,6 +5,5 @@
         public int TestPropId { get; set; }
         public string FilePath { get; set; }
         public string Specialize { get; set; }
-
     }
 }

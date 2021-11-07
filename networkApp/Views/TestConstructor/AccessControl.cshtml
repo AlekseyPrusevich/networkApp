@@ -17,10 +17,6 @@
                 </datalist>
                 <button class="groupList-btn accessControl-btn" asp-action="GetTestAccessByGroup">Выбрать</button>
                 <a class="groupList-btn accessControl-btn" onclick="showGroupPanel()">Экспортировать настройки доступа</a>
-                <!--
-    <a class="groupList-btn accessControl-btn" onclick="addTest(2)">Добавить тест</a>
-    <a class="groupList-btn accessControl-btn" onclick="addGroup(2)">Добавить группу</a>
-    -->
             </div>
         </div>
     </form>
@@ -28,6 +24,7 @@
     <form action="post">
         <div class="test__list">
             <h2>Доступные тесты</h2>
+            <input type="text" id="chooseGroup" name="chooseGroup" value="@ViewBag.ChooseGroup" />
                 @foreach (var key in ViewBag.TestSpecialize)
                 {
                     <div class="test__specoalize">
@@ -38,14 +35,21 @@
                                 numTest++;
                                 <li class="test__item">
                                     <span id="test-@numTest">@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")</span>
-                                    <input type="checkbox" id="test-@numTest" name="tests" value="@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")" />
+                                    <input type="checkbox" id="test-@numTest" name="testName" value="@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")" />
+                                    @foreach (var name in ViewBag.TestName)
+                                    {
+                                        @if (name == value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", ""))
+                                        {
+
+                                        }
+                                    }
                                 </li>
                             }
                         </ul>
                     </div>
                 }
         </div>
-        <button class="groupSelect-btn accessControl-btn" type="submit" asp-action="SecectTest">Сохранить изменения</button>
+        <button class="groupSelect-btn accessControl-btn" type="submit" asp-action="SaveAcsessTests">Сохранить изменения</button>
     </form>
 
     <form action="post">
@@ -66,6 +70,7 @@
     </form>
 
     <script>
+
         function showGroupPanel() {
             document.getElementById("group_list__panel").setAttribute("style", "display: block");
         }
