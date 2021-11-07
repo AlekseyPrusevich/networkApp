@@ -11,7 +11,7 @@ namespace networkApp.Models
     {
         public DbSet<Tests> Tests { get; set; }
         public DbSet<GroupInfo> GroupInfo { get; set; }
-        public DbSet<UserToTests> UserToTests { get; set; }
+        public DbSet<GroupToTestID> GroupToTestID { get; set; }
         public DbSet<TestProp> TestProp { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options)

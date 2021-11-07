@@ -33,7 +33,7 @@ namespace networkApp
             services.AddControllersWithViews();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationContext db)
         {
             
             app.UseDeveloperExceptionPage();
@@ -52,6 +52,9 @@ namespace networkApp
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.Run(async context => 
+                await db.Database.MigrateAsync() );
         }
     }
 }

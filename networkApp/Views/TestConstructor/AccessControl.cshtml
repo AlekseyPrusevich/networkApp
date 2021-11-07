@@ -4,7 +4,7 @@
 }
 
 <div class="accessControl__container">
-    <form action="post">
+    <form action="get">
         <div class="group__menu">
             <h2>Группы</h2>
             <div>
@@ -15,12 +15,12 @@
                         <option>@group.GroupNum</option>
                     }
                 </datalist>
-
+                <button class="groupList-btn accessControl-btn" asp-action="GetTestAccessByGroup">Выбрать</button>
                 <a class="groupList-btn accessControl-btn" onclick="showGroupPanel()">Экспортировать настройки доступа</a>
                 <!--
-                <a class="groupList-btn accessControl-btn" onclick="addTest(2)">Добавить тест</a>
-                <a class="groupList-btn accessControl-btn" onclick="addGroup(2)">Добавить группу</a>
-                -->
+    <a class="groupList-btn accessControl-btn" onclick="addTest(2)">Добавить тест</a>
+    <a class="groupList-btn accessControl-btn" onclick="addGroup(2)">Добавить группу</a>
+    -->
             </div>
         </div>
     </form>
