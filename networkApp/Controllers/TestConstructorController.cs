@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using networkApp.Models;
 using networkApp.ViewModels.Testing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -54,14 +55,14 @@ namespace networkApp.Controllers
         public async Task<ActionResult> AccessControl()
         {
             var GroupList = await Context.GroupInfo.ToListAsync();
-            ViewBag.GroupList = GroupList;
-
+            
             //var TestSpecialize = await Context.TestProp.ToListAsync();
             var TestSpecialize = (await Context.TestProp.ToListAsync())
                 .OrderBy(ts => ts.FilePath)
                 .GroupBy(ts => ts.Specialize)
                 .ToDictionary(ts => ts.Key, ts => ts.ToList());
 
+            ViewBag.GroupList = GroupList;
             ViewBag.TestName = "";
             ViewBag.TestSpecialize = TestSpecialize;
 
@@ -74,7 +75,6 @@ namespace networkApp.Controllers
             int numTest = 0;
 
             var GroupList = await Context.GroupInfo.ToListAsync();
-            ViewBag.GroupList = GroupList;
 
             var TestSpecialize = (await Context.TestProp.ToListAsync())
                 .OrderBy(ts => ts.FilePath)
@@ -90,25 +90,8 @@ namespace networkApp.Controllers
                 .Select(t  => t.FilePath.Replace("_", " ").Replace(".xml", "").Substring(6))
                 .ToListAsync();
 
-            //List<List<string>> testList = new List<List<string>> ();
-            List<string> testList = new List<string>();
-            List<string> chekedTest = new List<string>();
-
-            foreach(var key in TestSpecialize)
-            {
-                foreach (var value in key.Value)
-                {
-                    numTest++;
-                    //testList.Add(new List<string> { numTest.ToString(), value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")} );   
-
-                                     
-                    
-                    testList.Add(value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "").ToString());
-
-
-                }
-            }
-
+            ViewBag.GroupList = GroupList;
+            ViewBag.ChooseGroupNum = group;
             ViewBag.TestName = tests;
             ViewBag.TestSpecialize = TestSpecialize;
 
@@ -136,7 +119,7 @@ namespace networkApp.Controllers
 
             await Context.SaveChangesAsync();
 
-            return View("AccessControl");
+            return RedirectToAction("Index", "Home");
         }
 
         //Delte Test
