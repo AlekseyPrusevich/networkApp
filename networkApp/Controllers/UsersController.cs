@@ -7,6 +7,7 @@ using networkApp.ViewModels.Users;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using networkApp.ViewModels.Roles;
+using System;
 
 namespace networkApp.Controllers
 {
@@ -26,6 +27,54 @@ namespace networkApp.Controllers
 
         [Authorize(Roles = "admin")]
         public IActionResult Create() => View();
+
+        [Authorize(Roles = "teacher, admin")]
+        public async Task<ActionResult> ScudentConfirmation()
+        {
+            int usersCounter = 0;
+
+            string role;
+
+            List<User> users = _userManager.Users.ToList();
+            List<User> scudentConfirmation = new List<User>();
+
+            foreach (var user in users)
+            {
+                User userId = await _userManager.FindByIdAsync(user.Id);
+
+                var userRoles = await _userManager.GetRolesAsync(userId);
+                try { role = userRoles[0]; }
+                catch { role = "user"; }
+
+                if(role == "user")
+                {
+                    scudentConfirmation.Add(users[usersCounter]);
+                }
+
+                usersCounter++;
+            }
+
+            ViewBag.Users = scudentConfirmation;
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ScudentConfirmation(string id)
+        {
+            User user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                string addedRoles = "student";
+                string removedRoles = "user";
+
+                await _userManager.AddToRoleAsync(user, addedRoles);
+                await _userManager.RemoveFromRoleAsync(user, removedRoles);
+
+                return RedirectToAction("ScudentConfirmation");
+            }
+            return NotFound();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateUserViewModel model)

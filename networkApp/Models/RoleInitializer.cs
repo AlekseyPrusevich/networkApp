@@ -10,8 +10,7 @@ namespace networkApp
         {
             string adminEmail = "admin@gmail.com";
             string password = "_Aa111";
-            
-         
+                 
 
            
 
@@ -27,7 +26,11 @@ namespace networkApp
             {
                 await roleManager.CreateAsync(new IdentityRole("student"));
             }
-           
+            if (await roleManager.FindByNameAsync("user") == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole("user"));
+            }
+
             if (await userManager.FindByNameAsync("admin") == null)
             {              
 
