@@ -20,99 +20,145 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 bg-color">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light border-bottom box-shadow mb-3 bg-color header">
+            <div class="container header__container">
                 <div class="header-nav__logo">
-                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                        <img src="~/lib/image/logo.png" alt="логотип" />
+                    <a asp-controller="Home" asp-action="Index">
+                        <img src="~/lib/image/common/logo.png" alt="Логотип" />
                     </a>
                 </div>
 
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="header-nav__autorize--mobile">
+                        <p>@User.Identity.Name</p>
+                        <span> | </span>
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button class="logoutBtn" type="submit" title="Выйти из аккаунта">
+                                <img src="~/lib/image/common/escapeBtn.png" />
+                            </button>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <div class="header-nav__autorize--mobile">
+                        <a asp-controller="Account" asp-action="Login">Вход</a>
+                        <span> | </span>
+                        <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                    </div>
+                }
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <nav class="header-nav navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation" style="outline: none">
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="whitr" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" fill="white" fill-opacity="0.01" />
+                    <path d="M7.94977 11.9498H39.9498" stroke="White" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.94977 23.9498H39.9498" stroke="White" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M7.94977 35.9498H39.9498" stroke="White" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+                <nav class="header-nav navbar-collapse collapse d-md-inline-flex flex-md-row-reverse header-nav--mobile">
                     <ul class="header-nav__list navbar-nav flex-grow-1 header-nav__items">
-
-                        <li class="topic__link header-nav__item">
-                            <a href="javascript:void(0)" class="header-nav__text">Лекции</a>
-                            <ul class="topic__list">
-                                @{
-                                    DirectoryInfo dirL = new DirectoryInfo(@"Views\Lecture\");
-                                    foreach (var item in dirL.GetFiles())
-                                    {
-                                        // <li class="topic__item"><a asp-controller="Lecture" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name))" asp-action="Index">@item.Name.Replace("_", " ").Replace(".cshtml", "")</a></li>
-                                        <li class="topic__item"><a asp-controller="Lecture" asp-route-path="@item.Name" asp-action="Index">@item.Name.Replace("_", " ").Replace(".cshtml", "")</a></li>
-                                    }
-                                }
-
-                            </ul>
-                        </li>
 
                         @if (User.IsInRole("student") || User.IsInRole("teacher") || User.IsInRole("admin"))
                         {
-                            <li class="topic__link header-nav__item">
-                                <a href="javascript:void(0)" class="header-nav__text">Тестирование</a>
-                                <ul class="topic__list">
+                            <li class="header-nav__item">
+                                <a href="javascript:void(0)" class="header-nav__text">
+                                    Лекции
+                                </a>
+                                <ul class="header-nav__subitems">
                                     @{
-                                        DirectoryInfo dirT = new DirectoryInfo(@"Tests\");
-                                        foreach (var item in dirT.GetFiles())
+                                        DirectoryInfo dirL = new DirectoryInfo(@"Views\Lecture\");
+                                        foreach (var item in dirL.GetFiles())
                                         {
-                                            <li class="topic__item"><a asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name))" asp-action="Index">@item.Name.Replace("_", " ").Replace(".xml", "")</a></li>
+                                            <li class="header-nav__subitem">
+                                                <a class="header-nav__subtext" asp-controller="Lecture" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name))" asp-action="Index">
+                                                    @item.Name.Replace("_", " ").Replace(".cshtml", "")
+                                                </a>
+                                            </li>
                                         }
                                     }
                                 </ul>
                             </li>
                         }
 
-                        @if (User.IsInRole("teacher"))
+                        @if (User.IsInRole("student") || User.IsInRole("teacher") || User.IsInRole("admin"))
                         {
-                            <li class="topic__link header-nav__item">
-                                <a href="javascript:void(0)" class="header-nav__text" asp-area="" asp-controller="TestResult" asp-action="Index">Результаты</a>
-                            </li>
-                            <li class="topic__link header-nav__item">
-                                <a href="javascript:void(0)" class="header-nav__text">Управление</a>
-                                <ul class="topic__list">
-                                    <!--<li class="topic__item"><a asp-controller="LectureConstructor" asp-action="Create">Создать лекцию</a></li>-->
-                                    <li class="topic__item"><a asp-controller="LectureConstructor" asp-action="EditList">Управление лекциями</a></li>
-                                    <!--<li class="topic__item"><a asp-controller="TestConstructor" asp-action="Create">Создать тест</a></li>-->
-                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Edit">Управление тестами</a></li>
-                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="AccessControl">Управление доступом</a></li>
-                                </ul>
-                            </li>
-                            <li class="topic__link header-nav__item">
-                                <a href="#"><span>Администрирование</span></a>
-                                <ul class="topic__list">
-                                    <li class="topic__item"><a asp-controller="Users" asp-action="ScudentConfirmation">Подтверждение учащихся</a></li>
+                            <li class="header-nav__item">
+                                <a href="javascript:void(0)" class="header-nav__text">
+                                    Тестирование
+                                </a>
+                                <ul class="header-nav__subitems">
+                                    @{
+                                        DirectoryInfo dirT = new DirectoryInfo(@"Tests\");
+                                        foreach (var item in dirT.GetFiles())
+                                        {
+                                            <li class="header-nav__subitem">
+                                                <a class="header-nav__subtext" asp-controller="Question" asp-route-path="@System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(item.Name))" asp-action="Index">
+                                                    @item.Name.Replace("_", " ").Replace(".xml", "")
+                                                </a>
+                                            </li>
+                                        }
+                                    }
                                 </ul>
                             </li>
                         }
 
-
-                        @if (User.IsInRole("admin"))
+                        @if (User.IsInRole("teacher") || User.IsInRole("admin"))
                         {
-                            <li class="topic__link header-nav__item">
-                                <a asp-area="" asp-controller="TestResult" asp-action="Index"><span>Результаты</span></a>
+                            <li class="header-nav__item">
+                                <a class="header-nav__text" asp-controller="TestResult" asp-action="Index">
+                                    Результаты
+                                </a>
                             </li>
-                            <li class="topic__link header-nav__item">
-                                <a href="#"><span>Управление</span></a>
-                                <ul class="topic__list">
-                                    <li class="topic__item"><a asp-controller="LectureConstructor" asp-action="EditList">Управление лекциями</a></li>
-                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="Edit">Управление тестами</a></li>
-                                    <li class="topic__item"><a asp-controller="TestConstructor" asp-action="AccessControl">Управление доступом</a></li>
-                                </ul>
-                            </li>
-                            <li class="topic__link header-nav__item">
-                                <a href="#"><span>Администрирование</span></a>
-                                <ul class="topic__list">
-                                    <li class="topic__item"><a asp-controller="Users" asp-action="ScudentConfirmation">Подтверждение учащихся</a></li>
-                                    <li class="topic__item"><a asp-controller="Users" asp-action="Index">Пользователи</a></li>
-                                    <li class="topic__item"><a asp-controller="Group" asp-action="Index">Группы</a></li>
+                        }
+
+                        @if (User.IsInRole("teacher") || User.IsInRole("admin"))
+                        {
+                            <li class="header-nav__item">
+                                <a href="javascript:void(0)" class="header-nav__text">
+                                    Управление
+                                </a>
+                                <ul class="header-nav__subitems">
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="Users" asp-action="StudentConfirmation">
+                                            Подтверждение учащихся
+                                        </a>
+                                    </li>
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="LectureConstructor" asp-action="EditList">
+                                            Управление лекциями
+                                        </a>
+                                    </li>
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="TestConstructor" asp-action="Edit">
+                                            Управление тестами
+                                        </a>
+                                    </li>
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="TestConstructor" asp-action="AccessControl">
+                                            Управление доступом
+                                        </a>
+                                    </li>
+                                    @if (User.IsInRole("admin"))
+                                    {
+                                        <li class="header-nav__subitem">
+                                            <a class="header-nav__subtext" asp-controller="Users" asp-action="Index">
+                                                Управление пользователями
+                                            </a>
+                                        </li>
+                                        <li class="header-nav__subitem">
+                                            <a class="header-nav__subtext" asp-controller="Group" asp-action="Index">
+                                                Управление группами
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
                             </li>
                         }
+
 
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -120,9 +166,8 @@
                                 <p>@User.Identity.Name</p>
                                 <span> | </span>
                                 <form method="post" asp-controller="Account" asp-action="Logout">
-                                    <button class="logoutBtn" type="submit">
-                                        <img src="~/lib/image/escapeBtn.png" />
-                                        <span class="tooltiptext">Выйти из аккаунта</span>
+                                    <button class="logoutBtn" type="submit" title="Выйти из аккаунта">
+                                        <img src="~/lib/image/common/escapeBtn.png" />
                                     </button>
                                 </form>
                             </li>

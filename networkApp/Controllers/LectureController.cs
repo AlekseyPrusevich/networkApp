@@ -8,8 +8,7 @@ namespace networkApp.Controllers
 
         public IActionResult Index(string path)
         {
-            //_fileName = System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(path));
-            _fileName = path;
+            _fileName = System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(path));
             _fileName = _fileName.Replace(".cshtml", "");
 
             return View(_fileName);

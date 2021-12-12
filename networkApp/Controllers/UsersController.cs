@@ -29,7 +29,7 @@ namespace networkApp.Controllers
         public IActionResult Create() => View();
 
         [Authorize(Roles = "teacher, admin")]
-        public async Task<ActionResult> ScudentConfirmation()
+        public async Task<ActionResult> StudentConfirmation()
         {
             int usersCounter = 0;
 
@@ -60,7 +60,7 @@ namespace networkApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ScudentConfirmation(string id)
+        public async Task<IActionResult> StudentConfirmation(string id)
         {
             User user = await _userManager.FindByIdAsync(id);
             if (user != null)
@@ -71,7 +71,7 @@ namespace networkApp.Controllers
                 await _userManager.AddToRoleAsync(user, addedRoles);
                 await _userManager.RemoveFromRoleAsync(user, removedRoles);
 
-                return RedirectToAction("ScudentConfirmation");
+                return RedirectToAction("StudentConfirmation");
             }
             return NotFound();
         }
