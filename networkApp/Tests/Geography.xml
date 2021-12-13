@@ -1,40 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<questions testSpecialization="Биология">
+<questions testSpecialization="Eart mfu">
   <question num="1">
-    <textQuestion>Q1</textQuestion>
+    <textQuestion>q1</textQuestion>
     <answers>
       <answer>
         <numAnswer>1</numAnswer>
-        <textAnswer>A1</textAnswer>
+        <textAnswer>a1</textAnswer>
         <type>radio</type>
         <true-answer>false</true-answer>
       </answer>
       <answer>
         <numAnswer>2</numAnswer>
-        <textAnswer>A2</textAnswer>
+        <textAnswer>a2</textAnswer>
         <type>radio</type>
         <true-answer>true</true-answer>
       </answer>
     </answers>
   </question>
   <question num="2">
-    <textQuestion>Q2</textQuestion>
+    <textQuestion>q2</textQuestion>
     <answers>
       <answer>
         <numAnswer>1</numAnswer>
-        <textAnswer>A1</textAnswer>
-        <type>checkbox</type>
-        <true-answer>false</true-answer>
-      </answer>
-      <answer>
-        <numAnswer>2</numAnswer>
-        <textAnswer>A2</textAnswer>
+        <textAnswer>a1</textAnswer>
         <type>checkbox</type>
         <true-answer>true</true-answer>
       </answer>
       <answer>
-        <numAnswer>3</numAnswer>
-        <textAnswer>A3</textAnswer>
+        <numAnswer>2</numAnswer>
+        <textAnswer>a2</textAnswer>
         <type>checkbox</type>
         <true-answer>true</true-answer>
       </answer>

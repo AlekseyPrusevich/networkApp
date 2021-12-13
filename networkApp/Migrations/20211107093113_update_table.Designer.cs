@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using networkApp.Models;
 
 namespace networkApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211107093113_update_table")]
+    partial class update_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,9 +177,6 @@ namespace networkApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("GroupInfoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("GroupsInfoId")
                         .HasColumnType("int");
 
@@ -186,7 +185,7 @@ namespace networkApp.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("GroupInfoId");
+                    b.HasIndex("GroupsInfoId");
 
                     b.HasIndex("TestPropId");
 
@@ -375,11 +374,13 @@ namespace networkApp.Migrations
 
             modelBuilder.Entity("networkApp.Models.GroupToTestID", b =>
                 {
-                    b.HasOne("networkApp.Models.GroupInfo", "GroupInfo")
+                    b.HasOne("networkApp.Models.GroupInfo", "GroupsInfo")
                         .WithMany()
-                        .HasForeignKey("GroupInfoId");
+                        .HasForeignKey("GroupsInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("networkApp.Models.TestProp", "TestProp")
+                    b.HasOne("networkApp.Models.TestProp", "Tests")
                         .WithMany()
                         .HasForeignKey("TestPropId")
                         .OnDelete(DeleteBehavior.Cascade)

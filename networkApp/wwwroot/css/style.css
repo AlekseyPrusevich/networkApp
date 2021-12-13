@@ -37,15 +37,6 @@ input {
 
 
 /* Хедер  */
-.header-nav__logo {
-    width: 4rem;
-}
-
-.header-nav__logo > a > img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
 
 .header-nav {
     display: flex;
@@ -59,116 +50,6 @@ input {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.header-nav__item {
-    font-size: 1.6rem;
-    margin: auto .7em;
-}
-
-.header-nav__item a {
-    position: relative;
-    text-decoration: none;
-    color: #212529;
-}
-
-.topic__link {
-    position: relative;
-}
-
-.topic__link > li:hover .topic__list {
-    display: block;
-}
-
-.topic__link > a {
-    color: #212529;
-}
-
-.topic__list {
-    display: none;
-    position: absolute;
-    list-style: none;
-    left: 1.4rem;
-    padding: 0;
-    margin: 0;
-    z-index: 2;
-    text-align: left;
-    border: 1px solid #212529;
-}
-
-.topic__item a {
-    display: block;
-    width: 100%;
-    font-size: 0.95rem;
-    color: #212529;
-    white-space: nowrap;
-    text-decoration: none;
-    padding: 0.08em 0.6em;
-    background: white;
-}
-
-.topic__list:hover {
-    border: 1px solid #212529;
-}
-
-.topic__item a:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-.topic__link:hover > .topic__list {
-    display: block;
-}
-
-.header-nav__autorize {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    margin-left: auto;
-}
-
-.header-nav__autorize > p {
-    margin: auto;
-}
-
-.header-nav__autorize > a {
-    text-decoration: none;
-    color: #181818;
-}
-
-.header-nav__autorize > span {
-    margin-left: .2rem;
-    margin-right: .2rem;
-}
-
-.logoutBtn {
-    position: relative;
-    padding: inherit;
-    width: 1.3rem;
-    background: none;
-    border: none;
-}
-
-.logoutBtn > img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.logoutBtn .tooltiptext {
-    visibility: hidden;
-    font-size: .8rem;
-    width: 10rem;
-    background-color: #d7d7d7;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-}
-
-.logoutBtn:hover .tooltiptext {
-    visibility: visible;
 }
 
 /* Таблица и результаты */

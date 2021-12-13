@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using networkApp.Models;
 
 namespace networkApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211107093533_update2")]
+    partial class update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,9 +177,6 @@ namespace networkApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("GroupInfoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("GroupsInfoId")
                         .HasColumnType("int");
 
@@ -185,10 +184,6 @@ namespace networkApp.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("GroupInfoId");
-
-                    b.HasIndex("TestPropId");
 
                     b.ToTable("GroupToTestID");
                 });
@@ -369,19 +364,6 @@ namespace networkApp.Migrations
                     b.HasOne("networkApp.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("networkApp.Models.GroupToTestID", b =>
-                {
-                    b.HasOne("networkApp.Models.GroupInfo", "GroupInfo")
-                        .WithMany()
-                        .HasForeignKey("GroupInfoId");
-
-                    b.HasOne("networkApp.Models.TestProp", "TestProp")
-                        .WithMany()
-                        .HasForeignKey("TestPropId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

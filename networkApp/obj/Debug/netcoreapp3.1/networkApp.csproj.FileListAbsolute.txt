@@ -1390,3 +1390,5 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\V
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\EditList.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\test1.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\EditLecture.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Оперативная_память.cshtml.g.cs
+E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Users\StudentConfirmation.cshtml.g.cs

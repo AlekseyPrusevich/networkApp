@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using networkApp.Models;
 using networkApp.ViewModels.Testing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -54,13 +55,71 @@ namespace networkApp.Controllers
         public async Task<ActionResult> AccessControl()
         {
             var GroupList = await Context.GroupInfo.ToListAsync();
-            ViewBag.GroupList = GroupList;
-
+            
             //var TestSpecialize = await Context.TestProp.ToListAsync();
-            var TestSpecialize = (await Context.TestProp.ToListAsync()).OrderBy(ts => ts.FilePath).GroupBy(ts => ts.Specialize).ToDictionary(ts => ts.Key, ts => ts.ToList());
+            var TestSpecialize = (await Context.TestProp.ToListAsync())
+                .OrderBy(ts => ts.FilePath)
+                .GroupBy(ts => ts.Specialize)
+                .ToDictionary(ts => ts.Key, ts => ts.ToList());
+
+            ViewBag.GroupList = GroupList;
+            ViewBag.TestName = "";
             ViewBag.TestSpecialize = TestSpecialize;
 
             return View();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetTestAccessByGroup([FromQuery]int group)
+        {
+            int numTest = 0;
+
+            var GroupList = await Context.GroupInfo.ToListAsync();
+
+            var TestSpecialize = (await Context.TestProp.ToListAsync())
+                .OrderBy(ts => ts.FilePath)
+                .GroupBy(ts => ts.Specialize)
+                .ToDictionary(ts => ts.Key, ts => ts.ToList());
+
+            var groupID = (await Context.GroupInfo.FirstOrDefaultAsync(g => g.GroupNum == group)).GroupInfoId;
+            var extractTestsid = await Context.GroupToTestID.Where(gt => gt.GroupsInfoId == groupID).Select(t => t.TestPropId).ToListAsync();
+
+            var tests = await Context
+                .TestProp
+                .Where(t => extractTestsid.Contains(t.TestPropId))
+                .Select(t  => t.FilePath.Replace("_", " ").Replace(".xml", "").Substring(6))
+                .ToListAsync();
+
+            ViewBag.GroupList = GroupList;
+            ViewBag.ChooseGroupNum = group;
+            ViewBag.TestName = tests;
+            ViewBag.TestSpecialize = TestSpecialize;
+
+            return View("AccessControl");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> SaveAcsessTests([FromQuery]List<string> testName, int chooseGroup)
+        {
+            foreach (var test in testName)
+            {
+                var groupID = (await Context.GroupInfo.FirstOrDefaultAsync(g => g.GroupNum == chooseGroup)).GroupInfoId;
+                var testID = (await Context.TestProp.FirstOrDefaultAsync(t => t.FilePath == @"Tests\" + test.Replace(" ", "_") + ".xml")).TestPropId;
+                
+                //var testsID = await Context.TestProp.Where(t => t.FilePath == @"Tests\" + test.Replace(" ", "_") + ".xml").Select(t => t.TestPropId).ToListAsync();
+
+                var chooseTest = new GroupToTestID
+                {
+                    GroupsInfoId = groupID,
+                    TestPropId = testID
+                };
+
+                Context.GroupToTestID.Add(chooseTest);
+            }
+
+            await Context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
         }
 
         //Delte Test
@@ -70,8 +129,7 @@ namespace networkApp.Controllers
             await deleteTestAsync(fileName);
 
             return View("Edit");
-        }
-               
+        }    
 
         [HttpPost]
         public async Task<IActionResult> GetTest(string testName, 
@@ -175,7 +233,6 @@ namespace networkApp.Controllers
             await Context.SaveChangesAsync();
         }
 
-
         private async Task createTestAsync(string testName, 
                string testSpecialization,
                List<string> nameQuestion,
@@ -236,7 +293,11 @@ namespace networkApp.Controllers
 
                 if (testprop == null)
                 {
-                    Context.TestProp.Add(new TestProp { FilePath = @"Tests\" + testName.Replace(" ", "_") + ".xml" });
+                    Context.TestProp.Add(
+                        new TestProp { 
+                            FilePath = @"Tests\" + testName.Replace(" ", "_") + ".xml", 
+                            Specialize = testSpecialization 
+                        });
                 }
 
                 testprop.FilePath = @"Tests\" + testName.Replace(" ", "_") + ".xml";
@@ -244,7 +305,7 @@ namespace networkApp.Controllers
             }
             else
             {
-                Context.TestProp.Add(new TestProp { FilePath = @"Tests\" + testName.Replace(" ", "_") + ".xml" });
+                Context.TestProp.Add(new TestProp { FilePath = @"Tests\" + testName.Replace(" ", "_") + ".xml", Specialize = testSpecialization });
             }
 
             await Context.SaveChangesAsync();
