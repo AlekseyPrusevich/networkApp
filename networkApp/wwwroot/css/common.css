@@ -20,3 +20,20 @@ p, span, h1, h2, h3, li, ul {
     font-size: 14px
 }
 
+.button {
+    height: 40px;
+    min-width: 160px;
+    padding: 8px 24px;
+    text-transform: uppercase;
+    background-color: #1565c0;
+    color: #fff;
+}
+
+.button:hover {
+    background-color: #5e92f3;
+}
+
+.button:active {
+    background-color: #003c8f;
+}
+

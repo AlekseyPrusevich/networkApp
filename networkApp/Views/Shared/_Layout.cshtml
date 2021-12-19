@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/common.css" />
     <link rel="stylesheet" href="~/css/header.css" />
+    <link rel="stylesheet" href="~/css/question.css" />
+    <link rel="stylesheet" href="~/css/testResult.css" />
 </head>
 <body>
     <header>
@@ -175,9 +177,9 @@
                         else
                         {
                             <li class="header-nav__autorize">
-                                <a asp-controller="Account" asp-action="Login">Вход</a>
+                                <a asp-controller="Account" asp-action="Login"><p>Вход</p></a>
                                 <span> | </span>
-                                <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                                <a asp-controller="Account" asp-action="Register"><p>Регистрация</p></a>
                             </li>
                         }
                     </ul>

@@ -35,7 +35,6 @@ input {
     transition: 0.6s;
 }
 
-
 /* Хедер  */
 
 .header-nav {
@@ -54,6 +53,10 @@ input {
 
 /* Таблица и результаты */
 
+.header-table {
+    font-weight: 600;
+}
+
 .header-table,
 .table__cells_center {
     text-align: center;
@@ -61,6 +64,7 @@ input {
 
 .table th,
 .table td {
+    padding: 8px;
     border-top: none;
     border-bottom: 1px solid #dee2e6;
 }

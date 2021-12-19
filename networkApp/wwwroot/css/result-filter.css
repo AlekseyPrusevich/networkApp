@@ -1,13 +1,20 @@
 ﻿.filter-result {
     display: flex;
-    min-height: 2rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3rem;
-    width: 67rem;
+    margin-bottom: 36px;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+
+    .filter-result {
+        flex-direction: column;
+    }
 }
 
 .filter-result_item {
+    width: 100%;
     margin-bottom: auto;
     margin-right: 1rem;
     display: grid;
@@ -33,16 +40,18 @@
     box-shadow: 0 0 0 4px #cbd6ee;
 }
 
-.filter__label {
-    padding: 5px 0;
-    font-weight: 500;
+@media (max-width: 992px) {
+
+    .filter__label {
+        margin-top: 16px;
+    }
 }
 
 .filter__input {
-    height: 2.1rem;
-    padding-left: 5px;
-    min-width: 18rem;
-    border-radius: 5px;
+    height: 40px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 8px 10px;
 }
 
 .filter__datalist {
@@ -54,11 +63,22 @@
 }
 
 .result-btn {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    border-radius: 5px;
-    margin-top: 2.1rem;
-    margin-right: .5rem;
-    min-width: 10rem;
+    margin-top: auto;
 }
+
+
+@media (max-width: 992px) {
+
+    .result-btn {
+        margin-top: 16px;
+    }
+}
+
+.result__table-container {
+    overflow: auto;
+}
+
+.result__table {
+    min-width: 930px;
+}
+
