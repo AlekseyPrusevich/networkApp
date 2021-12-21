@@ -3,22 +3,29 @@
     ViewBag.Title = "Редактированеи тестов";
 }
 
-<a class="btn btn-sm btn-primary" asp-controller="TestConstructor" asp-action="Create">Создать лецию</a>
+<h2 class="questions__title">Список тестов</h2>
 
-<table class="table">
-    <tr><th>Наименование теста</th><th></th></tr>
+<a class="button button--create btn btn-sm btn-primary" asp-controller="TestConstructor" asp-action="Create">Добавить тест</a>
+
+<table class="table table--tests">
+    <tr>
+        <th class="title-col">Наименование теста</th>
+        <th class="control-col"></th>
+    </tr>
     @{
         DirectoryInfo dir = new DirectoryInfo(@"Tests\");
 
         foreach (var item in dir.GetFiles())
         {
             <tr>
-                <td>@item.Name.Replace("_", " ").Replace(".xml", "")</td>
+                <td class="title-col">@item.Name.Replace("_", " ").Replace(".xml", "")</td>
 
-                <td>
+                <td class="control-col">
                     <form method="post">
-                        <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="EditConstructor">Изменить</button>
-                        <button type="submit" class="btn btn-sm btn-danger" value="@item.Name" name="fileName" asp-action="Delete">
+                        <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="EditConstructor">
+                            Изменить
+                        </button>
+                        <button class="btn btn-sm btn-danger" value="@item.Name" name="fileName" type="submit" asp-action="Delete">
                             Удалить
                         </button>
                     </form>

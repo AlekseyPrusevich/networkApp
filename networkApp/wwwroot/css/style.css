@@ -59,27 +59,6 @@ button:focus {
 
 /* Таблица и результаты */
 
-.header-table {
-    font-weight: 600;
-}
-
-.header-table,
-.table__cells_center {
-    text-align: center;
-}
-
-.table th,
-.table td {
-    padding: 8px;
-    border-top: none;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.table__cells_none-border {
-    border-top: none;
-    border-bottom: none;
-}
-
 .error-message {
     margin: 3rem;
     font-size: 2rem;

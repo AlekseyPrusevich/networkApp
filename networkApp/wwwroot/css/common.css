@@ -25,15 +25,15 @@ p, span, h1, h2, h3, li, ul {
     min-width: 160px;
     padding: 8px 24px;
     text-transform: uppercase;
-    background-color: #1565c0;
-    color: #fff;
 }
 
-.button:hover {
-    background-color: #5e92f3;
+.button--create {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    width: 304px;
 }
 
-.button:active {
-    background-color: #003c8f;
+.mb-40 {
+    margin-bottom: 40px;
 }
 

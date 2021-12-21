@@ -1,0 +1,59 @@
+﻿.header-table {
+    font-weight: 600;
+}
+
+.header-table,
+.table__cells_center {
+    text-align: center;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.table__cells_none-border {
+    border-top: none;
+    border-bottom: none;
+}
+
+.title-col {
+    width: 100%;
+}
+
+.title-col--email {
+    min-width: 280px;
+}
+
+.title-col--group {
+    min-width: 80px;
+}
+
+.control-col {
+    margin-left: 48px;
+}
+
+.control-col form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table--lecture .control-col form,
+.table--tests .control-col form,
+.table--users .control-col form,
+.table--groups .control-col form,
+.table--confirmation .control-col form {
+    min-width: 156px;
+    margin-left: 48px;
+}
+
+.table--confirmation .control-col--small form {
+    min-width: 96px;
+}
+
+.table--users .control-col--big form {
+    min-width: 392px;
+}

@@ -3,22 +3,31 @@
     ViewBag.Title = "Управление лекцией";
 }
 
-<a class="btn btn-sm btn-primary" asp-controller="LectureConstructor" asp-action="Create">Создать лецию</a>
+<h2 class="questions__title">Список лекций</h2>
 
-<table class="table">
-    <tr><th>Наименование лекций</th><th></th></tr>
+<a class="button button--create btn btn-sm btn-primary" asp-controller="LectureConstructor" asp-action="Create">Добавить лецию</a>
+
+<table class="table table--lecture">
+    <tr>
+        <th class="title-col">Наименование лекций</th>
+        <th class="control-col"></th>
+    </tr>
     @{
         DirectoryInfo dir = new DirectoryInfo(@"Views\Lecture\");
 
         foreach (var item in dir.GetFiles())
         {
             <tr>
-                <td>@item.Name.Replace("_", " ").Replace(".cshtml", "")</td>
+                <td class="title-col">@item.Name.Replace("_", " ").Replace(".cshtml", "")</td>
 
-                <td>
+                <td class="control-col">
                     <form method="post">
-                        <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="EditLecture">Изменить</button>
-                        <button type="submit" class="btn btn-sm btn-danger" value="@item.Name" name="fileName" asp-action="DeleteLecture">Удалить</button>
+                        <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="EditLecture">
+                            Изменить
+                        </button>
+                        <button class="btn btn-sm btn-danger" value="@item.Name" name="fileName" type="submit" asp-action="DeleteLecture">
+                            Удалить
+                        </button>
                     </form>
                 </td>
             </tr>
