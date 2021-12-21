@@ -9,6 +9,12 @@ input {
     outline-offset: 0;
 }
 
+button,
+button:active,
+button:focus {
+    outline: none;
+}
+
 .input-block {
     position: relative;
 }

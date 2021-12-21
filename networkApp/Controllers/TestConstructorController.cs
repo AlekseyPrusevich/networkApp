@@ -101,12 +101,15 @@ namespace networkApp.Controllers
         [HttpGet]
         public async Task<ActionResult> SaveAcsessTests([FromQuery]List<string> testName, int chooseGroup)
         {
+            var groupID = (await Context.GroupInfo.FirstOrDefaultAsync(g => g.GroupNum == chooseGroup)).GroupInfoId;
+            List<GroupToTestID> testGroup = await Context.GroupToTestID.Where(gt => gt.GroupsInfoId == groupID).ToListAsync();
+
+            Context.GroupToTestID.RemoveRange(testGroup);
+            await Context.SaveChangesAsync();
+
             foreach (var test in testName)
             {
-                var groupID = (await Context.GroupInfo.FirstOrDefaultAsync(g => g.GroupNum == chooseGroup)).GroupInfoId;
                 var testID = (await Context.TestProp.FirstOrDefaultAsync(t => t.FilePath == @"Tests\" + test.Replace(" ", "_") + ".xml")).TestPropId;
-                
-                //var testsID = await Context.TestProp.Where(t => t.FilePath == @"Tests\" + test.Replace(" ", "_") + ".xml").Select(t => t.TestPropId).ToListAsync();
 
                 var chooseTest = new GroupToTestID
                 {
@@ -119,7 +122,7 @@ namespace networkApp.Controllers
 
             await Context.SaveChangesAsync();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("AccessControl");
         }
 
         //Delte Test

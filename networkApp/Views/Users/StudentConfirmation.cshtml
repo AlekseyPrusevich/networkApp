@@ -3,8 +3,6 @@
     ViewBag.Title = "Список пользователей";
 }
 
-<a class="btn btn-sm btn-primary role-btn" asp-action="Create">Добавить пользователя</a>
-
 <table class="table">
     <tr><th>Email</th><th>Фамилия Имя</th><th>Группа</th><th></th></tr>
     @foreach (var user in ViewBag.Users)
@@ -14,7 +12,7 @@
             <td>@user.LastName @user.FirstName</td>
             <td>@user.Group</td>
             <td style="display: flex; flex-direction: row-reverse;">
-                <form asp-action="ScudentConfirmation" asp-route-id="@user.Id" method="post">
+                <form asp-action="StudentConfirmation" asp-route-id="@user.Id" method="post">
                     <button type="submit" class="btn btn-sm btn-primary">
                         Подтвердить
                     </button>
