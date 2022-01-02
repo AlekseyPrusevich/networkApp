@@ -4,22 +4,28 @@
 }
  
 <form asp-action="GetTest" method="post">
-    <div id="listErrors"></div>
-    <div class="form-group input-block">
-        <div class="test-name__block ">
-            <input class="textBlock test-name__imput" value="@ViewBag.FileName" type="text" id="testname" name="testName" placeholder="Введите название теста" />
-            <span class="focus-border"></span>
+    <div class="test__info-container mt-16" id="test__info-container">
+        <h2 class="header__title">Добавление теста</h2>
+        <div class="text__block">
+            <input class="text-input text-input--all test-name__imput" value="@ViewBag.FileName" type="text" id="testname" name="testName" placeholder="Введите название теста" />
+            <span class="focus-border focus-name-border"></span>
         </div>
-        <div class="test-name__block ">
-            <input class="textBlock test-specialization__imput" value="@ViewBag.FileSpecialization" type="text" id="testSpecialization" name="testSpecialization" placeholder="Введите cпециализацию теста" />
-            <span class="focus-border"></span>
+        <div class="text__block">
+            <input class="text-input text-input--all test-specialization__imput" value="@ViewBag.FileSpecialization" type="text" id="testSpecialization" name="testSpecialization" placeholder="Введите cпециализацию теста" />
+            <span class="focus-border focus-specialization-border"></span>
         </div>
     </div>
 
     <div>
-        <div id="baseContainer">
-            <button class="test-constructor__add-btn test-constructor__add-question" onclick="createQuestion()">Добавить вопрос</button>
+        <div id="baseContainer" class="baseContainer mt-32">
+            <button class="button button--add button--add-question" id="test-add-question" onclick="createQuestion()">Добавить вопрос</button>
         </div>
+    </div>
+
+    <div class="test-submit-container" id="test-submit-container">
+        <div id="listErrors" class="listErrors"></div>
+        <button class="button btn btn-primary" onclick="apply()">Выполнить изменения</button>
+        <button class="button btn btn-primary" id="sbtn" style="visibility:hidden" type="submit" asp-action="GetTest">Сохранить изменения</button>
     </div>
 
     <script>
@@ -28,24 +34,30 @@
         let deletable = new Array();
         let numQuestion = 0;
         let numAnswer = 0;
+
         function createQuestion() {
             document.getElementById("sbtn").style.visibility = "hidden";
+            document.getElementById("test__info-container").style.marginBottom = "-32px";
+            document.getElementById("baseContainer").style.marginBottom = "128px";
+            document.getElementById("test-add-question").style.bottom = "-96px";
+            document.getElementById("test-submit-container").style.display = "block";
             numQuestion++;
-            let str = '\<div  class="test-constructor__question" id="q' + numQuestion + '">\
-                                    <input class="test-constructor__question-name textBlock constructor_textBlock" type = "text" name = "nameQuestion" id = "qnm" placeholder = "Введите вопрос" />\
-                                    <select onchange="chngType('+ numQuestion + ')" name="type" id="type' + numQuestion + '">\
-                                        <option value="radio">Один из списка</option>\
-                                        <option value="checkbox">Несколько из списка</option>\
-                                    </select>\
-                                    <button class="test-constructor__add-btn" onclick="createAnswer('+ numQuestion + ')">Добавить ответ</button>\
-                                    <button class="test-constructor__delete-btn" onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
-                                </div>';
+            let str = '\<div class="test-constructor__question" id="q' + numQuestion + '">\
+                            <div  class="test-constructor__question-container">\
+                                <input class="text-input text-input--all mr-8" type = "text" name = "nameQuestion" id = "qnm" placeholder = "Введите вопрос" />\
+                                <select onchange="chngType('+ numQuestion + ')" name="type" id="type' + numQuestion + '">\
+                                    <option value="radio">Один из списка</option>\
+                                    <option value="checkbox">Несколько из списка</option>\
+                                </select>\
+                                <button class="button button--delete" onclick="deleteQuestion('+ numQuestion + ')">Удалить</button>\
+                            </div>\
+                            <button class="button button--add button--add-answer" onclick = "createAnswer('+ numQuestion + ')" > Добавить ответ</button >\
+                        </div > ';
             let childComp = document.getElementById("baseContainer");
             let div = document.createElement('div');
             div.innerHTML = str;
-            childComp.appendChild(div).setAttribute("class", `test-constructor__question-block`);
+            childComp.appendChild(div).setAttribute("class", `test-constructor__question-block mt-72`);
             childComp.appendChild(div).setAttribute("id", `q${numQuestion}`);
-            childComp.appendChild(div).setAttribute("style", `margin-bottom: 1em`);
             event.preventDefault();
         }
 
@@ -53,19 +65,15 @@
             document.getElementById("sbtn").style.visibility = "hidden";
             numAnswer++;
             console.log()
-            let str = '\<div class="test-constructor__answer-block input-block" id="ans' + numAnswer + '" style="display:inline;" num="' + numAnswer + '">\
-                                    <input id = "ka' + numAnswer + '"  value = "' + numAnswer + '" type = "' + getType(num) + '" name = "isTrue[' + num + ']" />\
-                                    <input class="textBlock constructor_textBlock" id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
-                                    <button class="test-constructor__delete-btn" onclick="deleteAnswer('+ numAnswer + ')">Удалить</button>\
-                                </div > ';
-
-
+            let str = '\<div class="test-constructor__answer-container" id="ans' + numAnswer + '" num="' + numAnswer + '">\
+                            <input id = "ka' + numAnswer + '" class="test__check" value = "' + numAnswer + '" type = "' + getType(num) + '" name = "isTrue[' + num + ']" />\
+                            <input class="text-input text-input--all" id="ia' + numAnswer + '" type="text" placeholder="Введите ответ" name="answer[' + num + ']" />\
+                            <button class="button button--delete" onclick="deleteAnswer('+ numAnswer + ')">Удалить</button>\
+                        </div > ';
             let childComp = document.getElementById("q" + num);
             let div = document.createElement('div');
             div.innerHTML = str;
             childComp.appendChild(div).setAttribute("id", `ans${numAnswer}`);
-
-
             event.preventDefault();
         }
 
@@ -128,18 +136,18 @@
                     }
                     let counterBox = 0;
                     for (var j = 1; j < counterAnswers; j++) {
-                        let box = question.item(j).children.item(0).children.item(0).checked; 
+                        let box = question.item(j).children.item(0).children.item(0).checked;
                         let ansI = question.item(j).children.item(0).children.item(1).value;
                         if (box === false) {
                             counterBox++;
                         }
 
                         if (ansI.length == 0) {
-                            listError.push("Введите текст ответа вопса № " + i + " вопрос: " + j);
+                            listError.push("Введите текст ответа вопроса № " + i + " вопрос: " + j);
                         }
                     }
                     if (counterBox == counterAnswers - 1 && counterAnswers > 1) {
-                        listError.push("Выберите хотя бы одн правильный ответ в вопросе " + questName);
+                        listError.push("Выберите хотя бы один правильный ответ в вопросе " + questName);
                     }
                 }
             }
@@ -190,9 +198,4 @@
             }
         }
     </script>
-    <div>
-        <button class="test-constructor__add-btn other-btn" onclick="apply()">Выполнить изменения</button>
-        <button class="test-constructor__add-btn other-btn" id="sbtn" style="visibility:hidden" type="submit" asp-action="GetTest">Сохранить изменения</button>
-    </div>
-
 </form>

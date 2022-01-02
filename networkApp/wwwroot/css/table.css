@@ -41,12 +41,16 @@
     justify-content: space-between;
 }
 
-.table--lecture .control-col form,
 .table--tests .control-col form,
 .table--users .control-col form,
 .table--groups .control-col form,
 .table--confirmation .control-col form {
     min-width: 156px;
+    margin-left: 48px;
+}
+
+.table--lecture .control-col form {
+    min-width: 260px;
     margin-left: 48px;
 }
 

@@ -12,7 +12,7 @@ using System.Data;
 
 namespace networkApp.Controllers
 {
-    [Authorize(Roles = "admin, teacher")]
+    //[Authorize(Roles = "admin, teacher")]
     public class LectureConstructorController : Controller
     {
         public ApplicationContext Context { get; }
@@ -32,6 +32,14 @@ namespace networkApp.Controllers
         public ActionResult EditList()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult CopyLecture(string fileName)
+        {
+            System.IO.File.Copy(@"Views\Lecture\" + fileName, @"Views\Lecture\" + fileName.Replace("_", " ").Replace(".cshtml", "") + " - Копия.cshtml");
+
+            return View("EditList");
         }
 
         [HttpPost]
@@ -58,8 +66,10 @@ namespace networkApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PushDocument(string lectureName, string myDoc)
+        public async Task<IActionResult> PushDocument(string lectureName, string oldName,  string myDoc)
         {
+            System.IO.File.Delete(@"Views\Lecture\" + oldName.Replace(" ", "_") + ".cshtml");
+            System.IO.File.Delete(@"Views\Lecture\" + lectureName.Replace(" ", "_") + ".cshtml");
             await createLectureAsync(lectureName, myDoc);
 
             return RedirectToAction("Index", "Home");
@@ -67,8 +77,6 @@ namespace networkApp.Controllers
 
         private async Task createLectureAsync(string _lectureName, string _myDoc)
         {
-            Console.WriteLine(_myDoc);
-
             string path = @"Views\Lecture\";
 
             DirectoryInfo dirInfo = new DirectoryInfo(path);

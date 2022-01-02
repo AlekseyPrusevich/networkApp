@@ -22,6 +22,9 @@
 
                 <td class="control-col">
                     <form method="post">
+                        <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="CopyLecture">
+                            Копировать
+                        </button>
                         <button class="btn btn-sm btn-primary" value="@item.Name" name="fileName" asp-action="EditLecture">
                             Изменить
                         </button>
