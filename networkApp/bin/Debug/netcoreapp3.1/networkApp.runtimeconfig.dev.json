@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\gense\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\gense\\.nuget\\packages",
-      "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "C:\\Users\\GENSEC-Notebook\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\GENSEC-Notebook\\.nuget\\packages"
     ]
   }
 }

@@ -8,6 +8,7 @@ namespace networkApp.Models
     {
         public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user)
         {
+            
             List<IdentityError> errors = new List<IdentityError>();
 
             if (user.Email.ToLower().EndsWith("@spam.com"))

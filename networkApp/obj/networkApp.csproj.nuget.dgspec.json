@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {}
+    "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {}
   },
   "projects": {
-    "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {
+    "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+        "projectUniqueName": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
         "projectName": "networkApp",
-        "projectPath": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
-        "packagesPath": "C:\\Users\\gense\\.nuget\\packages\\",
-        "outputPath": "E:\\gensec\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
+        "projectPath": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\networkApp.csproj",
+        "packagesPath": "C:\\Users\\GENSEC-Notebook\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GENSEC-Notebook\\Documents\\GitHub\\networkApp\\networkApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\gense\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GENSEC-Notebook\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,7 +26,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,7 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -80,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.416\\RuntimeIdentifierGraph.json"
         }
       }
     }

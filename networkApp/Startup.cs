@@ -6,6 +6,7 @@ using networkApp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using networkApp.Controllers;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace networkApp
 {
@@ -20,8 +21,6 @@ namespace networkApp
 
         public void ConfigureServices(IServiceCollection services)
         {            
-            services.AddTransient<IUserValidator<User>, CustomUserValidator>();
-
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -30,12 +29,20 @@ namespace networkApp
 
             services.AddSingleton<FileName>();
 
+            services.AddScoped<IUserValidator<User>, CustomUserValidator>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
+
             services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationContext db)
-        {
-            
+        {   
             app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
@@ -53,8 +60,8 @@ namespace networkApp
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.Run(async context => 
-                await db.Database.MigrateAsync() );
+            //app.Run(async context => 
+            //    await db.Database.MigrateAsync() );
         }
     }
 }

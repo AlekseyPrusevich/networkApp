@@ -163,6 +163,45 @@
                             </li>
                         }
 
+                            <li class="header-nav__item">
+                                <a href="javascript:void(0)" class="header-nav__text">
+                                    Управление
+                                </a>
+                                <ul class="header-nav__subitems">
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="Users" asp-action="StudentConfirmation">
+                                            Подтверждение учащихся
+                                        </a>
+                                    </li>
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="LectureConstructor" asp-action="EditList">
+                                            Управление лекциями
+                                        </a>
+                                    </li>
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="TestConstructor" asp-action="Edit">
+                                            Управление тестами
+                                        </a>
+                                    </li>
+                                    <li class="header-nav__subitem">
+                                        <a class="header-nav__subtext" asp-controller="TestConstructor" asp-action="AccessControl">
+                                            Управление доступом
+                                        </a>
+                                    </li>
+                                        <li class="header-nav__subitem">
+                                            <a class="header-nav__subtext" asp-controller="Users" asp-action="Index">
+                                                Управление пользователями
+                                            </a>
+                                        </li>
+                                        <li class="header-nav__subitem">
+                                            <a class="header-nav__subtext" asp-controller="Group" asp-action="Index">
+                                                Управление группами
+                                            </a>
+                                        </li>
+                                </ul>
+                            </li>
+
+
 
                         @if (User.Identity.IsAuthenticated)
                         {
