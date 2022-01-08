@@ -22,13 +22,13 @@ namespace networkApp.Controllers
             _userManager = userManager;
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public IActionResult Index() => View(_userManager.Users.ToList()); 
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public IActionResult Create() => View();
 
-        //[Authorize(Roles = "teacher, admin")]
+        [Authorize(Roles = "teacher, admin")]
         public async Task<ActionResult> StudentConfirmation()
         {
             int usersCounter = 0;
@@ -96,7 +96,7 @@ namespace networkApp.Controllers
             return View(model);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string id)
         {
             User user = await _userManager.FindByIdAsync(id);
