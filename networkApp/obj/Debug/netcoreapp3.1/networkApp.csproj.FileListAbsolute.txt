@@ -1381,7 +1381,6 @@ E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\V
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\Create.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Материнская_плата.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Центральный_процессор.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Memory.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\EditList.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\LectureConstructor\EditLecture.cshtml.g.cs
 E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Оперативная_память.cshtml.g.cs
@@ -1398,5 +1397,4 @@ C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcor
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\Центральный_процессор.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Users\Access.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Users\StudentConfirmation.cshtml.g.cs
-E:\gensec\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\test12.cshtml.g.cs
 C:\Users\GENSEC-Notebook\Documents\GitHub\networkApp\networkApp\obj\Debug\netcoreapp3.1\Razor\Views\Lecture\test12.cshtml.g.cs

@@ -23,7 +23,6 @@ namespace networkApp.Controllers
     {
         private static Dictionary<string, string> DictFileNames = new Dictionary<string, string>();
 
-        //DB
         public ApplicationContext Context { get; }
 
         public TestConstructorController(ApplicationContext context)
@@ -31,7 +30,6 @@ namespace networkApp.Controllers
             Context = context;
         }
 
-        //Create Test
         [HttpGet]
         public IActionResult Create()
         {
@@ -43,14 +41,14 @@ namespace networkApp.Controllers
             return View();
         }
 
-        //Edit Test
+
         [HttpGet]
         public ActionResult Edit()
         {
             return View();
         }
 
-        //AccessControl
+
         [HttpGet]
         public async Task<ActionResult> AccessControl()
         {
@@ -125,7 +123,16 @@ namespace networkApp.Controllers
             return RedirectToAction("AccessControl");
         }
 
-        //Delte Test
+
+        [HttpPost]
+        public ActionResult CopyTest(string fileName)
+        {
+            System.IO.File.Copy(@"Tests\" + fileName, @"Tests\" + fileName.Replace("_", " ").Replace(".xml", "") + " - Копия.xml");
+
+            return View("Edit");
+        }
+
+
         [HttpPost]
         public async Task<ActionResult> Delete(string fileName)
         {

@@ -16,8 +16,11 @@
 }
 
 .login__header {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 56px;
 }
 
 .login__input {
@@ -102,13 +105,7 @@
 }
 
 .login__btn {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    border-radius: 5px;
-    margin-right: .5rem;
-    min-width: 10rem;
-    min-height: 2.1rem;
+    width: 100%;
 }
 
 @-webkit-keyframes inputHighlighter {

@@ -4,7 +4,7 @@
 }
 
 <div class="login-block">
-    <h2 class="login__header">Авторизация</h2>
+    <h2 class="login__header">Вход</h2>
     <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
         <div asp-validation-summary="ModelOnly"></div>
 
@@ -30,7 +30,7 @@
         </div>
 
         <div class="login__submit">
-            <input class="login__btn" type="submit" value="Войти" />
+            <input class="button login__btn" type="submit" value="Войти" />
         </div>
     </form>
 </div>

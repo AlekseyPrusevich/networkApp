@@ -49,7 +49,8 @@
     margin-left: 48px;
 }
 
-.table--lecture .control-col form {
+.table--lecture .control-col form,
+.table--tests .control-col form {
     min-width: 260px;
     margin-left: 48px;
 }

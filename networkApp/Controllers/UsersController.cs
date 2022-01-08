@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using networkApp.ViewModels.Roles;
 using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace networkApp.Controllers
 {
@@ -16,8 +17,13 @@ namespace networkApp.Controllers
         RoleManager<IdentityRole> _roleManager;
         UserManager<User> _userManager;
 
-        public UsersController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+
+        public ApplicationContext Context { get; }
+
+        public UsersController(ApplicationContext context, RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
         {
+            Context = context;
+
             _roleManager = roleManager;
             _userManager = userManager;
         }
@@ -99,10 +105,15 @@ namespace networkApp.Controllers
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string id)
         {
+            var GroupList = await Context.GroupInfo.ToListAsync();
+
             User user = await _userManager.FindByIdAsync(id);
             if (user == null)
                 return NotFound();
             EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, FirstName = user.FirstName, LastName = user.LastName, Group = user.Group };
+
+            ViewBag.GroupList = GroupList;
+
             return View(model);
         }
 

@@ -20,9 +20,9 @@
             <td class="title-col">@group.Specialize</td>
             <td class="control-col">
                 <form asp-action="Delete" asp-route-id="@group.GroupInfoId" method="post">
-                    <button class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@group.GroupInfoId">
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@group.GroupInfoId">
                         Изменить
-                    </button>
+                    </a>
                     <button class="btn btn-sm btn-danger type="submit"">
                         Удалить
                     </button>
