@@ -8,7 +8,8 @@
 }
 
 .questions__description {
-
+    margin-top: 8px;
+    font-size: 20px;
 }
 
 .questions__form {

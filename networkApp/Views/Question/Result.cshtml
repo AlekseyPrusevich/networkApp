@@ -4,7 +4,7 @@
 
 <div class="questions__container">
     <h2 class="questions__title">@ViewBag.TestName</h2>
-    <p class="questions__description">Результат - @ViewBag.Ball баллов</p>
+    <p class="questions__description">Результат - @ViewBag.Ball/@ViewBag.CountQuestions (<b>@ViewBag.Mark%</b>)</p>
 
     <form class="questions__form" method="post" asp-action="Index">
         @foreach (var questions in ViewBag.Questions)

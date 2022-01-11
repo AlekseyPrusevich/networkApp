@@ -164,8 +164,10 @@ namespace networkApp.Controllers
             _fileName = string.Empty;
             _context.Tests.Add(test);
             await _context.SaveChangesAsync();
-
+            
             ViewBag.Ball = result;
+            ViewBag.CountQuestions = countQuestions;
+            ViewBag.Mark = mark.ToString();
             ViewBag.ResultAnswers = answers;
 
             return View();

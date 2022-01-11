@@ -6,7 +6,7 @@
 <div class="accessControl__container">
     <form action="get">
         <div class="group__menu">
-            <h2>Группы</h2>
+            <h2 class="header__title">Группы</h2>
             <div>
                 <select type="text" name="group" placeholder="Введите или выберите из списка" value="@ViewBag.ChooseGroupNum">
                     <option value="" disabled selected>Выберете группу</option>
@@ -23,44 +23,47 @@
                     }
                 </select>
                 
-                <button class="groupList-btn accessControl-btn" asp-action="GetTestAccessByGroup">Выбрать</button>
-                <a class="groupList-btn accessControl-btn" onclick="showGroupPanel()">Экспортировать настройки доступа</a>
+                <button class="button groupList-btn" asp-action="GetTestAccessByGroup">Выбрать</button>
+                <a class="groupList-btn" onclick="showGroupPanel()" style="display: none">Экспортировать настройки доступа</a>
             </div>
         </div>
     </form>
 
     <form action="post">
         <div class="test__list">
-            <h2>Доступные тесты</h2>
-            <input type="text" id="chooseGroup" name="chooseGroup" value="@ViewBag.ChooseGroupNum" />
+            <h2 class="header__title">Доступные тесты</h2>
+            <input type="text" id="chooseGroup" name="chooseGroup" value="@ViewBag.ChooseGroupNum" style="display: none;" />
                 @foreach (var key in ViewBag.TestSpecialize)
                 {
                     <div class="test__specoalize">
-                        <h3>@key.Key</h3>
+                        <h3 class="test__header">@key.Key</h3>
                         <ul class="test__items" id="test__items">
                             @foreach (var value in key.Value)
                             {
                                 numTest++;
-                            <li class="test__item">
-                                <label for="test-@numTest">@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")</label>
-                                <input type="checkbox" id="test-@numTest" name="testName" value="@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")" />
-                                @foreach (var name in ViewBag.TestName)
-                                {
-                                    @if (name == value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", ""))
+                            <li>
+                                <label class="test__item" for="test-@numTest">
+                                    <input type="checkbox" id="test-@numTest" name="testName" class="test__checkbox" value="@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")" />
+                                    @foreach (var name in ViewBag.TestName)
                                     {
-                                        <script>
-                                            let input_@numTest = document.getElementById('test-@numTest').remove();
-                                        </script>
-                                        <input type="checkbox" id="test-@numTest" name="testName" value="@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")" checked/>
+                                        @if (name == value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", ""))
+                                        {
+                                            <script>
+                                                let input_@numTest = document.getElementById('test-@numTest').remove();
+                                            </script>
+                                            <input type="checkbox" id="test-@numTest" name="testName" class="test__checkbox" value="@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")" checked />
+                                        }
                                     }
-                                }
+                                    <span class="test__title">@value.FilePath.Substring(6).Replace("_", " ").Replace(".xml", "")</span>
+                                    <span class="test__active"></span>
+                                </label>
                             </li>
                             }
                         </ul>
                     </div>
                 }
         </div>
-        <button class="groupSelect-btn accessControl-btn" type="submit" asp-action="SaveAcsessTests">Сохранить изменения</button>
+        <button class="button accessControl-btn" type="submit" asp-action="SaveAcsessTests">Сохранить изменения</button>
     </form>
 
     <form action="post">
@@ -76,7 +79,7 @@
                 }
             </ul>
 
-            <button class="groupSelect-btn accessControl-btn" asp-action="SecectAccessGroup">Выбрать доступ группы</button>
+            <button class="button" asp-action="SecectAccessGroup">Выбрать доступ группы</button>
         </div>
     </form>
 
