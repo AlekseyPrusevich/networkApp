@@ -10,6 +10,7 @@ namespace networkApp.Models
     public class ApplicationContext : IdentityDbContext<User>
     {
         public DbSet<Tests> Tests { get; set; }
+        public DbSet<User> UserInfo { get; set; }
         public DbSet<GroupInfo> GroupInfo { get; set; }
         public DbSet<GroupToTestID> GroupToTestID { get; set; }
         public DbSet<TestProp> TestProp { get; set; }
@@ -18,7 +19,6 @@ namespace networkApp.Models
             : base(options)
         {
         }
-
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {

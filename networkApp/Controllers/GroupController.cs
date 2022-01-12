@@ -16,9 +16,13 @@ namespace networkApp.Controllers
     public class GroupController : Controller
     {
         ApplicationContext context;
-        public GroupController(ApplicationContext context)
+        UserManager<User> _userManager;
+
+        public GroupController(ApplicationContext context, UserManager<User> userManager)
         {
             this.context = context;
+
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -57,7 +61,7 @@ namespace networkApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(EditGroupViewModel model)
+        public async Task<IActionResult> Edit(EditGroupViewModel model, int oldGroup)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +72,18 @@ namespace networkApp.Controllers
                     group.GroupInfoId = model.GroupInfoId;
                     group.GroupNum = model.GroupNum;
                     group.Specialize = model.Specialize;
+
+                    List<User> users = _userManager.Users.ToList();
+
+                    foreach (var user in users)
+                    {
+                        if (user.Group == oldGroup)
+                        {
+                            user.Group = model.GroupNum;
+
+                            context.UserInfo.Update(user);
+                        }
+                    }
 
                     context.GroupInfo.Update(group);
                     await context.SaveChangesAsync();

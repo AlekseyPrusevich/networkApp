@@ -32,12 +32,23 @@
         </div>
 
         <div class="login__group">
-            <input asp-for="Group" class="login__input" type="text" required>
-            <span class="login__highlight"></span>
-            <span class="login__bar"></span>
-            <label asp-for="Group" class="login__label">Группа</label>
+            <select type="text" name="group" class="login__input" asp-for="Group" id="groupSelect" style="color: #999;" required>
+                <option value="" disabled selected>Выберите группу из списка</option>
+                @foreach (var group in ViewBag.GroupList)
+                {
+                    <option id="@group.GroupNum" asp-for="Group" value="@group.GroupNum">@group.GroupNum</option>
+                }
+            </select>
             <span asp-validation-for="Group"></span>
         </div>
+
+        <script>
+            const selectElement = document.getElementById('groupSelect');
+
+            selectElement.addEventListener('focus', (event) => {
+                selectElement.style.color = 'black';
+            });
+        </script>
 
         <div class="login__group">
             <input asp-for="Password" class="login__input" type="password" required>
@@ -58,7 +69,7 @@
         <div asp-validation-summary="ModelOnly"></div>
 
         <div class="login__submit">
-            <input class="login__btn" type="submit" value="Зарегистрироваться" />
+            <input class="button login__btn" type="submit" value="Зарегистрироваться" />
         </div>
     </form>
 </div>

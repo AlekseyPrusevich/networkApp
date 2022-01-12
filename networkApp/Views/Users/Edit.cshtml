@@ -37,15 +37,17 @@
         </div>
 
         <div class="login__group">
-            <input asp-for="Group" class="login__input" type="text" required>
-            <span class="login__highlight"></span>
-            <span class="login__bar"></span>
-            <label asp-for="Group" class="login__label">Группа</label>
+            <select type="text" name="group" class="login__input" asp-for="Group" id="groupSelect" required>
+                @foreach (var group in ViewBag.GroupList)
+                {
+                    <option id="@group.GroupNum" asp-for="Group" value="@group.GroupNum">@group.GroupNum</option>
+                }
+            </select>
             <span asp-validation-for="Group"></span>
         </div>
 
         <div class="login__submit">
-            <input class="login__btn" type="submit" value="Изменить" />
+            <input class="button login__btn" type="submit" value="Изменить" />
         </div>
     </form>
 </div>

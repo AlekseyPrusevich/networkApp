@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<questions>
+<questions testSpecialization="Программирование">
   <question num="1">
     <textQuestion>Информационным называется общество, где:</textQuestion>
     <answers>

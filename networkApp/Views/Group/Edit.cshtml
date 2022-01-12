@@ -5,11 +5,13 @@
 
 <div class="login-block registed-block">
     <h2 class="login__header">Редактирование группы @Model.GroupNum</h2>
+
     <form asp-action="Edit" asp-controller="Group">
         <div asp-validation-summary="All" class="text-danger"></div>
 
         <div class="form-group">
             <input type="hidden" asp-for="GroupInfoId" />
+            <input type="hidden" name="oldGroup" value="@Model.GroupNum" />
         </div>
 
         <div class="login__group">
@@ -27,7 +29,7 @@
         </div>
 
         <div class="login__submit">
-            <input class="login__btn" type="submit" value="Изменить" />
+            <input class="button login__btn" type="submit" value="Изменить" />
         </div>
     </form>
 </div>

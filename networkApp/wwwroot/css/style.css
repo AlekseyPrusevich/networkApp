@@ -2,40 +2,6 @@
     margin-bottom: 0px;
 }
 
-/* Внешний вид input  */
-
-input {
-    outline: 0;
-    outline-offset: 0;
-}
-
-.input-block {
-    position: relative;
-}
-
-.textBlock {
-    width: 24em;
-    border: 0;
-    padding: 4px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-.textBlock ~ .focus-border {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #0069d9;
-    transition: 0.6s;
-}
-
-.textBlock:focus ~ .focus-border {
-    width: 100%;
-    transition: 0.6s;
-}
-
-
 /* Хедер  */
 
 .header-nav {
@@ -53,22 +19,6 @@ input {
 }
 
 /* Таблица и результаты */
-
-.header-table,
-.table__cells_center {
-    text-align: center;
-}
-
-.table th,
-.table td {
-    border-top: none;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.table__cells_none-border {
-    border-top: none;
-    border-bottom: none;
-}
 
 .error-message {
     margin: 3rem;
@@ -90,88 +40,18 @@ input {
     margin-bottom: 1em;
 }
 
-.test-constructor__add-btn {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    border-radius: 5px;
-    margin-right: .5rem;
-    min-width: 10rem;
-    min-height: 2.1rem;
-}
-
-.test-constructor__add-btn:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
-}
-
-.test-constructor__delete-btn {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 5px;
-    min-width: 6rem;
-    min-height: 1.9rem;
-}
-
-.test-constructor__delete-btn:hover {
-    color: #fff;
-    background-color: #c82333;
-    border-color: #bd2130;
-}
-
-.test-constructor__add-btn:focus,
-.test-constructor__delete-btn:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.test-constructor__question {
-    display: flex;
-    margin-bottom: .4rem;
-}
-
 .test-constructor__answer-block {
     display:flex;
     align-items: center;
 }
 
-.test-constructor__answer-block > input,
-.test-constructor__question > select {
-    margin-right: .5rem;
-    margin-bottom: 0px;
-}
-
-.constructor_textBlock:hover {
-    background-color: rgba(0, 0, 0, 0.07);
-}
-
-.test-constructor__question > select:hover {
-    background-color: rgba(0, 0, 0, 0.07);
-}
-
-
-.constructor_textBlock:focus {
-    border-bottom: 1px solid #0069d9;
-}
-
-.test-constructor__question-name {
-    width: 32.2rem;
-    margin-right: .5rem;
-}
-
-.test-constructor__question > select {
-    width: 12rem;
-}
-
 select {
-    padding: .25rem;
+    padding: 5px 4px;
     border: 0;
     border-bottom: 1px solid #ccc;
 }
 
 select:focus, select:active {
     outline: 0;
-    border-bottom: 2px solid #007bff;
+    border-bottom: 1px solid #007bff;
 }

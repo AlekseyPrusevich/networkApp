@@ -22,3 +22,102 @@
 .main-text__list > li {
     text-align: justify;
 }
+
+.content {
+    display: none;
+}
+
+.content::after {
+    display: block;
+}
+
+.lecture-constructor__text-container {
+    position: relative;
+}
+
+.lecture-constructor__html-enabled {
+    position: absolute;
+    top: 2px;
+    right: 24px;
+    padding: 4px;
+    background: white;
+}
+
+#textBox {
+    min-width: 500px;
+    margin-top: 16px;
+    height: 57vmin;
+    border: 1px solid rgba(155,155,155,.6);
+    padding: 24px 12px 12px;
+    overflow-y: scroll;
+    border-radius: 4px;
+    outline: none;
+}
+
+#textBox #sourceText {
+    padding: 0;
+    margin: 0;
+    max-width: 800px;
+    min-height: 200px;
+}
+
+#switchBox, label, #btn {
+    cursor: pointer;
+}
+
+.lecture-constructor__settings-item {
+    display: flex;
+    margin-top: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.lecture-constructor__item-container {
+    padding: 0 4px;
+    border-right: 1px solid #ccc;
+}
+
+.lecture-constructor__item-container:last-child {
+    border-right: none;
+}
+
+.lecture-constructor__formatDoc-container-row {
+    display: flex;
+}
+
+.lecture-constructor__formatDoc-container-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.lecture-constructor__option {
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.lecture-constructor__option--big {
+    width: 52px;
+    height: 52px;
+}
+
+.lecture-constructor__select {
+    width: 100%;
+    margin: 2px;
+    padding: 1px 4px;
+
+}
+
+.lecture-constructor__item-description {
+    display: block;
+    text-align: center;
+    color: gray;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+
+
+

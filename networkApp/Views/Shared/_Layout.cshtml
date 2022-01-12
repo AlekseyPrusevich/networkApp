@@ -7,16 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - networkApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/common.css" />
+    <link rel="stylesheet" href="~/css/error.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/lectureStyle.css" />
     <link rel="stylesheet" href="~/css/home-index.css" />
     <link rel="stylesheet" href="~/css/login-style.css" />
     <link rel="stylesheet" href="~/css/result-filter.css" />
-    <link rel="stylesheet" href="~/css/error.css" />
     <link rel="stylesheet" href="~/css/AccessControl.css" />
-    <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="~/css/common.css" />
     <link rel="stylesheet" href="~/css/header.css" />
+    <link rel="stylesheet" href="~/css/question.css" />
+    <link rel="stylesheet" href="~/css/table.css" />
+    <link rel="stylesheet" href="~/css/testResult.css" />
+    <link rel="stylesheet" href="~/css/testEdit.css" />
 </head>
 <body>
     <header>
@@ -159,7 +163,6 @@
                             </li>
                         }
 
-
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="header-nav__autorize">
@@ -175,9 +178,9 @@
                         else
                         {
                             <li class="header-nav__autorize">
-                                <a asp-controller="Account" asp-action="Login">Вход</a>
+                                <a asp-controller="Account" asp-action="Login"><p>Вход</p></a>
                                 <span> | </span>
-                                <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                                <a asp-controller="Account" asp-action="Register"><p>Регистрация</p></a>
                             </li>
                         }
                     </ul>
@@ -186,7 +189,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container mt-32">
         <main>
             @RenderBody()
         </main>
@@ -194,7 +197,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - networkApp
+            &copy; 2022 - networkApp
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

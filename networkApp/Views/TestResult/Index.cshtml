@@ -61,20 +61,20 @@
                 }
             </datalist>
         </div>
-        <button class="result-btn filter-result__btn" type="submit" asp-action="Index">Выбрать</button>
+        <button class="button result-btn filter-result__btn" type="submit" asp-action="Index">Выбрать</button>
     </div>
 </form>
 
 @if (ViewBag.EmptyQuery != 0)
 {
-    <table class="table">
+    <table class="table result__table">
         <tr style="font-weight: 500">
             <td class="header-table">Фамилия Имя</td>
             <td class="header-table">Группа</td>
             <td class="header-table">Название теста</td>
             <td class="header-table">Кол-во вопросов</td>
             <td class="header-table">% правильных ответов</td>
-            <td class="header-table">Дата выполнения теста</td>
+            <td class="header-table">Время и дата сдачи теста</td>
         </tr>
         <tr>
             <td>@Model[0].FNpLN</td>
@@ -88,11 +88,11 @@
             @foreach (var detail in Model[0].Details)
             {
                 <td style="border-bottom: none;"></td>
-                <td style="border-bottom: none;"></td>
+                <td class="table__cells_center" style="border-bottom: none;"></td>
                 <td>@detail.TestName</td>
                 <td class="table__cells_center">@detail.CountAllQuestions</td>
                 <td class="table__cells_center">@detail.Result%</td>
-                <td>@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy");</td>
+                <td class="table__cells_center">@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy");</td>
             }
         </tr>
 
@@ -104,12 +104,12 @@
                 <tr>
                     @foreach (var detail in Model[i].Details)
                     {
-                        <td style="border-bottom: none;"></td>
+                        <td class="table__cells_center" style="border-bottom: none;"></td>
                         <td style="border-bottom: none;"></td>
                         <td>@detail.TestName</td>
                         <td class="table__cells_center">@detail.CountAllQuestions</td>
                         <td class="table__cells_center">@detail.Result%</td>
-                        <td>@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy");</td>
+                        <td class="table__cells_center">@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy");</td>
 
                     }
                 </tr>
@@ -128,12 +128,12 @@
                 <tr>
                     @foreach (var detail in Model[i].Details)
                     {
-                        <td style="border-bottom: none;"></td>
+                        <td class="table__cells_center" style="border-bottom: none;"></td>
                         <td style="border-bottom: none;"></td>
                         <td>@detail.TestName</td>
                         <td class="table__cells_center">@detail.CountAllQuestions</td>
                         <td class="table__cells_center">@detail.Result%</td>
-                        <td>@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy")</td>
+                        <td class="table__cells_center">@detail.TestDate.ToString("HH:mm:ss dd:MM:yyyy")</td>
                     }
                 </tr>
             }

@@ -158,12 +158,16 @@ namespace networkApp.Controllers
                 Mark = mark.ToString(),
                 UserId = userId
             };
+
+            ViewBag.TestName = _fileName.Replace("_", " ").Replace(".xml", "");
+
             _fileName = string.Empty;
             _context.Tests.Add(test);
             await _context.SaveChangesAsync();
-
-            ViewBag.TestName = _fileName.Replace("_", " ").Replace(".xml", "");
+            
             ViewBag.Ball = result;
+            ViewBag.CountQuestions = countQuestions;
+            ViewBag.Mark = mark.ToString();
             ViewBag.ResultAnswers = answers;
 
             return View();

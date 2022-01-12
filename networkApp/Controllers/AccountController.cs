@@ -3,6 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using networkApp.ViewModels;
 using networkApp.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
+using System.Collections.Generic;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 namespace networkApp.Controllers
 {
@@ -10,15 +16,26 @@ namespace networkApp.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public ApplicationContext Context { get; }
+
+        public AccountController(ApplicationContext context, UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager)
         {
+            Context = context;
+
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
+
         [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
+            var GroupList = await Context.GroupInfo.ToListAsync();
+
+            ViewBag.GroupList = GroupList;
+
             return View();
         }
         [HttpPost]
@@ -55,6 +72,23 @@ namespace networkApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    User user = await _userManager.FindByEmailAsync(model.Email);
+
+            //    var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
+
+            //    if (user != null && role != null)
+            //    {
+            //        await Authenticate(user, role);
+
+            //        return RedirectToAction("Index", "Home");
+            //    }
+            //    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            //}
+            //return View(model);
+
+
             if (ModelState.IsValid)
             {
                 var result =
@@ -76,6 +110,20 @@ namespace networkApp.Controllers
                 }
             }
             return View(model);
+        }
+
+        private async Task Authenticate(User user, string role)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, role)
+            };
+
+            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
+                ClaimsIdentity.DefaultRoleClaimType);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
         [HttpPost]

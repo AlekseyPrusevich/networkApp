@@ -2,66 +2,67 @@
     ViewBag.Title = ViewBag.TestName;
 }
 
-<h3>Результат - @ViewBag.Ball баллов</h3>
+<div class="questions__container">
+    <h2 class="questions__title">@ViewBag.TestName</h2>
+    <p class="questions__description">Результат - @ViewBag.Ball/@ViewBag.CountQuestions (<b>@ViewBag.Mark%</b>)</p>
 
-<form class="m-1 p-1" method="post" asp-action="Index">
-    @foreach (var questions in ViewBag.Questions)
-    {
-        var repeatFlag = false; 
+    <form class="questions__form" method="post" asp-action="Index">
+        @foreach (var questions in ViewBag.Questions)
+        {
+            var repeatFlag = false;
 
-        <p>@questions.Num. @questions.Text</p>
-        <table class="table">
-            @for (Int32 i = 0; i < questions.CountAnswer.Count; i++)
-            {
-                var flag = false;
+            <p class="question__title">@questions.Num. <span>@questions.Text</span></p>
 
-                @foreach (var key in ViewBag.ResultAnswers)
+            <table class="table questions__table">
+                @for (Int32 i = 0; i < questions.CountAnswer.Count; i++)
                 {
-                    @foreach (var item in key.Value)
+                    var flag = false;
+
+                    @foreach (var key in ViewBag.ResultAnswers)
                     {
-                        if (@questions.Num.ToString() == key.Key && @questions.AnswerList[i].Text == item && @questions.AnswerList[i].ValueAnswer == "true" && flag == false)
+                        @foreach (var item in key.Value)
+                        {
+                            if (@questions.Num.ToString() == key.Key && @questions.AnswerList[i].Text == item && @questions.AnswerList[i].ValueAnswer == "true" && flag == false)
+                            {
+                                <tr>
+                                    <td style="background-color: rgba(40, 255, 40, 0.4);">
+                                        @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" checked="checked" />  @questions.AnswerList[i].Text
+                                    </td>
+                                </tr>
+                                flag = true;
+                            }
+                            else if (@questions.Num.ToString() == key.Key && @questions.AnswerList[i].Text == item && @questions.AnswerList[i].ValueAnswer == "false")
+                            {
+                                flag = true;
+                                <tr>
+                                    <td style="background-color: rgba(255, 20, 20, 0.3);">
+                                        @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" checked="checked" />  @questions.AnswerList[i].Text
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                    if (flag == false)
+                    {
+                        if (@questions.AnswerList[i].ValueAnswer == "true")
                         {
                             <tr>
                                 <td style="background-color: rgba(40, 255, 40, 0.4);">
-                                    @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" checked="checked" />  @questions.AnswerList[i].Text
+                                    @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" />  @questions.AnswerList[i].Text
                                 </td>
                             </tr>
-                            flag = true;
                         }
-                        else if (@questions.Num.ToString() == key.Key && @questions.AnswerList[i].Text == item && @questions.AnswerList[i].ValueAnswer == "false")
+                        else
                         {
-                            flag = true;
                             <tr>
-                                <td style="background-color: rgba(255, 20, 20, 0.3);">
-                                    @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" checked="checked" />  @questions.AnswerList[i].Text
+                                <td>
+                                    @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" />  @questions.AnswerList[i].Text
                                 </td>
                             </tr>
                         }
                     }
                 }
-                if (flag == false)
-                {
-                    if (@questions.AnswerList[i].ValueAnswer == "true")
-                    {
-                        <tr>
-                            <td style="background-color: rgba(40, 255, 40, 0.4);">
-                                @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" />  @questions.AnswerList[i].Text
-                            </td>
-                        </tr>
-                    }
-                    else
-                    {
-                        <tr>
-                            <td>
-                                @questions.AnswerList[i].Num. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" />  @questions.AnswerList[i].Text
-                            </td>
-                        </tr>
-                    }
-
-                }
-
-            }
-        </table>
-    }
-</form>
-
+            </table>
+        }
+    </form>
+</div>

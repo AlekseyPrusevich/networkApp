@@ -2,25 +2,28 @@
     ViewBag.Title = ViewBag.TestName;
 }
 
-<h3>В тесте @ViewBag.Questions.Count вопросов</h3>
+<div class="questions__container">
+    <h2 class="questions__title">@ViewBag.TestName</h2>
+    <p class="questions__description">Количество вопросов — @ViewBag.Questions.Count</p>
 
-<form class="m-1 p-1" method="post" asp-action="Result">
-    @foreach (var questions in ViewBag.Questions)
-    {
-    
-        <p>@questions.Num. @questions.Text</p>
-        <table class="table">
-            @for (Int32 i = 0; i < questions.CountAnswer.Count; i++)
-            {
-                <tr>
-                    <td>
-                        <label>@questions.AnswerList[i].Num</label>. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text"/>  @questions.AnswerList[i].Text
-                    </td>
-                </tr>
-            }
-        </table>
-    }
+    <form class="questions__form" method="post" asp-action="Result">
+        @foreach (var questions in ViewBag.Questions)
+        {
 
-    <button type="submit" class="btn btn-primary">Ответить</button>
-</form>
+            <p class="question__title">@questions.Num. <span>@questions.Text</span></p>
+            <table class="table questions__table">
+                @for (Int32 i = 0; i < questions.CountAnswer.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <label>@questions.AnswerList[i].Num</label>. <input type="@questions.AnswerList[i].Type" name="answers[@questions.Num]" value="@questions.AnswerList[i].Text" />  @questions.AnswerList[i].Text
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+
+        <button type="submit" class="button btn btn-primary">Ответить на тест</button>
+    </form>
+</div>
 

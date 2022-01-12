@@ -3,21 +3,31 @@
     ViewBag.Title = "Список групп";
 }
 
-<a class="btn btn-sm btn-primary role-btn" asp-action="Create">Добавить группу</a>
+<h2 class="questions__title">Список групп</h2>
 
-<table class="table">
-    <tr><th>Номер группы</th><th>Специальность</th><th></th></tr>
+<a class="button button--create btn btn-sm btn-primary role-btn" asp-action="Create">Добавить группу</a>
+
+<table class="table table--groups">
+    <tr>
+        <th class="title-col--group">Группа</th>
+        <th class="title-col">Специальность</th>
+        <th class="control-col"></th>
+    </tr>
     @foreach (var group in Model)
     {
-    <tr>
-        <td>@group.GroupNum</td>
-        <td>@group.Specialize</td>
-        <td style="display: flex; flex-direction: row-reverse;">
-            <form asp-action="Delete" asp-route-id="@group.GroupInfoId" method="post">
-                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@group.GroupInfoId">Изменить</a>
-                <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
-            </form>
-        </td>
-    </tr>
+        <tr>
+            <td class="title-col--group">@group.GroupNum</td>
+            <td class="title-col">@group.Specialize</td>
+            <td class="control-col">
+                <form asp-action="Delete" asp-route-id="@group.GroupInfoId" method="post">
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@group.GroupInfoId">
+                        Изменить
+                    </a>
+                    <button class="btn btn-sm btn-danger type="submit"">
+                        Удалить
+                    </button>
+                </form>
+            </td>
+        </tr>
     }
 </table>
