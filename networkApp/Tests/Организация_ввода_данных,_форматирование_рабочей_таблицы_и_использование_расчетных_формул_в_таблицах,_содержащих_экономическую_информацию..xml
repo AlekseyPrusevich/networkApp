@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<questions testSpecialization="Econom">
+<questions testSpecialization="MS Excel">
   <question num="1">
     <textQuestion>Q1</textQuestion>
     <answers>
@@ -14,23 +14,6 @@
         <textAnswer>A2</textAnswer>
         <type>radio</type>
         <true-answer>false</true-answer>
-      </answer>
-    </answers>
-  </question>
-  <question num="2">
-    <textQuestion>Q1</textQuestion>
-    <answers>
-      <answer>
-        <numAnswer>1</numAnswer>
-        <textAnswer>A1</textAnswer>
-        <type>radio</type>
-        <true-answer>false</true-answer>
-      </answer>
-      <answer>
-        <numAnswer>2</numAnswer>
-        <textAnswer>A2</textAnswer>
-        <type>radio</type>
-        <true-answer>true</true-answer>
       </answer>
     </answers>
   </question>

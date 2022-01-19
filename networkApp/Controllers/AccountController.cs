@@ -46,6 +46,7 @@ namespace networkApp.Controllers
                 User user = new User { Email = model.Email, UserName = model.Email, FirstName = model.FirstName, LastName = model.LastName, Group = model.Group };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
@@ -55,11 +56,16 @@ namespace networkApp.Controllers
                 {
                     foreach (var error in result.Errors)
                     {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
+                        
+                        ModelState.AddModelError(string.Empty, error.Description);               
+                    } 
                 }
             }
+            var GroupList = await Context.GroupInfo.ToListAsync();
+            ViewBag.GroupList = GroupList;
+
             return View(model);
+
         }
 
         [HttpGet]

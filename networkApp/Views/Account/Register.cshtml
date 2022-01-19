@@ -32,11 +32,11 @@
         </div>
 
         <div class="login__group">
-            <select type="text" name="group" class="login__input" asp-for="Group" id="groupSelect" style="color: #999;" required>
+            <select type="text" class="login__input" asp-for="Group" id="groupSelect" style="color: #999;" required>
                 <option value="" disabled selected>Выберите группу из списка</option>
                 @foreach (var group in ViewBag.GroupList)
                 {
-                    <option id="@group.GroupNum" asp-for="Group" value="@group.GroupNum">@group.GroupNum</option>
+                    <option id="@group.GroupNum" value="@group.GroupNum">@group.GroupNum</option>
                 }
             </select>
             <span asp-validation-for="Group"></span>

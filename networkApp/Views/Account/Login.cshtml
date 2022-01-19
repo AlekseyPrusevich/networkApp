@@ -6,7 +6,6 @@
 <div class="login-block">
     <h2 class="login__header">Вход</h2>
     <form method="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
-        <div asp-validation-summary="ModelOnly"></div>
 
         <div class="login__group">
             <input asp-for="Email" class="login__input" type="text" required>
@@ -23,6 +22,8 @@
             <label asp-for="Password" class="login__label">Пароль</label>
             <span asp-validation-for="Password"></span>
         </div>
+
+        <div asp-validation-summary="ModelOnly"></div>
 
         <div class="login__remember">
             <input class="remember__check" asp-for="RememberMe" style="align-self: center;" />

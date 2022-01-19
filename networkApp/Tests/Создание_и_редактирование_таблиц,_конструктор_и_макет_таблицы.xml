@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<questions testSpecialization="Программирование">
+<questions testSpecialization="MS Word">
   <question num="1">
     <textQuestion>Q1</textQuestion>
     <answers>
@@ -7,13 +7,13 @@
         <numAnswer>1</numAnswer>
         <textAnswer>A1</textAnswer>
         <type>radio</type>
-        <true-answer>true</true-answer>
+        <true-answer>false</true-answer>
       </answer>
       <answer>
         <numAnswer>2</numAnswer>
         <textAnswer>A2</textAnswer>
         <type>radio</type>
-        <true-answer>false</true-answer>
+        <true-answer>true</true-answer>
       </answer>
     </answers>
   </question>

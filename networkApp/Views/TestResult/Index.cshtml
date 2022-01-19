@@ -51,6 +51,7 @@
                 }
             </datalist>
         </div>
+
         <div class="form-group filter-result_item">
             <label class="filter__label">Тест</label>
             <input class="filter__input" type="text" list="testName" name="testName" placeholder="Введите или выберите из списка" />
@@ -61,8 +62,15 @@
                 }
             </datalist>
         </div>
-        <button class="button result-btn filter-result__btn" type="submit" asp-action="Index">Выбрать</button>
+
+        <button class="button result-btn" type="submit" asp-action="Index">
+            Выбрать
+        </button>
     </div>
+
+    <button class="button result-btn" type="submit" asp-action="InportExcel">
+        Excel
+    </button>
 </form>
 
 @if (ViewBag.EmptyQuery != 0)

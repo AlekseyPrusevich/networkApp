@@ -140,3 +140,18 @@
         background: transparent;
     }
 }
+
+.validation-summary-errors {
+    color: #dc3545;
+    margin: -16px 0 16px;
+}
+
+.field-validation-error {
+    display: block;
+    color: #dc3545;
+    margin-top: 8px;
+}
+
+.validation-summary-errors ul {
+    list-style: none;
+}
