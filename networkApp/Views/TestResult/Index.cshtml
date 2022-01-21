@@ -66,11 +66,9 @@
         <button class="button result-btn" type="submit" asp-action="Index">
             Выбрать
         </button>
-    </div>
 
-    <button class="button result-btn" type="submit" asp-action="InportExcel">
-        Excel
-    </button>
+        <button class="excel-export-button" type="submit" asp-action="ExcelExport"></button>
+    </div>
 </form>
 
 @if (ViewBag.EmptyQuery != 0)

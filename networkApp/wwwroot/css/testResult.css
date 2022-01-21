@@ -89,3 +89,14 @@
 .result-btn:hover {
     background-color: #1974d2;
 }
+
+.excel-export-button {
+    display: block;
+    margin: auto 0 6px 12px;
+    min-width: 28px;
+    min-height: 28px;
+    background: url(../lib/image/common/excel.png) no-repeat;
+    background-size: contain;
+    outline: none;
+    border: none;
+}
